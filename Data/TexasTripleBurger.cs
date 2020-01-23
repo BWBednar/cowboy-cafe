@@ -4,10 +4,7 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    /// <summary>
-    /// A class representing the Trailburger
-    /// </summary>
-    public class Trailburger
+    public class TexasTripleBurger
     {
         private bool ketchup = true;
         /// <summary>
@@ -49,6 +46,56 @@ namespace CowboyCafe.Data
             set { cheese = value; }
         }
 
+        private bool tomato = true;
+        /// <summary>
+        /// If the burger is topped with tomato
+        /// </summary>
+        public bool Tomato
+        {
+            get { return tomato; }
+            set { tomato = value; }
+        }
+
+        private bool lettuce = true;
+        /// <summary>
+        /// If the burger is topped with lettuce
+        /// </summary>
+        public bool Lettuce
+        {
+            get { return lettuce; }
+            set { lettuce = value; }
+        }
+
+        private bool mayo = true;
+        /// <summary>
+        /// If the burger is topped with mayo
+        /// </summary>
+        public bool Mayo
+        {
+            get { return mayo; }
+            set { mayo = value; }
+        }
+
+        private bool bacon = true;
+        /// <summary>
+        /// If the burger is topped with bacon
+        /// </summary>
+        public bool Bacon
+        {
+            get { return bacon; }
+            set { bacon = value; }
+        }
+
+        private bool egg = true;
+        /// <summary>
+        /// If the burger is topped with bacon
+        /// </summary>
+        public bool Egg
+        {
+            get { return egg; }
+            set { egg = value; }
+        }
+
         /// <summary>
         /// The price of the burger
         /// </summary>
@@ -56,7 +103,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 4.50;
+                return 6.45;
             }
         }
 
@@ -67,12 +114,12 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 288;
+                return 698;
             }
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the burger
+        /// Special instructions for the preparation of the chili
         /// </summary>
         public List<string> SpecialInstructions
         {
@@ -84,9 +131,15 @@ namespace CowboyCafe.Data
                 if (!mustard) instructions.Add("hold mustard");
                 if (!pickle) instructions.Add("hold pickle");
                 if (!cheese) instructions.Add("hold cheese");
+                if (!tomato) instructions.Add("hold tomato");
+                if (!lettuce) instructions.Add("hold lettuce");
+                if (!mayo) instructions.Add("hold mayo");
+                if (!bacon) instructions.Add("hold bacon");
+                if (!egg) instructions.Add("hold egg");
 
                 return instructions;
             }
+
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Trailburger
+    /// A class representing the Dakota Double Burger entree
     /// </summary>
-    public class Trailburger
+    public class DakotaDoubleBurger
     {
         private bool ketchup = true;
         /// <summary>
@@ -49,6 +49,36 @@ namespace CowboyCafe.Data
             set { cheese = value; }
         }
 
+        private bool tomato = true;
+        /// <summary>
+        /// If the burger is topped with tomato
+        /// </summary>
+        public bool Tomato
+        {
+            get { return tomato; }
+            set { tomato = value; }
+        }
+
+        private bool lettuce = true;
+        /// <summary>
+        /// If the burger is topped with lettuce
+        /// </summary>
+        public bool Lettuce
+        {
+            get { return lettuce; }
+            set { lettuce = value; }
+        }
+
+        private bool mayo = true;
+        /// <summary>
+        /// If the burger is topped with mayo
+        /// </summary>
+        public bool Mayo
+        {
+            get { return mayo; }
+            set { mayo = value; }
+        }
+
         /// <summary>
         /// The price of the burger
         /// </summary>
@@ -56,7 +86,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 4.50;
+                return 5.20;
             }
         }
 
@@ -67,12 +97,12 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 288;
+                return 464;
             }
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the burger
+        /// Special instructions for the preparation of the chili
         /// </summary>
         public List<string> SpecialInstructions
         {
@@ -84,9 +114,13 @@ namespace CowboyCafe.Data
                 if (!mustard) instructions.Add("hold mustard");
                 if (!pickle) instructions.Add("hold pickle");
                 if (!cheese) instructions.Add("hold cheese");
+                if (!tomato) instructions.Add("hold tomato");
+                if (!lettuce) instructions.Add("hold lettuce");
+                if (!mayo) instructions.Add("hold mayo");
 
                 return instructions;
             }
+            
         }
     }
 }
