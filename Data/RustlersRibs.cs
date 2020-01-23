@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * RustlerRibs.cs
+ * Author: Brandon Bednar
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

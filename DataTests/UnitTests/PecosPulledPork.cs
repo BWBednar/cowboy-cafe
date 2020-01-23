@@ -1,9 +1,4 @@
-﻿/*
- * PeocsPulledPork.cs
- * Author: Brandon Bednar
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
