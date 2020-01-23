@@ -4,15 +4,11 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class representing the Pecos Pulled Pork
+    /// </summary>
     public class PecosPulledPork
     {
-        /*
-         * Implement a class to represent the Pecos Pulled Pork entree. Its price is $5.88 
-         * and its calories are 528. It should have boolean properties for Bread and Pickle
-         * , which default to true. When Bread is false, the special instructions include th
-         * e string “hold bread” and when Pickle is false, the special instructions should include the string “hold pickle”.
-         */
-
         private bool bread = true;
         /// <summary>
         /// If the pulled pork has bread
