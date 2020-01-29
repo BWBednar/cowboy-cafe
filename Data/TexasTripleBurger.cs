@@ -23,7 +23,7 @@ namespace CowboyCafe.Data
 
         private bool mustard = true;
         /// <summary>
-        /// If the burger is topped with Mustard
+        /// If the burger is topped with mustard
         /// </summary>
         public bool Mustard
         {
