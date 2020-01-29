@@ -9,6 +9,9 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class representing the Texas Triple Burger entree
+    /// </summary>
     public class TexasTripleBurger
     {
         private bool ketchup = true;
@@ -103,7 +106,7 @@ namespace CowboyCafe.Data
 
         private bool egg = true;
         /// <summary>
-        /// If the burger is topped with bacon
+        /// If the burger is topped with egg
         /// </summary>
         public bool Egg
         {

@@ -10,7 +10,7 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Pecos Pulled Pork
+    /// A class representing the Pecos Pulled Pork entree
     /// </summary>
     public class PecosPulledPork
     {
