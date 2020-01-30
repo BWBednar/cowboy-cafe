@@ -1,5 +1,5 @@
 ﻿/*
- * TrailBurger.cs
+ * TrailBurger.cs 
  * Author: Brandon Bednar
  */
 
