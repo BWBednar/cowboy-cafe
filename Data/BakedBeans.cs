@@ -1,6 +1,7 @@
 ﻿/*
  * BakedBeans.cs
  * Author: Brandon Bednar
+ * Purpose: A class representing the Baked Beans Fries side
  */
 
 using System;

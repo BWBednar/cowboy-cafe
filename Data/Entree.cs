@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Entree.cs
+ * Author: Brandon Bednar
+ * Purpose: A base class representing a entree
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

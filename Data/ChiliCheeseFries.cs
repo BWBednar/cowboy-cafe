@@ -1,6 +1,7 @@
 ﻿/*
  * ChiliCheeseFries.cs
  * Author: Brandon Bednar
+ * Purpose: A class representing the Chili Cheese Fries side
  */
 
 using System;

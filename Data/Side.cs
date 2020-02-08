@@ -1,6 +1,7 @@
 ﻿/*
  * Side.cs
  * Author: Nathan Bean
+ * Purpose: A base class representing a side
  */
 
 using System;

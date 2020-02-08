@@ -1,6 +1,7 @@
 ﻿/*
  * PanDeCampo.cs
  * Author: Brandon Bednar
+ * Purpose: A class representing the Pan De Campo side
  */
 
 using System;

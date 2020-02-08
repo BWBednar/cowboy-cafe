@@ -1,6 +1,7 @@
 ﻿/*
  * Size.cs
  * Author: Nathan Bean
+ * Purpose: Enumerator for the sizes of the sides
  */
 
 using System;

@@ -1,6 +1,7 @@
 ﻿/*
  * CornDodgers.cs
  * Author: Brandon Bednar
+ * Purpose: A class representing the Corn Dodgers side
  */
 
 using System;
