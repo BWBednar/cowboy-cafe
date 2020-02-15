@@ -1,4 +1,5 @@
-﻿/*
+﻿
+/*
  * TrailBurger.cs 
  * Author: Brandon Bednar
  * Purpose: A class representing the Trailburger entree
