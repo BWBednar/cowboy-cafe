@@ -24,29 +24,29 @@
         
         <StackPanel Grid.Row="0">
             <TextBlock TextAlignment="Center">Entree</TextBlock>
-            <Button>Angry Chicken</Button>
-            <Button>Cowpoke Chili</Button>
-            <Button>Pecos Pulled Pork</Button>
-            <Button>Rustlers Ribs</Button>
-            <Button>Trail Burger</Button>
-            <Button>Dakota Double Burger</Button>
-            <Button>Texas Triple Burger</Button>
+            <Button Name="AddAngryChickenButton">Angry Chicken</Button>
+            <Button Name="AddCowpokeChiliButton">Cowpoke Chili</Button>
+            <Button Name="AddPecosPulledPorkButton">Pecos Pulled Pork</Button>
+            <Button Name="AddRustlersRibsButton">Rustlers Ribs</Button>
+            <Button Name="AddTrailBurgerButton">Trail Burger</Button>
+            <Button Name="AddDakotaDoubleBurgerButton">Dakota Double Burger</Button>
+            <Button Name="AddTexasTriplbeBurgerButton">Texas Triple Burger</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
             <TextBlock TextAlignment="Center">Side</TextBlock>
-            <Button>Baked Beans</Button>
-            <Button>Chili Cheese Fries</Button>
-            <Button>Corn Dodgers</Button>
-            <Button>Pan De Campo</Button>
+            <Button Name="AddBakedBeansButton">Baked Beans</Button>
+            <Button Name="AddChiliCheeseFriesButton">Chili Cheese Fries</Button>
+            <Button Name="AddCornDodgersButton">Corn Dodgers</Button>
+            <Button Name="AddPanDeCampoButton">Pan De Campo</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="2">
             <TextBlock TextAlignment="Center">Drinks</TextBlock>
-            <Button>Cowboy Coffee</Button>
-            <Button>Jerked Soda</Button>
-            <Button>Texas Tea</Button>
-            <Button>Water</Button>
+            <Button Name="AddCowboyCoffeeButton">Cowboy Coffee</Button>
+            <Button Name="AddJerkedSodaButton">Jerked Soda</Button>
+            <Button Name="AddTexasTeaButton">Texas Tea</Button>
+            <Button Name="AddWaterButton">Water</Button>
         </StackPanel>
             
     </Grid>
