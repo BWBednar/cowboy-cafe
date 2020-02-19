@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Trailburger entree
     /// </summary>
-    public class Trailburger : Entree
+    public class TrailBurger : Entree
     {
         private bool ketchup = true;
         /// <summary>
@@ -105,6 +105,15 @@ namespace CowboyCafe.Data
 
                 return instructions;
             }
+        }
+
+        /// <summary>
+        /// Modified ToString for the point of sale
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Trail Burger";
         }
     }
 }

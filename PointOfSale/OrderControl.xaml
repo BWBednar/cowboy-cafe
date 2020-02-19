@@ -27,10 +27,10 @@
             <Button Name="AddAngryChickenButton">Angry Chicken</Button>
             <Button Name="AddCowpokeChiliButton">Cowpoke Chili</Button>
             <Button Name="AddPecosPulledPorkButton">Pecos Pulled Pork</Button>
-            <Button Name="AddRustlersRibsButton">Rustlers Ribs</Button>
+            <Button Name="AddRustlersRibsButton">Rustler's Ribs</Button>
             <Button Name="AddTrailBurgerButton">Trail Burger</Button>
             <Button Name="AddDakotaDoubleBurgerButton">Dakota Double Burger</Button>
-            <Button Name="AddTexasTriplbeBurgerButton">Texas Triple Burger</Button>
+            <Button Name="AddTexasTripleBurgerButton">Texas Triple Burger</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
@@ -48,6 +48,12 @@
             <Button Name="AddTexasTeaButton">Texas Tea</Button>
             <Button Name="AddWaterButton">Water</Button>
         </StackPanel>
-            
+
+        <StackPanel Grid.Column="3">
+            <TextBlock TextAlignment="Center">Order</TextBlock>
+            <ListView Name="OrderListView">
+                
+            </ListView>
+        </StackPanel>
     </Grid>
 </UserControl>

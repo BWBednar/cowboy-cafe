@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
-/*
+
 namespace CowboyCafe.DataTests
 {
     public class ToStringTests
@@ -21,7 +21,7 @@ namespace CowboyCafe.DataTests
             Entree entree = Activator.CreateInstance(type) as Entree;
             Assert.Equal(expected, entree.ToString());
         }
-
+        /*
         [Theory]
         [InlineData(typeof(ChiliCheeseFries), Size.Small, "Small Chili Cheese Fries")]
         [InlineData(typeof(ChiliCheeseFries), Size.Medium, "Medium Chili Cheese Fries")]
@@ -114,7 +114,8 @@ namespace CowboyCafe.DataTests
             };
             Assert.Equal(expected, coffee.ToString());
         }
+        */
 
     }
 }
-*/
+

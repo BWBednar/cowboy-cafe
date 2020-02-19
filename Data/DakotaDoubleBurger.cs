@@ -139,6 +139,15 @@ namespace CowboyCafe.Data
             }
             
         }
+
+        /// <summary>
+        /// Modified ToString for the point of sale
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Dakota Double Burger";
+        }
     }
     
 }
