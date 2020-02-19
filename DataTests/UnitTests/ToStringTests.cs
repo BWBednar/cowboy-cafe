@@ -21,7 +21,7 @@ namespace CowboyCafe.DataTests
             Entree entree = Activator.CreateInstance(type) as Entree;
             Assert.Equal(expected, entree.ToString());
         }
-        /*
+        
         [Theory]
         [InlineData(typeof(ChiliCheeseFries), Size.Small, "Small Chili Cheese Fries")]
         [InlineData(typeof(ChiliCheeseFries), Size.Medium, "Medium Chili Cheese Fries")]
@@ -41,7 +41,7 @@ namespace CowboyCafe.DataTests
             side.Size = size;
             Assert.Equal(expected, side.ToString());
         }
-
+        /*
         [Theory]
         [InlineData(Size.Small, "Small Water")]
         [InlineData(Size.Medium, "Medium Water")]

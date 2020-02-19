@@ -22,6 +22,8 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+
+            //Entree click events
             AddCowpokeChiliButton.Click += AddCowpokeChiliButtonClicked;
             AddRustlersRibsButton.Click += AddRustlersRibsButtonClicked;
             AddPecosPulledPorkButton.Click += AddPecosPulledPorkButtonClicked;
@@ -29,6 +31,12 @@ namespace PointOfSale
             AddDakotaDoubleBurgerButton.Click += AddDakotaDoubleBurgerButtonClicked;
             AddTexasTripleBurgerButton.Click += AddTexasTripleBurgerButtonClicked;
             AddAngryChickenButton.Click += AddAngryChickenButtonClicked;
+
+            //Side click events
+            AddChiliCheeseFriesButton.Click += AddChiliCheeseFriesButtonClicked;
+            AddCornDodgersButton.Click += AddCornDodgersButtonClicked;
+            AddPanDeCampoButton.Click += AddPanDeCampoButtonClicked;
+            AddBakedBeansButton.Click += AddBakedBeansButtonClicked;
         }
 
         /// <summary>
@@ -101,5 +109,44 @@ namespace PointOfSale
             OrderListView.Items.Add(new AngryChicken());
         }
 
+        /// <summary>
+        /// Click event for the Chili Cheese Fries side
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddChiliCheeseFriesButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new ChiliCheeseFries());
+        }
+
+        /// <summary>
+        /// Click event for the Corn Dodgers side
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddCornDodgersButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new CornDodgers());
+        }
+
+        /// <summary>
+        /// Click event for the Pan De Campo side
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddPanDeCampoButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new PanDeCampo());
+        }
+
+        /// <summary>
+        /// Click event for the Baked Beans side
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new BakedBeans());
+        }
     }
 }

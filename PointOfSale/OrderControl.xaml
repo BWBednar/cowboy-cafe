@@ -38,7 +38,7 @@
             <Button Name="AddBakedBeansButton">Baked Beans</Button>
             <Button Name="AddChiliCheeseFriesButton">Chili Cheese Fries</Button>
             <Button Name="AddCornDodgersButton">Corn Dodgers</Button>
-            <Button Name="AddPanDeCampoButton">Pan De Campo</Button>
+            <Button Name="AddPanDeCampoButton">Pan de Campo</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="2">
