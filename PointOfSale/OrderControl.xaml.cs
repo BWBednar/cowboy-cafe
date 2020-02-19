@@ -37,6 +37,12 @@ namespace PointOfSale
             AddCornDodgersButton.Click += AddCornDodgersButtonClicked;
             AddPanDeCampoButton.Click += AddPanDeCampoButtonClicked;
             AddBakedBeansButton.Click += AddBakedBeansButtonClicked;
+
+            //Drink click events
+            AddJerkedSodaButton.Click += AddJerkedSodaButtonClicked;
+            AddTexasTeaButton.Click += AddTexasTeaButtonClicked;
+            AddCowboyCoffeeButton.Click += AddCowboyCoffeeButtonClicked;
+            AddWaterButton.Click += AddWaterButtonClicked;
         }
 
         /// <summary>
@@ -147,6 +153,46 @@ namespace PointOfSale
         void AddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
         {
             OrderListView.Items.Add(new BakedBeans());
+        }
+
+        /// <summary>
+        /// Click event for the Jerked Soda drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddJerkedSodaButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new JerkedSoda());
+        }
+
+        /// <summary>
+        /// Click event for the Texas Tea drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddTexasTeaButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new TexasTea());
+        }
+
+        /// <summary>
+        /// Click event for the Cowboy Coffee drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddCowboyCoffeeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new CowboyCoffee());
+        }
+
+        /// <summary>
+        /// Click event for the Water drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddWaterButtonClicked(object sender, RoutedEventArgs e)
+        {
+            OrderListView.Items.Add(new Water());
         }
     }
 }
