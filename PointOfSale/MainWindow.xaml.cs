@@ -20,6 +20,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initialize the main window
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
