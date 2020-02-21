@@ -77,5 +77,24 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Modified ToString for Point of Sale display
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Small:
+                    return "Small Water";
+                case Size.Medium:
+                    return "Medium Water";
+                case Size.Large:
+                    return "Large Water";
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }

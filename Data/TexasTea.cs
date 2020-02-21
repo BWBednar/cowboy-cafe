@@ -106,5 +106,27 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Modified ToString for Point of Sale display
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            switch (Size)
+            {
+                case Size.Small:
+                    if (sweetTea) return "Small Texas Sweet Tea";
+                    else return "Small Texas Plain Tea";
+                case Size.Medium:
+                    if (sweetTea) return "Medium Texas Sweet Tea";
+                    else return "Medium Texas Plain Tea";
+                case Size.Large:
+                    if (sweetTea) return "Large Texas Sweet Tea";
+                    else return "Large Texas Plain Tea";
+                default:
+                    throw new NotImplementedException();
+            }
+        }
     }
 }

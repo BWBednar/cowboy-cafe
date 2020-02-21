@@ -41,7 +41,7 @@ namespace CowboyCafe.DataTests
             side.Size = size;
             Assert.Equal(expected, side.ToString());
         }
-        /*
+        
         [Theory]
         [InlineData(Size.Small, "Small Water")]
         [InlineData(Size.Medium, "Medium Water")]
@@ -54,7 +54,7 @@ namespace CowboyCafe.DataTests
             };
             Assert.Equal(expected, water.ToString());
         }
-
+        
         [Theory]
         [InlineData(SodaFlavor.BirchBeer, Size.Small, "Small Birch Beer Jerked Soda")]
         [InlineData(SodaFlavor.BirchBeer, Size.Medium, "Medium Birch Beer Jerked Soda")]
@@ -80,7 +80,7 @@ namespace CowboyCafe.DataTests
             };
             Assert.Equal(expected, soda.ToString());
         }
-
+        
         [Theory]
         [InlineData(Size.Small, false, "Small Texas Plain Tea")]
         [InlineData(Size.Medium, false, "Medium Texas Plain Tea")]
@@ -114,7 +114,7 @@ namespace CowboyCafe.DataTests
             };
             Assert.Equal(expected, coffee.ToString());
         }
-        */
+        
 
     }
 }
