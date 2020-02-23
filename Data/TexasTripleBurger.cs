@@ -163,9 +163,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Modified ToString for the point of sale
+        /// Modified ToString for the Point of Sale
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The modified string for the Point of Sale</returns>
         public override string ToString()
         {
             return "Texas Triple Burger";

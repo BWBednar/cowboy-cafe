@@ -122,9 +122,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Modified ToString for Point of Sale display
+        /// Modified ToString for the Point of Sale
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The modified string for the Point of Sale</returns>
         public override string ToString()
         {
             switch (Size)
