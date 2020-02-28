@@ -50,7 +50,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The order number that will be given with the order, incremented each Order
         /// </summary>
-        public uint OrderNumber { get => lastOrderNumber; }
+        public uint OrderNumber { get => OrderNumber; }
 
         /// <summary>
         /// Constructor for the Order class, used to increment the lastOrderNumber
@@ -58,6 +58,8 @@ namespace CowboyCafe.Data
         public Order()
         {
             ++lastOrderNumber;
+            uint orderNumber = lastOrderNumber;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
         }
 
         /// <summary>
