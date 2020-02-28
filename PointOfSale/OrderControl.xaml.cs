@@ -55,7 +55,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         void AddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
         {
-            OrderListView.Items.Add(new CowpokeChili());
+            IOrderItem item = new CowpokeChili();
+            if (DataContext is Order data)
+            {
+                data.Add(item);
+            }
+
         }
 
         /// <summary>
