@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Texas Triple Burger entree
     /// </summary>
-    public class TexasTripleBurger : Entree
+    public class TexasTripleBurger : Entree, IOrderItem
     {
         private bool ketchup = true;
         /// <summary>

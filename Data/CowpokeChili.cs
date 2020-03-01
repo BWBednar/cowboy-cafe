@@ -12,7 +12,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entree
+    public class CowpokeChili : Entree, IOrderItem
     {
         private bool cheese = true;
         /// <summary>

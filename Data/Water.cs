@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the water drink
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IOrderItem
     {
         /// <summary>
         /// The price of the water

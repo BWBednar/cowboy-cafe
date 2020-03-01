@@ -20,6 +20,7 @@ namespace CowboyCafe.Data
         /// </summary>
         private static uint lastOrderNumber = 0;
 
+
         /// <summary>
         /// The list of IOrderItems in the Order
         /// </summary>
@@ -37,7 +38,7 @@ namespace CowboyCafe.Data
                 {
                     subtotal += part.Price;
                 }
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
                 return subtotal;
             }
         }
@@ -50,16 +51,14 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The order number that will be given with the order, incremented each Order
         /// </summary>
-        public uint OrderNumber { get => OrderNumber; }
-
-        /// <summary>
-        /// Constructor for the Order class, used to increment the lastOrderNumber
-        /// </summary>
-        public Order()
+        public uint OrderNumber
         {
-            ++lastOrderNumber;
-            uint orderNumber = lastOrderNumber;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
+            get
+            {
+                lastOrderNumber++;
+                uint orderNumberValue = lastOrderNumber;
+                return orderNumberValue;
+            }
         }
 
         /// <summary>

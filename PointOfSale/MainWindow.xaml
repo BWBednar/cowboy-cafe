@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1480">
     <DockPanel>
-        <local:OrderControl Width="1000"></local:OrderControl>
-        <local:OrderSummaryControl/>
+        <local:OrderControl DockPanel.Dock="Left" Width="1000"/>
+        <local:OrderSummaryControl DockPanel.Dock="Right"/>
     </DockPanel>
 </Window>

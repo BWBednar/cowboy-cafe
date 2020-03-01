@@ -10,7 +10,7 @@
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Height" Value="50px"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="23"/>
         </Style>
     </UserControl.Resources>
     
@@ -19,11 +19,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Row="0">
-            <TextBlock TextAlignment="Center">Entree</TextBlock>
+            <TextBlock TextAlignment="Center" FontSize="25">Entree</TextBlock>
             <Button Name="AddAngryChickenButton">Angry Chicken</Button>
             <Button Name="AddCowpokeChiliButton">Cowpoke Chili</Button>
             <Button Name="AddPecosPulledPorkButton">Pecos Pulled Pork</Button>
@@ -34,7 +34,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBlock TextAlignment="Center">Side</TextBlock>
+            <TextBlock TextAlignment="Center" FontSize="25">Side</TextBlock>
             <Button Name="AddBakedBeansButton">Baked Beans</Button>
             <Button Name="AddChiliCheeseFriesButton">Chili Cheese Fries</Button>
             <Button Name="AddCornDodgersButton">Corn Dodgers</Button>
@@ -42,18 +42,11 @@
         </StackPanel>
 
         <StackPanel Grid.Column="2">
-            <TextBlock TextAlignment="Center">Drinks</TextBlock>
+            <TextBlock TextAlignment="Center" FontSize="25">Drinks</TextBlock>
             <Button Name="AddCowboyCoffeeButton">Cowboy Coffee</Button>
             <Button Name="AddJerkedSodaButton">Jerked Soda</Button>
             <Button Name="AddTexasTeaButton">Texas Tea</Button>
             <Button Name="AddWaterButton">Water</Button>
-        </StackPanel>
-
-        <StackPanel Grid.Column="3">
-            <TextBlock TextAlignment="Center">Order</TextBlock>
-            <ListView Name="OrderListView">
-                
-            </ListView>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Jerked Soda drink
     /// </summary>
-    public class JerkedSoda : Drink
+    public class JerkedSoda : Drink, IOrderItem
     {
         /// <summary>
         /// The flavor of the soda
