@@ -22,11 +22,10 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1">
-            <ListBox ItemsSource="{Binding Path=Order}">
+            <ListBox ItemsSource="{Binding Path=Items}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>                            
-                            
                             <TextBlock Grid.Column="0" Text="{Binding Path=Items}"/>
                             <TextBlock Grid.Column="1" Text="{Binding Path=Items, StringFormat=c}"/>
                         </Grid>

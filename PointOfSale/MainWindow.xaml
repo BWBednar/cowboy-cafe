@@ -7,7 +7,18 @@
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1480">
+    
     <DockPanel>
+        <Grid  DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="ItemSelectionButton" Grid.Column="0" Height="100" FontSize="30" Click="ItemSelectionButton_Click">Item Selection</Button>
+            <Button Name="CancelOrderButton" Grid.Column="1" Height="100" FontSize="30" Click="CancelOrderButton_Click">Cancel Order</Button>
+            <Button Name="CompleteOrderButton" Grid.Column="2" Height="100" FontSize="30" Click="CompleteOrderButton_Click">Complete Order</Button>
+        </Grid>
         <local:OrderControl DockPanel.Dock="Left" Width="1000"/>
         <local:OrderSummaryControl DockPanel.Dock="Right"/>
     </DockPanel>

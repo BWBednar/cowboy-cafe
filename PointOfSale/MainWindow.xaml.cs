@@ -31,5 +31,34 @@ namespace PointOfSale
             var data = new Order();
             DataContext = data;
         }
+
+        /// <summary>
+        /// Event for when the Item Selection Button is selected, currently has not function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// Event for when the Cancel Order Button is selected, creates a new order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new Order();
+        }
+
+        /// <summary>
+        /// Event for when the Complete Order Button is selected, creates a new order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new Order();
+        }
     }
 }

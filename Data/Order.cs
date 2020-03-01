@@ -46,7 +46,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The public field to access the items in Order
         /// </summary>
-        public IEnumerable<IOrderItem> Items => items.ToArray();
+        public IEnumerable<IOrderItem> Items { get => items.ToArray(); }
         
         /// <summary>
         /// The order number that will be given with the order, incremented each Order
