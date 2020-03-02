@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="800">
     
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Height" Value="50px"/>
+            <Setter Property="Width" Value="300px"/>
             <Setter Property="FontSize" Value="23"/>
         </Style>
     </UserControl.Resources>
@@ -19,10 +20,19 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
         
-        <StackPanel Grid.Row="0">
+        <Button Name="ItemSelectionButton" Grid.Column="0" Height="75" FontSize="30">Item Selection</Button>
+        <Button Name="CancelOrderButton" Grid.Column="1" Height="75" FontSize="30">Cancel Order</Button>
+        <Button Name="CompleteOrderButton" Grid.Column="2" Height="75" FontSize="30">Complete Order</Button>
+        
+        
+        <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock TextAlignment="Center" FontSize="25">Entree</TextBlock>
             <Button Name="AddAngryChickenButton">Angry Chicken</Button>
             <Button Name="AddCowpokeChiliButton">Cowpoke Chili</Button>
@@ -33,7 +43,7 @@
             <Button Name="AddTexasTripleBurgerButton">Texas Triple Burger</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock TextAlignment="Center" FontSize="25">Side</TextBlock>
             <Button Name="AddBakedBeansButton">Baked Beans</Button>
             <Button Name="AddChiliCheeseFriesButton">Chili Cheese Fries</Button>
@@ -41,7 +51,7 @@
             <Button Name="AddPanDeCampoButton">Pan de Campo</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="2">
+        <StackPanel Grid.Row="1" Grid.Column="2">
             <TextBlock TextAlignment="Center" FontSize="25">Drinks</TextBlock>
             <Button Name="AddCowboyCoffeeButton">Cowboy Coffee</Button>
             <Button Name="AddJerkedSodaButton">Jerked Soda</Button>

@@ -46,6 +46,11 @@ namespace PointOfSale
             AddTexasTeaButton.Click += AddTexasTeaButtonClicked;
             AddCowboyCoffeeButton.Click += AddCowboyCoffeeButtonClicked;
             AddWaterButton.Click += AddWaterButtonClicked;
+
+            //Item/Order click events
+            ItemSelectionButton.Click += ItemSelectionButton_Click;
+            CancelOrderButton.Click += CancelOrderButton_Click;
+            CompleteOrderButton.Click += CompleteOrderButton_Click;
         }
 
         /// <summary>
@@ -256,6 +261,48 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
+        }
+
+        /// <summary>
+        /// Event for when the Item Selection Button is selected, currently has not function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// Event for when the Cancel Order Button is selected, creates a new order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order data)
+            {
+                if (sender is Button button)
+                {
+                    this.DataContext = new Order();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Event for when the Complete Order Button is selected, creates a new order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order data)
+            {
+                if (sender is Button button)
+                {
+                    this.DataContext = new Order();
+                }
+            }
+            //this.DataContext = new Order();
         }
     }
 }
