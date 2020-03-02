@@ -60,8 +60,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new RustlersRibs());
-
         }
 
         /// <summary>
@@ -76,7 +74,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new RustlersRibs());
         }
 
         /// <summary>
@@ -91,7 +88,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new PecosPulledPork());
         }
 
         /// <summary>
@@ -106,7 +102,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            // OrderListView.Items.Add(new TrailBurger());
         }
 
         /// <summary>
@@ -121,7 +116,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new DakotaDoubleBurger());
         }
 
         /// <summary>
@@ -136,7 +130,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new TexasTripleBurger());
         }
 
         /// <summary>
@@ -151,7 +144,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //   OrderListView.Items.Add(new AngryChicken());
         }
 
         /// <summary>
@@ -166,7 +158,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            // OrderListView.Items.Add(new ChiliCheeseFries());
         }
 
         /// <summary>
@@ -181,7 +172,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new CornDodgers());
         }
 
         /// <summary>
@@ -196,7 +186,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new PanDeCampo());
         }
 
         /// <summary>
@@ -211,7 +200,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new BakedBeans());
         }
 
         /// <summary>
@@ -226,7 +214,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new JerkedSoda());
         }
 
         /// <summary>
@@ -241,7 +228,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new TexasTea());
         }
 
         /// <summary>
@@ -256,7 +242,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new CowboyCoffee());
         }
 
         /// <summary>
@@ -271,7 +256,6 @@ namespace PointOfSale
             {
                 data.Add(item);
             }
-            //OrderListView.Items.Add(new Water());
         }
     }
 }

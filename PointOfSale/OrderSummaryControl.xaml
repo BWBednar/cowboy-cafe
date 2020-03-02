@@ -26,13 +26,16 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=OrderNumber}" FontSize="25"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Subtotal" FontSize="25"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="25"/>
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <ListBox ItemsSource="{Binding Path=Items}" FontSize="25">
+            </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
             <ListBox ItemsSource="{Binding Path=Items}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <TextBlock Grid.Column="0" Text="{Binding Path=Items}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Path=Items, StringFormat=c}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
