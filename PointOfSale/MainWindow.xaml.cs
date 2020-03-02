@@ -28,8 +28,7 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            var data = new Order();
-            DataContext = data;
+            
         }
     }
 }

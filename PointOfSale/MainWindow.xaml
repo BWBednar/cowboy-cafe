@@ -10,7 +10,6 @@
 
     <DockPanel>
 
-        <local:OrderControl DockPanel.Dock="Left" Width="1000"/>
-        <local:OrderSummaryControl DockPanel.Dock="Right"/>
+        <local:OrderControl/>
     </DockPanel>
 </Window>
