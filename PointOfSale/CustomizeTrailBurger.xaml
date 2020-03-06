@@ -6,7 +6,19 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <StackPanel>
         <TextBlock FontSize="30" Text="Customize Trail Burger"/>
-    </Grid>
+        <StackPanel Orientation="Horizontal">
+            <Label FontSize="20">Ketchup</Label>
+            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Ketchup}"/>
+            <Label FontSize="20">Mustard</Label>
+            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Mustard}"/>
+            <Label FontSize="20">Pickle</Label>
+            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Pickle}"/>
+            <Label FontSize="20">Cheese</Label>
+            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Cheese}"/>
+            <Label FontSize="20">Bun</Label>
+            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Bun}"/>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

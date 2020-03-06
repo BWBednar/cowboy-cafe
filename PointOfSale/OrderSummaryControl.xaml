@@ -30,12 +30,22 @@
             <ListBox ItemsSource="{Binding Path=Items}" FontSize="25">
             </ListBox>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="1">
+        <StackPanel Grid.Row="2">
             <ListBox ItemsSource="{Binding Path=Items}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
+                            <ListView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=SpecialInstructions}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

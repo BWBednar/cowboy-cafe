@@ -6,7 +6,13 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <StackPanel>
         <TextBlock FontSize="30" Text="Customize Angry Chicken"/>
-    </Grid>
+        <StackPanel Orientation="Horizontal">
+            <Label FontSize="20">Bread</Label>
+            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Bread}"/>
+            <Label FontSize="20">Pickles</Label>
+            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Pickle}"/>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

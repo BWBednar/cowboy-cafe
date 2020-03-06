@@ -69,15 +69,18 @@ namespace PointOfSale
                     switch (button.Tag)
                     {
                         case "AngryChicken":
-                            order.Add(new AngryChicken());
-                            orderControl.SwapScreen(new CustomizeAngryChicken());
-                            break;
-                        case "CowpokeChili":
-                            var entree = new CowpokeChili();
-                            var screen = new CustomizeCowpokeChili();
+                            var entree = new AngryChicken();
+                            var screen = new CustomizeAngryChicken();
                             screen.DataContext = entree;
                             order.Add(entree);
                             orderControl.SwapScreen(screen);
+                            break;
+                        case "CowpokeChili":
+                            //var entree = new CowpokeChili();
+                            //var screen = new CustomizeCowpokeChili();
+                            //screen.DataContext = entree;
+                            //order.Add(entree);
+                            //orderControl.SwapScreen(screen);
                             break;
                         case "RustlersRibs":
                             order.Add(new RustlersRibs());
@@ -135,6 +138,26 @@ namespace PointOfSale
                     }
                 }
             }
+        }
+        void AddItemAndOpenCustimizationScreen(IOrderItem item,FrameworkElement screen)
+        {
+            //Need to have an Order to add this item to
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("Datacontext expected to be an order instance");
+
+            //Not all OrderItems need to be customized
+            if (screen != null)
+            {
+                //Need to have an OrderControl ancestor to load the customization screen
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new Exception("An ancestor of OrderControl expected but not found");
+
+                //Add the item to the customization screen and launch it
+                screen.DataContext = item;
+                orderControl.SwapScreen(screen);
+            }
+            //Add the item to the order
+            order.Add(item);
         }
     }
 }
