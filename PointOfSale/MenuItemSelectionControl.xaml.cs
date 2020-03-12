@@ -61,7 +61,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
+            //var orderControl = this.FindAncestor<OrderControl>();
             
             if (DataContext is Order order)
             {
@@ -157,6 +157,7 @@ namespace PointOfSale
         /// <param name="screen">The customization screen for the item</param>
         void AddItemAndOpenCustimizationScreen(IOrderItem item,FrameworkElement screen)
         {
+            
             //Need to have an Order to add this item to
             var order = DataContext as Order;
             if (order == null) throw new Exception("Datacontext expected to be an order instance");

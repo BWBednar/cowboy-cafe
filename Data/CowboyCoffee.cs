@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -15,7 +16,11 @@ namespace CowboyCafe.Data
     /// </summary>
     public class CowboyCoffee : Drink, IOrderItem
     {
-        
+        /// <summary>
+        /// Event for when the values of the drink are changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of the coffee
         /// </summary>
@@ -71,6 +76,7 @@ namespace CowboyCafe.Data
             set
             {
                 coffeeIce = value;
+                NotifyOfSpecialInstructionsPropertyChange("Ice");
             }
         }
 
@@ -87,6 +93,7 @@ namespace CowboyCafe.Data
             set
             {
                 decaf = value;
+                NotifyOfSpecialInstructionsPropertyChange("Decaf");
             }
         }
 
@@ -103,6 +110,7 @@ namespace CowboyCafe.Data
             set
             {
                 roomForCream = value;
+                NotifyOfSpecialInstructionsPropertyChange("RoomForCream");
             }
         }
 
@@ -142,5 +150,17 @@ namespace CowboyCafe.Data
                     throw new NotImplementedException();
             }
         }
+
+        /// <summary>
+        /// Helper method for changing the special instructions of the item
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
+
+        
     }
 }

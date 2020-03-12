@@ -19,7 +19,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Event for when values of the item are changed
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         private bool bread = true;
         /// <summary>

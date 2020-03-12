@@ -7,14 +7,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the water drink
     /// </summary>
-    public class Water : Drink, IOrderItem
+    public class Water : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for when values of the item are changed
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of the water
         /// </summary>
@@ -60,6 +66,7 @@ namespace CowboyCafe.Data
             set
             {
                 lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
             }
         }
 

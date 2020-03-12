@@ -19,7 +19,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Event for when the values of the entree are changed
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets the price of the entree
