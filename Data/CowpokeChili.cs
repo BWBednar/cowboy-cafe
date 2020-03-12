@@ -6,14 +6,20 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entree, IOrderItem
+    public class CowpokeChili : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for when values of the item are changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool cheese = true;
         /// <summary>
         /// If the chili is topped with cheese
@@ -21,7 +27,10 @@ namespace CowboyCafe.Data
         public bool Cheese
         {
             get { return cheese; }
-            set { cheese = value; }
+            set { 
+                cheese = value;
+                NotifyOfSpecialInstructionsPropertyChange("Cheese");
+            }
         }
 
         private bool sourCream = true;
@@ -31,7 +40,10 @@ namespace CowboyCafe.Data
         public bool SourCream
         {
             get { return sourCream; }
-            set { sourCream = value; }
+            set { 
+                sourCream = value;
+                NotifyOfSpecialInstructionsPropertyChange("SourCream");
+            }
         }
 
         private bool greenOnions = true;
@@ -41,7 +53,10 @@ namespace CowboyCafe.Data
         public bool GreenOnions
         {
             get { return greenOnions; }
-            set { greenOnions = value; }
+            set { 
+                greenOnions = value;
+                NotifyOfSpecialInstructionsPropertyChange("GreenOnions");
+            }
         }
 
         private bool tortillaStrips = true;
@@ -101,6 +116,16 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Cowpoke Chili";
+        }
+
+        /// <summary>
+        /// Helper method for changing the special instructions of the item
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

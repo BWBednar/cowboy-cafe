@@ -16,6 +16,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public class AngryChicken : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for when values of the item are changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         private bool bread = true;
@@ -90,6 +93,10 @@ namespace CowboyCafe.Data
             return "Angry Chicken";
         }
 
+        /// <summary>
+        /// Helper method for changing the special instructions of the item
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

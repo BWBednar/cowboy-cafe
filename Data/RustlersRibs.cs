@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -15,6 +16,11 @@ namespace CowboyCafe.Data
     /// </summary>
     public class RustlersRibs : Entree, IOrderItem
     {
+        /// <summary>
+        /// Event for when values of the item are changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of the ribs
         /// </summary>
@@ -58,6 +64,16 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Rustler's Ribs";
+        }
+
+        /// <summary>
+        /// Helper method for changing the special instructions of the item
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

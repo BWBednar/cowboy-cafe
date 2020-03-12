@@ -9,12 +9,9 @@
     <StackPanel>
         <TextBlock FontSize="30" Text="Customize Cowpoke Chili"/>
         <StackPanel Orientation="Horizontal">
-            <Label FontSize="20">Green Onions</Label>
-            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=GreenOnions}"/>
-            <Label FontSize="20">Cheese</Label>
-            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Cheese}"/>
-            <Label FontSize="20">Sour Cream</Label>
-            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=SourCream}"/>
+            <CheckBox FontSize="30" IsChecked="{Binding Path=GreenOnions}">Green Onions</CheckBox>
+            <CheckBox  FontSize="30" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+            <CheckBox FontSize="30" IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>
         </StackPanel>
     </StackPanel>
 </UserControl>

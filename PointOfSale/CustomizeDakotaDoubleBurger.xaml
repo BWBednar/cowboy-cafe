@@ -6,7 +6,19 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <StackPanel>
         <TextBlock FontSize="30" Text="Customize Dakota Double Burger"/>
-    </Grid>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox FontSize="30" IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
+            <CheckBox  FontSize="30" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+            <CheckBox FontSize="30" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+            <CheckBox  FontSize="30" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <CheckBox FontSize="30" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
+            <CheckBox  FontSize="30" IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
+            <CheckBox FontSize="30" IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
+            <CheckBox  FontSize="30" IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

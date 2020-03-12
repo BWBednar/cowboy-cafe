@@ -16,6 +16,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Entree : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for when the values of the entree are changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

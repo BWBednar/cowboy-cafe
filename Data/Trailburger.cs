@@ -8,14 +8,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Trailburger entree
     /// </summary>
-    public class TrailBurger : Entree, IOrderItem
+    public class TrailBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event for when values of the item are changed
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool ketchup = true;
         /// <summary>
         /// If the burger is topped with ketchup
@@ -23,7 +29,11 @@ namespace CowboyCafe.Data
         public bool Ketchup
         {
             get { return ketchup; }
-            set { ketchup = value; }
+            set
+            {
+                ketchup = value;
+                NotifyOfSpecialInstructionsPropertyChange("Ketchup");
+            }
         }
 
         private bool mustard = true;
@@ -33,7 +43,11 @@ namespace CowboyCafe.Data
         public bool Mustard
         {
             get { return mustard; }
-            set { mustard = value; }
+            set
+            {
+                mustard = value;
+                NotifyOfSpecialInstructionsPropertyChange("Mustard");
+            }
         }
 
         private bool pickle = true;
@@ -43,7 +57,11 @@ namespace CowboyCafe.Data
         public bool Pickle
         {
             get { return pickle; }
-            set { pickle = value; }
+            set
+            {
+                pickle = value;
+                NotifyOfSpecialInstructionsPropertyChange("Pickle");
+            }
         }
 
         private bool cheese = true;
@@ -53,7 +71,11 @@ namespace CowboyCafe.Data
         public bool Cheese
         {
             get { return cheese; }
-            set { cheese = value; }
+            set
+            {
+                cheese = value;
+                NotifyOfSpecialInstructionsPropertyChange("Cheese");
+            }
         }
 
         private bool bun = true;
@@ -63,7 +85,11 @@ namespace CowboyCafe.Data
         public bool Bun
         {
             get { return bun; }
-            set { bun = value; }
+            set
+            {
+                bun = value;
+                NotifyOfSpecialInstructionsPropertyChange("Bun");
+            }
         }
 
         /// <summary>
@@ -114,6 +140,16 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Trail Burger";
+        }
+
+        /// <summary>
+        /// Helper method for changing the special instructions of the item
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

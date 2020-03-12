@@ -9,10 +9,8 @@
     <StackPanel>
         <TextBlock FontSize="30" Text="Customize Pecos Pulled Pork"/>
         <StackPanel Orientation="Horizontal">
-            <Label FontSize="20">Bread</Label>
-            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Bread}"/>
-            <Label FontSize="20">Pickles</Label>
-            <CheckBox Height="20" Width="20" IsChecked="{Binding Path=Pickles}"/>
+            <CheckBox FontSize="30" IsChecked="{Binding Path=Bread}">Bread</CheckBox>
+            <CheckBox  FontSize="30" IsChecked="{Binding Path=Pickle}">Pickles</CheckBox>
         </StackPanel>
     </StackPanel>
 </UserControl>
