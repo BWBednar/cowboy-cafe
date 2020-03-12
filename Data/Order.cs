@@ -66,14 +66,14 @@ namespace CowboyCafe.Data
         /// <param name="item">The IOrderItem being added</param>
         public void Add(IOrderItem item)
         {
-            if (item is INotifyPropertyChanged notifier)
-            {
-                notifier.PropertyChanged += OnItemPropertyChanged;
-            }
+            //if (item is INotifyPropertyChanged notifier)
+            //{
+              //  notifier.PropertyChanged += OnItemPropertyChanged;
+            //}
             items.Add(item);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
 
         /// <summary>
@@ -82,22 +82,22 @@ namespace CowboyCafe.Data
         /// <param name="item">The IOrderItem being removed</param>
         public void Remove(IOrderItem item)
         {
-            if (item is INotifyPropertyChanged notifier)
-            {
-                notifier.PropertyChanged -= OnItemPropertyChanged;
-            }
+            //if (item is INotifyPropertyChanged notifier)
+            //{
+                //notifier.PropertyChanged -= OnItemPropertyChanged;
+            //}
             items.Remove(item);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            if (e.PropertyName == "Price")
-            {
+            //if (e.PropertyName == "Price")
+            //{
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            }
+            //}
         }
     }
 }

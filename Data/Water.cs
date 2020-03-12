@@ -28,10 +28,12 @@ namespace CowboyCafe.Data
         {
             get
             {
+                double price;
                 switch (Size)
                 {
                     case Size.Small:
-                        return 0.12;
+                        price = 0.12;
+                        return price;
                     case Size.Medium:
                         return 0.12;
                     case Size.Large:
