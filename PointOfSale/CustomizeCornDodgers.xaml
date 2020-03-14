@@ -6,7 +6,13 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <StackPanel>
         <TextBlock FontSize="30" Text="Customize Corn Dodgers"/>
-    </Grid>
+        <TextBlock FontSize="30" Text="Select Side Size"/>
+        <StackPanel>
+            <RadioButton x:Name="Small" FontSize="20" GroupName="Size" Content="Small" Checked="ChangeSize"/>
+            <RadioButton x:Name="Medium" FontSize="20" GroupName="Size" Content="Medium" Checked="ChangeSize"/>
+            <RadioButton x:Name="Large" FontSize="20" GroupName="Size" Content="Large" Checked="ChangeSize"/>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

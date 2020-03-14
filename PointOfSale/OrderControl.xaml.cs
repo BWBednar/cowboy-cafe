@@ -48,6 +48,7 @@ namespace PointOfSale
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl();
+            //PropertyChanged
         }
 
         /// <summary>

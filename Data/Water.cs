@@ -28,12 +28,11 @@ namespace CowboyCafe.Data
         {
             get
             {
-                double price;
+                //double price;
                 switch (Size)
                 {
                     case Size.Small:
-                        price = 0.12;
-                        return price;
+                        return 0.12;
                     case Size.Medium:
                         return 0.12;
                     case Size.Large:
@@ -68,7 +67,24 @@ namespace CowboyCafe.Data
             set
             {
                 lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                NotifyOfSpecialInstructionsPropertyChange("Lemon");
+            }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// If the drink has ice, initialized to true
+        /// </summary>
+        public override bool Ice
+        {
+            get
+            {
+                return ice;
+            }
+            set
+            {
+                ice = value;
+                NotifyOfSpecialInstructionsPropertyChange("Ice");
             }
         }
 
@@ -93,17 +109,38 @@ namespace CowboyCafe.Data
         /// <returns>The modified string for the Point of Sale</returns>
         public override string ToString()
         {
+            //string output;
             switch (Size)
             {
                 case Size.Small:
+                    //output = "Small Water";
+                    //break;
                     return "Small Water";
                 case Size.Medium:
+                    //output = "Medium Water";
+                    //break;
                     return "Medium Water";
                 case Size.Large:
+                    //output = "Large Water";
+                    //break;
                     return "Large Water";
                 default:
                     throw new NotImplementedException();
             }
+            //NotifyOfSizeRelatedPropertyChanges();
+            //return output;
         }
+
+        /// <summary>
+        /// Helper method to notify if boolean changes have been made
+        /// </summary>
+        /// <param name="propertyName">The name of the property being changed</param>
+        private void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
+
+        
     }
 }
