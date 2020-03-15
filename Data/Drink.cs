@@ -34,7 +34,10 @@ namespace CowboyCafe.Data
             set
             {
                 size = value;
-                NotifyOfSizeRelatedPropertyChanges();
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -78,17 +81,6 @@ namespace CowboyCafe.Data
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-        }
-
-        /// <summary>
-        /// Helper method to notify if item size related changes have been made
-        /// </summary>
-        private void NotifyOfSizeRelatedPropertyChanges()
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
         }
     }
 }
