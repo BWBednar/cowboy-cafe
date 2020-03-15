@@ -14,6 +14,7 @@
             <RadioButton Margin="5" x:Name="Medium" FontSize="20" GroupName="Size" Content="Medium" Checked="ChangeSize"/>
             <RadioButton Margin="5" x:Name="Large" FontSize="20" GroupName="Size" Content="Large" Checked="ChangeSize"/>
         </StackPanel>
+        <TextBlock FontSize="30" Text="Select Items to Change"/>
         <StackPanel Orientation="Horizontal">
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Ice}">Ice</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Decaf}">Decaf</CheckBox>

@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <TextBlock FontSize="30" Text="Customize Cowpoke Chili"/>
+        <TextBlock FontSize="30" Text="Select Items to Remove"/>
         <StackPanel Orientation="Horizontal">
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=GreenOnions}">Green Onions</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
