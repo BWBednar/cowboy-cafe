@@ -10,17 +10,17 @@
         <TextBlock FontSize="30" Text="Customize Jerked Soda"/>
         <TextBlock FontSize="30" Text="Select Drink Size"/>
         <StackPanel>
-            <RadioButton x:Name="Small" FontSize="20" GroupName="Size" Content="Small" Checked="ChangeSize"/>
-            <RadioButton x:Name="Medium" FontSize="20" GroupName="Size" Content="Medium" Checked="ChangeSize"/>
-            <RadioButton x:Name="Large" FontSize="20" GroupName="Size" Content="Large" Checked="ChangeSize"/>
+            <RadioButton Margin="5" x:Name="Small" FontSize="20" GroupName="Size" Content="Small" Checked="ChangeSize"/>
+            <RadioButton Margin="5" x:Name="Medium" FontSize="20" GroupName="Size" Content="Medium" Checked="ChangeSize"/>
+            <RadioButton Margin="5" x:Name="Large" FontSize="20" GroupName="Size" Content="Large" Checked="ChangeSize"/>
         </StackPanel>
         <TextBlock FontSize="30" Text="Select Drink Flavor"/>
         <StackPanel>
-            <RadioButton x:Name="CreamSoda" FontSize="20" GroupName="Flavor" Content="Cream Soda" Checked="ChangeFlavor"/>
-            <RadioButton x:Name="OrangeSoda" FontSize="20" GroupName="Flavor" Content="Orange Soda" Checked="ChangeFlavor"/>
-            <RadioButton x:Name="Sarsparilla" FontSize="20" GroupName="Flavor" Content="Sarsparilla" Checked="ChangeFlavor"/>
-            <RadioButton x:Name="BirchBeer" FontSize="20" GroupName="Flavor" Content="Birch Beer" Checked="ChangeFlavor"/>
-            <RadioButton x:Name="RootBeer" FontSize="20" GroupName="Flavor" Content="Root Beer" Checked="ChangeFlavor"/>
+            <RadioButton Margin="5" x:Name="CreamSoda" FontSize="20" GroupName="Flavor" Content="Cream Soda" Checked="ChangeFlavor"/>
+            <RadioButton Margin="5" x:Name="OrangeSoda" FontSize="20" GroupName="Flavor" Content="Orange Soda" Checked="ChangeFlavor"/>
+            <RadioButton Margin="5" x:Name="Sarsparilla" FontSize="20" GroupName="Flavor" Content="Sarsparilla" Checked="ChangeFlavor"/>
+            <RadioButton Margin="5" x:Name="BirchBeer" FontSize="20" GroupName="Flavor" Content="Birch Beer" Checked="ChangeFlavor"/>
+            <RadioButton Margin="5" x:Name="RootBeer" FontSize="20" GroupName="Flavor" Content="Root Beer" Checked="ChangeFlavor"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

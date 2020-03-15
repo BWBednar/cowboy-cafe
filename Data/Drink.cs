@@ -21,7 +21,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public virtual event PropertyChangedEventHandler PropertyChanged;
 
-        private Size size = Size.Small;
+        private Size size;
         /// <summary>
         /// Size of the drink, initialized to Size.Small
         /// </summary>

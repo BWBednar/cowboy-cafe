@@ -7,18 +7,37 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Jerked Soda drink
     /// </summary>
-    public class JerkedSoda : Drink, IOrderItem
+    public class JerkedSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The property changed event handler
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        private SodaFlavor flavor;
         /// <summary>
         /// The flavor of the soda
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor 
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SodaFlavor"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
+            }
+        }
 
         /// <summary>
         /// The price of the soda

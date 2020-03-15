@@ -9,11 +9,11 @@
     <StackPanel>
         <TextBlock FontSize="30" Text="Customize Trail Burger"/>
         <StackPanel Orientation="Horizontal">
-            <CheckBox FontSize="30" IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
-            <CheckBox FontSize="30" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
-            <CheckBox FontSize="30" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
-            <CheckBox FontSize="30" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
-            <CheckBox FontSize="30" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
+            <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
+            <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+            <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+            <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+            <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -10,9 +10,9 @@
         <TextBlock FontSize="30" Text="Customize Chili Cheese Fries"/>
         <TextBlock FontSize="30" Text="Select Side Size"/>
         <StackPanel>
-            <RadioButton x:Name="Small" FontSize="20" GroupName="Size" Content="Small" Checked="ChangeSize"/>
-            <RadioButton x:Name="Medium" FontSize="20" GroupName="Size" Content="Medium" Checked="ChangeSize"/>
-            <RadioButton x:Name="Large" FontSize="20" GroupName="Size" Content="Large" Checked="ChangeSize"/>
+            <RadioButton Margin="5" x:Name="Small" FontSize="20" GroupName="Size" Content="Small" Checked="ChangeSize"/>
+            <RadioButton Margin="5" x:Name="Medium" FontSize="20" GroupName="Size" Content="Medium" Checked="ChangeSize"/>
+            <RadioButton Margin="5" x:Name="Large" FontSize="20" GroupName="Size" Content="Large" Checked="ChangeSize"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

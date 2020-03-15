@@ -19,7 +19,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The property changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual event PropertyChangedEventHandler PropertyChanged;
 
         private Size size;
         /// <summary>
