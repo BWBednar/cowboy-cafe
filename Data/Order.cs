@@ -20,7 +20,6 @@ namespace CowboyCafe.Data
         /// </summary>
         private static uint lastOrderNumber = 0;
 
-
         /// <summary>
         /// The list of IOrderItems in the Order
         /// </summary>
@@ -78,14 +77,6 @@ namespace CowboyCafe.Data
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-
-           
         }
 
         /// <summary>
@@ -103,25 +94,14 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
-        private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        
+        /// <summary>
+        /// Method for notifying the order of size related changes
+        /// </summary>
+        public void NotifyItemSizeChange()
         {
-            
-            
-            if (sender is Drink || sender is Side)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            }
-
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-
-            //}
         }
     }
 }

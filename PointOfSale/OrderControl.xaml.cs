@@ -35,6 +35,21 @@ namespace PointOfSale
             CompleteOrderButton.Click += CompleteOrderButton_Click;
         }
 
+        /// <summary>
+        /// Method that passes an enum change in an item to the order
+        /// </summary>
+        public void ItemEnumChange()
+        {
+            if (DataContext is Order order)
+            {
+                order.NotifyItemSizeChange();
+            }
+        }
+
+        /// <summary>
+        /// Method that changes the screen that the user is able to interact with
+        /// </summary>
+        /// <param name="element"></param>
         public void SwapScreen(FrameworkElement element)
         {
             Container.Child = element;
@@ -81,9 +96,6 @@ namespace PointOfSale
                     this.DataContext = new Order();
                 }
             }
-            //this.DataContext = new Order();
         }
-
-        
     }
 }
