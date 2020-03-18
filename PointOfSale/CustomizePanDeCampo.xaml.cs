@@ -37,7 +37,7 @@ namespace PointOfSale
             var ancestor = this.FindAncestor<OrderControl>();
             if (ancestor is OrderControl)
             {
-                ancestor.ItemEnumChange();
+                ancestor.ItemChange();
             }
         }
     }

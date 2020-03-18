@@ -98,7 +98,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Method for notifying the order of size related changes
         /// </summary>
-        public void NotifyItemSizeChange()
+        public void NotifyItemChange()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));

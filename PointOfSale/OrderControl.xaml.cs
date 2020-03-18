@@ -38,11 +38,11 @@ namespace PointOfSale
         /// <summary>
         /// Method that passes an enum change in an item to the order
         /// </summary>
-        public void ItemEnumChange()
+        public void ItemChange()
         {
             if (DataContext is Order order)
             {
-                order.NotifyItemSizeChange();
+                order.NotifyItemChange();
             }
         }
 

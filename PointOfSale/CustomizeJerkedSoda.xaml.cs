@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -22,78 +23,26 @@ namespace PointOfSale
         public CustomizeJerkedSoda()
         {
             InitializeComponent();
-            Small.Click += ChangeSize;
-            Medium.Click += ChangeSize;
-            Large.Click += ChangeSize;
 
-            CreamSoda.Click += ChangeFlavor;
-            OrangeSoda.Click += ChangeFlavor;
-            Sarsparilla.Click += ChangeFlavor;
-            BirchBeer.Click += ChangeFlavor;
-            RootBeer.Click += ChangeFlavor;
+            Confirm.Click += ChangeItemEnums;
+
         }
 
         /// <summary>
-        /// Method to communicate which size the user selects for the item
+        /// Click event for when the size of the item has been confirmed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ChangeSize(object sender, RoutedEventArgs e)
+        void ChangeItemEnums(object sender, RoutedEventArgs e)
         {
-            var item = DataContext as Drink;
-            if (sender is RadioButton button)
+            var ancestor = this.FindAncestor<OrderControl>();
+            if (ancestor is OrderControl)
             {
-                switch (button.Name)
-                {
-                    case "Small":
-                        item.Size = CowboyCafe.Data.Size.Small;
-                        break;
-                    case "Medium":
-                        item.Size = CowboyCafe.Data.Size.Medium;
-                        break;
-                    case "Large":
-                        item.Size = CowboyCafe.Data.Size.Large;
-                        break;
-                    default:
-                        item.Size = CowboyCafe.Data.Size.Small;
-                        break;
-                }
-
-            }
-        }
-
-        /// <summary>
-        /// Method to communicate which flavor the user selects for the Jerked Soda
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ChangeFlavor(object sender, RoutedEventArgs e)
-        {
-            var item = DataContext as JerkedSoda;
-            if (sender is RadioButton button)
-            {
-                switch (button.Name)
-                {
-                    case "CreamSoda":
-                        item.Flavor = CowboyCafe.Data.SodaFlavor.CreamSoda;
-                        break;
-                    case "OrangeSoda":
-                        item.Flavor = CowboyCafe.Data.SodaFlavor.OrangeSoda;
-                        break;
-                    case "Sarsparilla":
-                        item.Flavor = CowboyCafe.Data.SodaFlavor.Sarsparilla;
-                        break;
-                    case "BirchBeer":
-                        item.Flavor = CowboyCafe.Data.SodaFlavor.BirchBeer;
-                        break;
-                    case "RootBeer":
-                        item.Flavor = CowboyCafe.Data.SodaFlavor.RootBeer;
-                        break;
-                    default:
-                        item.Flavor = CowboyCafe.Data.SodaFlavor.CreamSoda;
-                        break;
-                }
+                ancestor.ItemChange();
             }
         }
     }
+
+       
+    
 }

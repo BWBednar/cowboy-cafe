@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -22,38 +23,23 @@ namespace PointOfSale
         public CustomizeTexasTea()
         {
             InitializeComponent();
-            Small.Click += ChangeSize;
-            Medium.Click += ChangeSize;
-            Large.Click += ChangeSize;
+
+            Confirm.Click += ChangeItemSize;
         }
 
         /// <summary>
-        /// Method to communicate which size the user selects for the item
+        /// Click event for when the size of the item has been confirmed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ChangeSize(object sender, RoutedEventArgs e)
+        void ChangeItemSize(object sender, RoutedEventArgs e)
         {
-            var item = DataContext as Drink;
-            if (sender is RadioButton button)
+            var ancestor = this.FindAncestor<OrderControl>();
+            if (ancestor is OrderControl)
             {
-                switch (button.Name)
-                {
-                    case "Small":
-                        item.Size = CowboyCafe.Data.Size.Small;
-                        break;
-                    case "Medium":
-                        item.Size = CowboyCafe.Data.Size.Medium;
-                        break;
-                    case "Large":
-                        item.Size = CowboyCafe.Data.Size.Large;
-                        break;
-                    default:
-                        item.Size = CowboyCafe.Data.Size.Small;
-                        break;
-                }
-
+                ancestor.ItemChange();
             }
         }
     }
+    
 }
