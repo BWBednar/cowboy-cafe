@@ -19,20 +19,17 @@
         </ObjectDataProvider>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize Pan de Campo"/>
-        <TextBlock FontSize="30" Text="Select Side Size"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Customize Pan de Campo"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Select Side Size"/>
         <StackPanel>
             <ListBox Name="SizesBox" 
                      Width="400" 
                      FontSize="20"
-                     HorizontalAlignment="Left" 
+                     HorizontalAlignment="Center" 
                      SelectionMode="Single" 
                      ItemsSource="{Binding Source={StaticResource dataSize}}"
+                     SelectionChanged="ChangeItemSize"
                      SelectedItem="{Binding Path=Size}"/>
-            <Button Name="Confirm" 
-                    HorizontalAlignment="Left" 
-                    Width="400" 
-                    Click="ChangeItemSize">Confirm</Button>
         </StackPanel>
     </StackPanel>
 </UserControl>

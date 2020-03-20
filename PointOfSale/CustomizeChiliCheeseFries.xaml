@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:PointOfSale"
              xmlns:data="clr-namespace:CowboyCafe.Data;assembly=CowboyCafe.Data"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
-
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -20,20 +19,17 @@
         </ObjectDataProvider>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize Chili Cheese Fries"/>
-        <TextBlock FontSize="30" Text="Select Side Size"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Customize Chili Cheese Fries"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Select Side Size"/>
         <StackPanel>
             <ListBox Name="SizesBox" 
                      Width="400" 
                      FontSize="20"
-                     HorizontalAlignment="Left" 
+                     HorizontalAlignment="Center" 
                      SelectionMode="Single" 
                      ItemsSource="{Binding Source={StaticResource dataSize}}"
+                     SelectionChanged="ChangeItemSize"
                      SelectedItem="{Binding Path=Size}"/>
-            <Button Name="Confirm" 
-                    HorizontalAlignment="Left" 
-                    Width="400" 
-                    Click="ChangeItemSize">Confirm</Button>
         </StackPanel>
     </StackPanel>
 </UserControl>

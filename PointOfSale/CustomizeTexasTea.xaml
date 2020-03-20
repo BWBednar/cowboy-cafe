@@ -18,29 +18,23 @@
         </ObjectDataProvider>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize Cowboy Coffee"/>
-        <TextBlock FontSize="30" Text="Select Drink Size"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Customize Cowboy Coffee"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Select Drink Size"/>
         <StackPanel>
             <ListBox Name="SizesBox" 
                      Width="400" 
                      FontSize="20"
-                     HorizontalAlignment="Left" 
+                     HorizontalAlignment="Center" 
                      SelectionMode="Single" 
+                     SelectionChanged="ChangeItemValue"
                      ItemsSource="{Binding Source={StaticResource dataSize}}"
                      SelectedItem="{Binding Path=Size}"/>
         </StackPanel>
-        <TextBlock FontSize="30" Text="Select Items to Add or Remove"/>
-        <StackPanel Orientation="Horizontal">
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Include With Item:"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Ice}">Ice</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
-            <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Sweet}">Sweet Tea</CheckBox>
-        </StackPanel>
-        <StackPanel>
-            <Button Name="Confirm" 
-                    HorizontalAlignment="Left" 
-                    Width="400" 
-                    Height="30"
-                    Click="ChangeItemSize">Confirm</Button>
+            <CheckBox Margin="10" FontSize="30" Checked="ChangeItemValue" IsChecked="{Binding Path=Sweet}">Sweet Tea</CheckBox>
         </StackPanel>
     </StackPanel>
 </UserControl>

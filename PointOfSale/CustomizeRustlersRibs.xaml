@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <TextBlock FontSize="30" Text="No Custimization Options for Rustler's Ribs"/>
-        <TextBlock FontSize="30" Text="Return to Previous Menu with Item Selection Button"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="No Custimization Options for Rustler's Ribs"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Return to Previous Menu with Item Selection Button"/>
     </StackPanel>
 </UserControl>

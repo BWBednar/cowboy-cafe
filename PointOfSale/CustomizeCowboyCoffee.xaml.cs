@@ -20,19 +20,20 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCowboyCoffee : UserControl
     {
+        /// <summary>
+        /// Initialize the CustomizeCowboyCoffee screen
+        /// </summary>
         public CustomizeCowboyCoffee()
         {
             InitializeComponent();
-
-            Confirm.Click += ChangeItemSize;
         }
 
         /// <summary>
-        /// Click event for when the size of the item has been confirmed
+        /// Click event for when the size of the item has been changed
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void ChangeItemSize(object sender, RoutedEventArgs e)
+        /// <param name="sender">The item being selected</param>
+        /// <param name="e">The event args</param>
+        void ChangeItemValue(object sender, RoutedEventArgs e)
         {
             var ancestor = this.FindAncestor<OrderControl>();
             if (ancestor is OrderControl)

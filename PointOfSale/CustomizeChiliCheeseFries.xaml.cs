@@ -20,18 +20,19 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeChiliCheeseFries : UserControl
     {
+        /// <summary>
+        /// Initialize the CustomizeChiliCheeseFries control
+        /// </summary>
         public CustomizeChiliCheeseFries()
         {
             InitializeComponent();
-
-            Confirm.Click += ChangeItemSize;
         }
 
         /// <summary>
-        /// Click event for when the size of the item has been confirmed
+        /// Click event for when the size of the item has been changed
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The item being selected</param>
+        /// <param name="e">The event args</param>
         void ChangeItemSize(object sender, RoutedEventArgs e)
         {
             var ancestor = this.FindAncestor<OrderControl>();

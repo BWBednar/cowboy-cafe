@@ -65,15 +65,6 @@ namespace CowboyCafe.Data
         /// <param name="item">The IOrderItem being added</param>
         public void Add(IOrderItem item)
         {
-            //items.Add(item);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            //if (item is INotifyPropertyChanged notifier)
-            //{
-
-            //notifier.PropertyChanged += OnItemPropertyChanged;
-            //}
-            //items.Add(item);
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
@@ -85,10 +76,6 @@ namespace CowboyCafe.Data
         /// <param name="item">The IOrderItem being removed</param>
         public void Remove(IOrderItem item)
         {
-            //if (item is INotifyPropertyChanged notifier)
-            //{
-                //notifier.PropertyChanged -= OnItemPropertyChanged;
-            //}
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));

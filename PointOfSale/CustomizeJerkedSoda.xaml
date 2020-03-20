@@ -25,33 +25,28 @@
         </ObjectDataProvider>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize Jerked Soda"/>
-        <TextBlock FontSize="30" Text="Select Drink Size"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Customize Jerked Soda"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Select Drink Size"/>
         <StackPanel>
             <ListBox Name="SizesBox" 
                      Width="400" 
                      FontSize="20"
-                     HorizontalAlignment="Left" 
+                     HorizontalAlignment="Center" 
                      SelectionMode="Single" 
                      ItemsSource="{Binding Source={StaticResource dataSize}}"
+                     SelectionChanged="ChangeItemEnums"
                      SelectedItem="{Binding Path=Size}"/>
         </StackPanel>
-        <TextBlock FontSize="30" Text="Select Drink Flavor"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Select Drink Flavor"/>
         <StackPanel>
             <ListBox Name="FlavorsBox" 
                      Width="400" 
                      FontSize="20"
-                     HorizontalAlignment="Left" 
+                     HorizontalAlignment="Center" 
                      SelectionMode="Single" 
                      ItemsSource="{Binding Source={StaticResource dataFlavor}}"
+                     SelectionChanged="ChangeItemEnums"
                      SelectedItem="{Binding Path=Flavor}"/>
-        </StackPanel>
-        <StackPanel>
-            <Button Name="Confirm" 
-                    HorizontalAlignment="Left" 
-                    Width="400" 
-                    Height="30"
-                    Click="ChangeItemEnums">Confirm</Button>
         </StackPanel>
     </StackPanel>
 </UserControl>

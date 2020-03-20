@@ -7,22 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize Texas Triple Burger"/>
-        <TextBlock FontSize="30" Text="Select Items to Remove"/>
-        <StackPanel Orientation="Horizontal">
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Customize Texas Triple Burger"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Include With Item:"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
             <CheckBox Margin="10"  FontSize="30" IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Bacon}">Bacon</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Egg}">Egg</CheckBox>
         </StackPanel>
-        
     </StackPanel>
 </UserControl>

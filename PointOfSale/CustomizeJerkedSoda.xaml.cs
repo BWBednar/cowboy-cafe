@@ -24,15 +24,15 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            Confirm.Click += ChangeItemEnums;
+            //Confirm.Click += ChangeItemEnums;
 
         }
 
         /// <summary>
-        /// Click event for when the size of the item has been confirmed
+        /// Click event for when the size of the item has been changed
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The item being selected</param>
+        /// <param name="e">The event args</param>
         void ChangeItemEnums(object sender, RoutedEventArgs e)
         {
             var ancestor = this.FindAncestor<OrderControl>();

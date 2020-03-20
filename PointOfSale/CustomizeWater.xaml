@@ -18,28 +18,22 @@
         </ObjectDataProvider>
     </UserControl.Resources>
     <StackPanel>
-        <TextBlock FontSize="30" Text="Customize Water"/>
-        <TextBlock FontSize="30" Text="Select Drink Size"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Customize Water"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Select Drink Size"/>
         <StackPanel>
             <ListBox Name="SizesBox" 
                      Width="400" 
                      FontSize="20"
-                     HorizontalAlignment="Left" 
+                     HorizontalAlignment="Center" 
                      SelectionMode="Single" 
+                     SelectionChanged="ChangeItemSize"
                      ItemsSource="{Binding Source={StaticResource dataSize}}"
                      SelectedItem="{Binding Path=Size}"/>
         </StackPanel>
-        <TextBlock FontSize="30" Text="Select Items to Add or Remove"/>
-        <StackPanel Orientation="Horizontal">
+        <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Include With Item:"/>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Ice}">Ice</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
-        </StackPanel>
-        <StackPanel>
-            <Button Name="Confirm" 
-                    HorizontalAlignment="Left" 
-                    Width="400" 
-                    Height="30"
-                    Click="ChangeItemSize">Confirm</Button>
         </StackPanel>
     </StackPanel>
 </UserControl>
