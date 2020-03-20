@@ -18,6 +18,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCowpokeChili : UserControl
     {
+        /// <summary>
+        /// Initialize the CustomizeCowpokeChili control
+        /// </summary>
         public CustomizeCowpokeChili()
         {
             InitializeComponent();

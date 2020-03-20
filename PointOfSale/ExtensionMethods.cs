@@ -13,7 +13,7 @@ namespace CowboyCafe.Extensions
         /// or null if no ancestor is found
         /// </summary>
         /// <typeparam name="T">The type to search for</typeparam>
-        /// <param name="element"></param>
+        /// <param name="element">The element being investigated</param>
         /// <returns>The first ancestor of type T, or null</returns>
         public static T FindAncestor<T>(this DependencyObject element) where T : DependencyObject
         {

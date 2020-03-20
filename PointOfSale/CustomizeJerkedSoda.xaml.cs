@@ -20,12 +20,12 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeJerkedSoda : UserControl
     {
+        /// <summary>
+        /// Initialize the CustomizeJerkedSoda control
+        /// </summary>
         public CustomizeJerkedSoda()
         {
             InitializeComponent();
-
-            //Confirm.Click += ChangeItemEnums;
-
         }
 
         /// <summary>

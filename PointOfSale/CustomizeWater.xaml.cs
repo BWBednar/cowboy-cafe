@@ -20,6 +20,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeWater : UserControl
     {
+        /// <summary>
+        /// Initialize the CustomizeWater control
+        /// </summary>
         public CustomizeWater()
         {
             InitializeComponent();

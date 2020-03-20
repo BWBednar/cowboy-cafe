@@ -20,6 +20,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizePanDeCampo : UserControl
     {
+        /// <summary>
+        /// Initialize the CustomizePanDeCampo control
+        /// </summary>
         public CustomizePanDeCampo()
         {
             InitializeComponent();

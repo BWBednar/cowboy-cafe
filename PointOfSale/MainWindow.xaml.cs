@@ -22,7 +22,7 @@ namespace PointOfSale
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// Initialize the main window
+        /// Initialize the main window control
         /// </summary>
         public MainWindow()
         {

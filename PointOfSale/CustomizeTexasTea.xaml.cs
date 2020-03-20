@@ -20,6 +20,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeTexasTea : UserControl
     {
+        /// <summary>
+        /// Initialize the CustomizeTexasTea control
+        /// </summary>
         public CustomizeTexasTea()
         {
             InitializeComponent();

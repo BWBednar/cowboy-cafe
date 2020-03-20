@@ -49,7 +49,7 @@ namespace PointOfSale
         /// <summary>
         /// Method that changes the screen that the user is able to interact with
         /// </summary>
-        /// <param name="element"></param>
+        /// <param name="element">The element used to change screens</param>
         public void SwapScreen(FrameworkElement element)
         {
             Container.Child = element;
@@ -58,8 +58,8 @@ namespace PointOfSale
         /// <summary>
         /// Event for when the Item Selection Button is selected, currently has not function
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The button being selected</param>
+        /// <param name="e">The event args</param>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl();
@@ -69,8 +69,8 @@ namespace PointOfSale
         /// <summary>
         /// Event for when the Cancel Order Button is selected, creates a new order
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The button being selected</param>
+        /// <param name="e">The event args</param>
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
@@ -85,8 +85,8 @@ namespace PointOfSale
         /// <summary>
         /// Event for when the Complete Order Button is selected, creates a new order
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The button being selected</param>
+        /// <param name="e">The event args</param>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
