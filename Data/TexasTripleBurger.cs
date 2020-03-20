@@ -219,7 +219,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Helper method for changing the special instructions of the item
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">The name of the property being changed</param>
         protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -34,7 +34,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Ice}">Ice</CheckBox>
             <CheckBox Margin="10" FontSize="30" IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
-            <CheckBox Margin="10" FontSize="30" Checked="ChangeItemValue" IsChecked="{Binding Path=Sweet}">Sweet Tea</CheckBox>
+            <CheckBox Margin="10" FontSize="30" Click="ChangeItemValue" IsChecked="{Binding Path=Sweet}">Sweet Tea</CheckBox>
         </StackPanel>
     </StackPanel>
 </UserControl>

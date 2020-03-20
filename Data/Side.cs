@@ -34,11 +34,8 @@ namespace CowboyCafe.Data
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
         }
 
