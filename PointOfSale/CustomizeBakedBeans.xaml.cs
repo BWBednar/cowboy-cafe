@@ -33,7 +33,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">The item being selected</param>
         /// <param name="e">The event args</param>
-        void ChangeItemSize(object sender, RoutedEventArgs e)
+        private void ChangeItemSize(object sender, RoutedEventArgs e)
         {
             var ancestor = this.FindAncestor<OrderControl>();
             if (ancestor is OrderControl)

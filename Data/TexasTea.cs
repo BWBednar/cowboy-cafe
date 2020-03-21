@@ -101,6 +101,23 @@ namespace CowboyCafe.Data
             }
         }
 
+        private bool ice = true;
+        /// <summary>
+        /// If the drink has ice, initialized to true
+        /// </summary>
+        public override bool Ice
+        {
+            get
+            {
+                return ice;
+            }
+            set
+            {
+                ice = value;
+                NotifyOfSpecialInstructionsPropertyChange("Ice");
+            }
+        }
+
         /// <summary>
         /// Special Instructions for the preparation of the tea
         /// </summary>

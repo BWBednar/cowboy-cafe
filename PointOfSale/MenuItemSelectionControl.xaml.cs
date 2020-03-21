@@ -23,34 +23,11 @@ namespace PointOfSale
         
 
         /// <summary>
-        /// The interactions of the OrderControl with PointOfSale
+        /// Initialize the MenuItemSelectionControl control
         /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
-
-            //Entree click events
-            AddCowpokeChiliButton.Click += OnItemAddButtonClicked; 
-            AddRustlersRibsButton.Click += OnItemAddButtonClicked; 
-            AddPecosPulledPorkButton.Click += OnItemAddButtonClicked;
-            AddTrailBurgerButton.Click += OnItemAddButtonClicked; 
-            AddDakotaDoubleBurgerButton.Click += OnItemAddButtonClicked; 
-            AddTexasTripleBurgerButton.Click += OnItemAddButtonClicked; 
-            AddAngryChickenButton.Click += OnItemAddButtonClicked;
-
-            //Side click events
-            AddChiliCheeseFriesButton.Click += OnItemAddButtonClicked;
-            AddCornDodgersButton.Click += OnItemAddButtonClicked;
-            AddPanDeCampoButton.Click += OnItemAddButtonClicked;
-            AddBakedBeansButton.Click += OnItemAddButtonClicked;
-
-            //Drink click events
-            AddJerkedSodaButton.Click += OnItemAddButtonClicked;
-            AddTexasTeaButton.Click += OnItemAddButtonClicked;
-            AddCowboyCoffeeButton.Click += OnItemAddButtonClicked;
-            AddWaterButton.Click += OnItemAddButtonClicked;
-
-
         }
 
         /// <summary>
@@ -59,10 +36,8 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
+        private void OnItemAddButtonClicked(object sender, RoutedEventArgs e)
         {
-            //var orderControl = this.FindAncestor<OrderControl>();
-            
             if (DataContext is Order order)
             {
                 if (sender is Button button)
@@ -155,7 +130,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="item">The item being added to the order</param>
         /// <param name="screen">The customization screen for the item</param>
-        void AddItemAndOpenCustimizationScreen(IOrderItem item,FrameworkElement screen)
+        private void AddItemAndOpenCustimizationScreen(IOrderItem item,FrameworkElement screen)
         {
             
             //Need to have an Order to add this item to
