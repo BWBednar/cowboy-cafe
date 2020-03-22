@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Extensions;
+using CowboyCafe.Data;
 
 namespace PointOfSale
 {
@@ -34,11 +35,11 @@ namespace PointOfSale
         /// <param name="e">The SelectionChangedEventArgs</param>
         void ListBoxItemSelected(object sender, SelectionChangedEventArgs e)
         {
-            var menuItem = ((sender as ListBox).SelectedItem as FrameworkElement);
-            OrderControl ancestor = this.FindAncestor<OrderControl>();
-            if (ancestor is OrderControl)
+            var item = ((sender as ListBox).SelectedItem as IOrderItem);
+            OrderControl control = this.FindAncestor<OrderControl>();
+            if (item is IOrderItem)
             {
-                ancestor.SwapScreen(menuItem);
+                control.ReturnToPreviousScreen(item);
             }
         }
     }

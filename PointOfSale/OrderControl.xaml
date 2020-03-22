@@ -27,8 +27,8 @@
         </Border>
 
 
-        <Button Name="ItemSelectionButton" Grid.Row="0" Height="75" FontSize="30" Width="270">Item Selection</Button>
-        <Button Name="CancelOrderButton" Grid.Column="1"  Height="75" FontSize="30" Width="270">Cancel Order</Button>
-        <Button Name="CompleteOrderButton" Grid.Column="2"  Height="75" FontSize="30" Width="270">Complete Order</Button>
+        <Button Click="ItemSelectionButton_Click" Name="ItemSelectionButton" Grid.Row="0" Height="75" FontSize="30" Width="270">Item Selection</Button>
+        <Button Click="CancelOrderButton_Click" Name="CancelOrderButton" Grid.Column="1"  Height="75" FontSize="30" Width="270">Cancel Order</Button>
+        <Button Click="CompleteOrderButton_Click" Name="CompleteOrderButton" Grid.Column="2"  Height="75" FontSize="30" Width="270">Complete Order</Button>
     </Grid>
 </UserControl>

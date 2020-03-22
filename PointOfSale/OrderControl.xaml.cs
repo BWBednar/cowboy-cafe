@@ -28,11 +28,6 @@ namespace PointOfSale
 
             var data = new Order();
             DataContext = data;
-
-            //Item/Order click events
-            ItemSelectionButton.Click += ItemSelectionButton_Click;
-            CancelOrderButton.Click += CancelOrderButton_Click;
-            CompleteOrderButton.Click += CompleteOrderButton_Click;
         }
 
         /// <summary>
@@ -53,6 +48,11 @@ namespace PointOfSale
         public void SwapScreen(FrameworkElement element)
         {
             Container.Child = element;
+        }
+
+        public void ReturnToPreviousScreen(IOrderItem item)
+        {
+            
         }
 
         /// <summary>
