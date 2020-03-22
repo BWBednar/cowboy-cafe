@@ -26,8 +26,10 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=OrderNumber}" FontSize="25"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Subtotal" FontSize="25"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="25"/>
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
             <ListBox Name="ItemSummaryList" 
+                     Grid.ColumnSpan="2"
+                     HorizontalContentAlignment="Stretch"
                      SelectionMode="Single" 
                      SelectionChanged="ListBoxItemSelected" 
                      ItemsSource="{Binding Path=Items}">
@@ -35,6 +37,7 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
@@ -47,6 +50,8 @@
                                        Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
                             <ListView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
                                       ItemsSource="{Binding Path=SpecialInstructions}"/>
+                            <Button Grid.Column="2" Width="100" HorizontalAlignment="Center" 
+                                    Click="RemoveItemClick">X</Button>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

@@ -42,5 +42,10 @@ namespace PointOfSale
                 control.ReturnToPreviousScreen(item);
             }
         }
+
+        public void RemoveItemClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
