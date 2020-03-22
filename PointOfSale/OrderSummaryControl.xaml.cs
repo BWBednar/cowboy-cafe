@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -24,6 +25,21 @@ namespace PointOfSale
         public OrderSummaryControl()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Method that gets the item selected from the OrderSumarryControl and goes to that item's control
+        /// </summary>
+        /// <param name="sender">The item selected</param>
+        /// <param name="e">The SelectionChangedEventArgs</param>
+        void ListBoxItemSelected(object sender, SelectionChangedEventArgs e)
+        {
+            var menuItem = ((sender as ListBox).SelectedItem as FrameworkElement);
+            OrderControl ancestor = this.FindAncestor<OrderControl>();
+            if (ancestor is OrderControl)
+            {
+                ancestor.SwapScreen(menuItem);
+            }
         }
     }
 }

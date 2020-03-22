@@ -42,7 +42,6 @@ namespace PointOfSale
             {
                 if (sender is Button button)
                 {
-                    
                     switch (button.Tag)
                     {
                         case "AngryChicken":
