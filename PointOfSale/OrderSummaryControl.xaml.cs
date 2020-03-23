@@ -39,7 +39,7 @@ namespace PointOfSale
             OrderControl control = this.FindAncestor<OrderControl>();
             if (item is IOrderItem)
             {
-                control.ReturnToPreviousScreen(item);
+                control.ReturnToItemScreen(item);
             }
         }
 

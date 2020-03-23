@@ -50,9 +50,77 @@ namespace PointOfSale
             Container.Child = element;
         }
 
-        public void ReturnToPreviousScreen(IOrderItem item)
+        /// <summary>
+        /// Method that sends the Point of Sale to a customization screen for the item being editted after
+        /// it had been added to the order already
+        /// </summary>
+        /// <param name="item">The item being editted</param>
+        public void ReturnToItemScreen(IOrderItem item)
         {
-            
+            //Set the DataContext to a variable and make sure the value is not null
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("Datacontext expected to be an order instance");
+
+            //Create a variable for the customization control to go to and set its value based on item
+            FrameworkElement screen = null;
+            switch (item.GetType().Name)
+            {
+                case "AngryChicken":
+                    screen = new CustomizeAngryChicken();
+                    break;
+                case "CowpokeChili":
+                    screen = new CustomizeCowpokeChili();
+                    break;
+                case "RustlersRibs":
+                    screen = new CustomizeRustlersRibs();
+                    break;
+                case "PecosPulledPork":
+                    screen = new CustomizePecosPulledPork();
+                    break;
+                case "TrailBurger":
+                    screen = new CustomizeTrailBurger();
+                    break;
+                case "DakotaDoubleBurger":
+                    screen = new CustomizeDakotaDoubleBurger();
+                    break;
+                case "TexasTripleBurger":
+                    screen = new CustomizeTexasTripleBurger();
+                    break;
+                case "ChiliCheeseFries":
+                    screen = new CustomizeChiliCheeseFries();
+                    break;
+                case "CornDodgers":
+                    screen = new CustomizeCornDodgers();
+                    break;
+                case "PanDeCampo":
+                    screen = new CustomizePanDeCampo();
+                    break;
+                case "BakedBeans":
+                    screen = new CustomizeBakedBeans();
+                    break;
+                case "CowboyCoffee":
+                    screen = new CustomizeCowboyCoffee();
+                    break;
+                case "JerkedSoda":
+                    screen = new CustomizeJerkedSoda();
+                    break;
+                case "TexasTea":
+                    screen = new CustomizeTexasTea();
+                    break;
+                case "Water":
+                    screen = new CustomizeWater();
+                    break;
+                default:
+                    screen = null;
+                    break;
+            }
+
+            //If screen was set to a value, go to that control
+            if (screen != null)
+            {
+                screen.DataContext = item;
+                SwapScreen(screen);
+            }
         }
 
         /// <summary>

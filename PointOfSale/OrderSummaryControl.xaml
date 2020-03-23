@@ -48,8 +48,8 @@
                             <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding}"/>
                             <TextBlock Grid.Column="1" Grid.Row="0" 
                                        Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
-                            <ListView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
-                                      ItemsSource="{Binding Path=SpecialInstructions}"/>
+                            <ListBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                                      ItemsSource="{Binding Path=SpecialInstructions}" IsEnabled="False"/>
                             <Button Grid.Column="2" Width="100" HorizontalAlignment="Center" 
                                     Click="RemoveItemClick">X</Button>
                         </Grid>
