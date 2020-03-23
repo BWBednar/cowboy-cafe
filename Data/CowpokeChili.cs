@@ -66,7 +66,10 @@ namespace CowboyCafe.Data
         public bool TortillaStrips
         {
             get { return tortillaStrips; }
-            set { tortillaStrips = value; }
+            set { 
+                tortillaStrips = value;
+                NotifyOfSpecialInstructionsPropertyChange("TortillaStrips");
+            }
         }
 
         /// <summary>

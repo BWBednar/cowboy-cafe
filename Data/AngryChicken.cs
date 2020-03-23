@@ -30,7 +30,7 @@ namespace CowboyCafe.Data
             get { return bread; }
             set { 
                 bread = value;
-                NotifyOfSpecialInstructionsPropertyChange("Cheese");
+                NotifyOfSpecialInstructionsPropertyChange("Bread");
             }
         }
 
