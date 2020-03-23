@@ -45,7 +45,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding}"/>
+                            <TextBlock Name="ItemInBox" Grid.Column="0" Grid.Row="0" Text="{Binding}"/>
                             <TextBlock Grid.Column="1" Grid.Row="0" 
                                        Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
                             <ListBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 

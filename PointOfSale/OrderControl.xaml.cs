@@ -124,6 +124,19 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Method that tells the Order in DataContext to delete the item from the Order
+        /// </summary>
+        /// <param name="item">The item to be deleted from Order</param>
+        public void DeleteOrderControlItem(IOrderItem item)
+        {
+            //Set the DataContext to a variable and make sure the value is not null
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("Datacontext expected to be an order instance");
+
+            order.Remove(item);
+        }
+
+        /// <summary>
         /// Event for when the Item Selection Button is selected, currently has not function
         /// </summary>
         /// <param name="sender">The button being selected</param>

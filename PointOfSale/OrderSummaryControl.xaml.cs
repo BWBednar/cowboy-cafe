@@ -29,7 +29,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Method that gets the item selected from the OrderSumarryControl and goes to that item's control
+        /// Selection event method that gets the item selected from the OrderSumarryControl and goes to that item's control
         /// </summary>
         /// <param name="sender">The item selected</param>
         /// <param name="e">The SelectionChangedEventArgs</param>
@@ -39,13 +39,28 @@ namespace PointOfSale
             OrderControl control = this.FindAncestor<OrderControl>();
             if (item is IOrderItem)
             {
-                control.ReturnToItemScreen(item);
+                if (control is OrderControl)
+                {
+                    control.ReturnToItemScreen(item);
+                }
             }
         }
 
+        /// <summary>
+        /// Click event for the delete button that passes the neccesary information to OrderControl to delete the selected item
+        /// </summary>
+        /// <param name="sender">The button selected</param>
+        /// <param name="e">The RoutedEventArgs</param>
         public void RemoveItemClick(object sender, RoutedEventArgs e)
         {
-            
+            OrderControl control = this.FindAncestor<OrderControl>();
+            if(control is OrderControl)
+            {
+                if (sender is Button button)
+                {
+                    control.DeleteOrderControlItem(button.DataContext as IOrderItem);
+                }
+            }
         }
     }
 }
