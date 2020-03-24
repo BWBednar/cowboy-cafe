@@ -49,7 +49,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
         [Fact]
         public void ChangingSizeShouldInvokePropertyChangedForToString()
         {
-            var item = new CowboyCoffee();
+            var item = new CornDodgers();
             Assert.PropertyChanged(item, "ToString", () =>
             {
                 item.Size = Size.Large;
