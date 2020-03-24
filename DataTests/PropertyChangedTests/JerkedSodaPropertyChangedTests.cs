@@ -17,6 +17,26 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
         }
 
         [Fact]
+        public void ChangingSizeShouldInvokePropertyChangedForItems()
+        {
+            var item = new JerkedSoda();
+            Assert.PropertyChanged(item, "Items", () =>
+            {
+                item.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldInvokePropertyChangedForSubtotal()
+        {
+            var item = new JerkedSoda();
+            Assert.PropertyChanged(item, "Subtotal", () =>
+            {
+                item.Size = Size.Large;
+            });
+        }
+
+        [Fact]
         public void ChangingSizeShouldInvokePropertyChangedForSize()
         {
             var item = new JerkedSoda();
@@ -53,6 +73,16 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             Assert.PropertyChanged(item, "ToString", () =>
             {
                 item.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingFlavorShouldInvokePropertyChangedForItems()
+        {
+            var item = new JerkedSoda();
+            Assert.PropertyChanged(item, "Items", () =>
+            {
+                item.Flavor = SodaFlavor.OrangeSoda;
             });
         }
 
