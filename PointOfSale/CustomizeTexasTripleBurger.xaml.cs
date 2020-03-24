@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * CustomizeTexasTripleBurger.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the CustomizeTexasTripleBurger control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

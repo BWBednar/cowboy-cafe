@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * OrderSummaryControl.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the OrderSummaryControl control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

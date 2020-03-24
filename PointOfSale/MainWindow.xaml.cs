@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * MainWindow.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the MainWindow control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

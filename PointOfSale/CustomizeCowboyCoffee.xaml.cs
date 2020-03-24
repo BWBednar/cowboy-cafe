@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * CustomizeCowboyCoffee.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the CustomizeCowboyCoffee control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

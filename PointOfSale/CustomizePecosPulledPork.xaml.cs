@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * CustomizePecosPulledPork.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the CustomizePecosPulledPork control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * IOrderItem.cs
+ * Author: Brandon Bednar
+ * Purpose: A interface that helps communicate order information to PointOfSale
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

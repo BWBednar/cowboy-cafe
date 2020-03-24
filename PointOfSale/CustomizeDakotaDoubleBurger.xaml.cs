@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * CustomizeDakotaDoubleBurger.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the CustomizeDakotaDoubleBurger control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

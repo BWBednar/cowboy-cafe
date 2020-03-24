@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Order.cs
+ * Author: Brandon Bednar
+ * Purpose: A class that contains the total order of entree, side, and drink classes
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;

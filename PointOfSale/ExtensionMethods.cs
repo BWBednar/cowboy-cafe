@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * ExtentsionMethods.cs
+ * Author: Brandon Bednar
+ * Purpose: Extension methods for finding ancestors of the controls
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
