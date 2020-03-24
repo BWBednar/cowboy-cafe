@@ -1,6 +1,7 @@
 ﻿/*
  * Side.cs
  * Author: Nathan Bean
+ * Edited by: Brandon Bednar
  * Purpose: A base class representing a side
  */
 
@@ -19,9 +20,9 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The property changed event handler
         /// </summary>
-        public virtual event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        private Size size;
+        private Size size = Size.Small;
         /// <summary>
         /// Gets the size of the side
         /// </summary>
@@ -36,6 +37,10 @@ namespace CowboyCafe.Data
                 size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
             }
         }
 

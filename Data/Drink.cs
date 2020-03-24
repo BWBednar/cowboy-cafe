@@ -19,9 +19,9 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Event for when the values of the drink are changed
         /// </summary>
-        public virtual event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        private Size size;
+        private Size size = Size.Small;
         /// <summary>
         /// Size of the drink, initialized to Size.Small
         /// </summary>
@@ -36,6 +36,10 @@ namespace CowboyCafe.Data
                 size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
             }
         }
 
@@ -62,7 +66,7 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                NotifyOfSpecialInstructionsPropertyChange("Ice");
+                NotifyOfPropertyChange("Ice");
             }
         }
 
@@ -75,7 +79,7 @@ namespace CowboyCafe.Data
         /// Helper method to notify if boolean changes have been made
         /// </summary>
         /// <param name="propertyName">The name of the property being changed</param>
-        private void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
+        protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));

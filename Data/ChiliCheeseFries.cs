@@ -21,6 +21,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public List<string> SpecialInstructions => new List<string>();
 
+        
         /// <summary>
         /// The calories of the fries depending on the size
         /// </summary>
@@ -28,6 +29,7 @@ namespace CowboyCafe.Data
         {
             get
             {
+
                 switch (Size)
                 {
                     case Size.Small:
@@ -40,6 +42,7 @@ namespace CowboyCafe.Data
                         throw new NotImplementedException();
                 }
             }
+
         }
 
         /// <summary>

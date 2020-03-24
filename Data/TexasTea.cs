@@ -16,10 +16,7 @@ namespace CowboyCafe.Data
     /// </summary>
     public class TexasTea : Drink, IOrderItem
     {
-        /// <summary>
-        /// Event for when values of the item are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
+        
 
         /// <summary>
         /// The price of the tea
@@ -79,8 +76,9 @@ namespace CowboyCafe.Data
             set
             {
                 sweetTea = value;
-                NotifyOfSpecialInstructionsPropertyChange("Sweet");
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+                NotifyOfPropertyChange("Sweet");
+                NotifyOfPropertyChange("Items");
+                NotifyOfPropertyChange("ToString");
             }
         }
 
@@ -97,7 +95,7 @@ namespace CowboyCafe.Data
             set
             {
                 lemon = value;
-                NotifyOfSpecialInstructionsPropertyChange("Lemon");
+                NotifyOfPropertyChange("Lemon");
             }
         }
 
@@ -114,7 +112,7 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                NotifyOfSpecialInstructionsPropertyChange("Ice");
+                NotifyOfPropertyChange("Ice");
             }
         }
 
@@ -155,14 +153,5 @@ namespace CowboyCafe.Data
             }
         }
 
-        /// <summary>
-        /// Helper method for changing the special instructions of the item
-        /// </summary>
-        /// <param name="propertyName">The name of the property being changed</param>
-        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-        }
     }
 }
