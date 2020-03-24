@@ -16,8 +16,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class CowboyCoffee : Drink, IOrderItem
     {
-        
-
         /// <summary>
         /// The price of the coffee
         /// </summary>
@@ -73,7 +71,7 @@ namespace CowboyCafe.Data
             set
             {
                 coffeeIce = value;
-                NotifyOfPropertyChange("Ice");
+                NotifyOfSpecialInstructionsPropertyChange("Ice");
             }
         }
 
@@ -90,7 +88,7 @@ namespace CowboyCafe.Data
             set
             {
                 decaf = value;
-                NotifyOfPropertyChange("Decaf");
+                NotifyOfSpecialInstructionsPropertyChange("Decaf");
                 NotifyOfPropertyChange("Items");
                 NotifyOfPropertyChange("ToString");
             }
@@ -109,7 +107,7 @@ namespace CowboyCafe.Data
             set
             {
                 roomForCream = value;
-                NotifyOfPropertyChange("RoomForCream");
+                NotifyOfSpecialInstructionsPropertyChange("RoomForCream");
             }
         }
 

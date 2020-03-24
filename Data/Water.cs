@@ -64,7 +64,7 @@ namespace CowboyCafe.Data
             set
             {
                 lemon = value;
-                NotifyOfPropertyChange("Lemon");
+                NotifyOfSpecialInstructionsPropertyChange("Lemon");
             }
         }
 
@@ -81,7 +81,7 @@ namespace CowboyCafe.Data
             set
             {
                 ice = value;
-                NotifyOfPropertyChange("Ice");
+                NotifyOfSpecialInstructionsPropertyChange("Ice");
             }
         }
 
@@ -110,22 +110,14 @@ namespace CowboyCafe.Data
             switch (Size)
             {
                 case Size.Small:
-                    //output = "Small Water";
-                    //break;
                     return "Small Water";
                 case Size.Medium:
-                    //output = "Medium Water";
-                    //break;
                     return "Medium Water";
                 case Size.Large:
-                    //output = "Large Water";
-                    //break;
                     return "Large Water";
                 default:
                     throw new NotImplementedException();
             }
-            //NotifyOfSizeRelatedPropertyChanges();
-            //return output;
         }
 
         

@@ -17,11 +17,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class TrailBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Event for when values of the item are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         private bool ketchup = true;
         /// <summary>
         /// If the burger is topped with ketchup
@@ -140,16 +135,6 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Trail Burger";
-        }
-
-        /// <summary>
-        /// Helper method for changing the special instructions of the item
-        /// </summary>
-        /// <param name="propertyName">The name of the property being changed</param>
-        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

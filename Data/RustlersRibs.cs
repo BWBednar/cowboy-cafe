@@ -17,11 +17,6 @@ namespace CowboyCafe.Data
     public class RustlersRibs : Entree, IOrderItem
     {
         /// <summary>
-        /// Event for when values of the item are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
         /// The price of the ribs
         /// </summary>
         public override double Price
@@ -56,7 +51,6 @@ namespace CowboyCafe.Data
             }
         }
 
-
         /// <summary>
         /// Modified ToString for the Point of Sale
         /// </summary>
@@ -64,16 +58,6 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Rustler's Ribs";
-        }
-
-        /// <summary>
-        /// Helper method for changing the special instructions of the item
-        /// </summary>
-        /// <param name="propertyName">The name of the property being changed</param>
-        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

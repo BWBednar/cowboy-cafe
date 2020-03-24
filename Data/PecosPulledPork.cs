@@ -16,11 +16,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class PecosPulledPork : Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Event for when values of the item are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         private bool bread = true;
         /// <summary>
         /// If the pulled pork has bread
@@ -92,16 +87,6 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Pecos Pulled Pork";
-        }
-
-        /// <summary>
-        /// Helper method for changing the special instructions of the item
-        /// </summary>
-        /// <param name="propertyName">The name of the property being changed</param>
-        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

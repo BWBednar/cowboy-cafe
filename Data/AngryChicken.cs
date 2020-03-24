@@ -16,11 +16,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class AngryChicken : Entree, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Event for when values of the item are changed
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         private bool bread = true;
         /// <summary>
         /// If the chicken includes bread
@@ -91,16 +86,6 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Angry Chicken";
-        }
-
-        /// <summary>
-        /// Helper method for changing the special instructions of the item
-        /// </summary>
-        /// <param name="propertyName">The name of the property being changed</param>
-        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }

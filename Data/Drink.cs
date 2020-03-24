@@ -82,6 +82,15 @@ namespace CowboyCafe.Data
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Helper method to notify if boolean changes have been made to an item that affects special instructions
+        /// </summary>
+        /// <param name="propertyName">The name of the property being changed</param>
+        protected void NotifyOfSpecialInstructionsPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
