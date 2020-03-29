@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="370">
+             d:DesignHeight="900" d:DesignWidth="370">
     <UserControl.Resources>
         <Style TargetType="ListBoxItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -31,6 +31,8 @@
                      Grid.ColumnSpan="2"
                      HorizontalContentAlignment="Stretch"
                      SelectionMode="Single" 
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     Height="900"
                      SelectionChanged="ListBoxItemSelected" 
                      ItemsSource="{Binding Path=Items}">
                 <ListBox.ItemTemplate>
