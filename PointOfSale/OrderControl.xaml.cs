@@ -183,6 +183,9 @@ namespace PointOfSale
                 if (sender is Button button)
                 {
                     Summary.Visibility = Visibility.Hidden;
+                    ItemSelectionButton.Visibility = Visibility.Hidden;
+                    CancelOrderButton.Visibility = Visibility.Hidden;
+                    CompleteOrderButton.Visibility = Visibility.Hidden;
                     FrameworkElement transactionScreen = new TransactionControl();
                     transactionScreen.DataContext = data;
                     SwapScreen(transactionScreen);

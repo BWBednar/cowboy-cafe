@@ -22,8 +22,27 @@ namespace PointOfSale
         public TransactionControl()
         {
             InitializeComponent();
+            
+        }
 
-       
+        private void PayByCardButtonClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PayByCashButtonClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ReturnToItemsButtonClicked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

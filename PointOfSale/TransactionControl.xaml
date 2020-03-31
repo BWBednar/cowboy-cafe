@@ -5,8 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch">
     <UserControl.Resources>
+        
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="Margin" Value="5"/>
@@ -16,6 +21,12 @@
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="75"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -24,10 +35,11 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0"
+        <StackPanel Grid.RowSpan="3">
+            <TextBlock Grid.Row="0"
                    Grid.Column="0">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -43,13 +55,17 @@
         <ListBox Grid.Row="1"
                  Grid.Column="0"
                  Grid.RowSpan="2"
-                 ItemsSource ="{Binding Path=Items}">
+                 ItemsSource ="{Binding Path=Items}"
+                 Height="550"
+                 HorizontalContentAlignment="Stretch"
+                 IsEnabled="True"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="175"/>
                             <ColumnDefinition/>
+                            <ColumnDefinition Width="75"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -68,46 +84,60 @@
                                  Grid.ColumnSpan="2"
                                  FontSize="15"
                                  ItemsSource="{Binding Path=SpecialInstructions}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Grid Grid.Row="0" 
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <Grid Grid.Row="1" 
               Grid.Column="1"
               Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0"
-                       Grid.Column="0"
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
                        FontSize="30"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Text="Subtotal: "/>
-            <TextBlock Grid.Row="0"
-                       Grid.Column="1"
+                    <TextBlock Name="tbSubtotalValue"
                        FontSize="30"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Text="{Binding Path=Subtotal, StringFormat=c}"/>
-            <TextBlock Grid.Row="1"
-                       Grid.Column="0"
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
                        FontSize="30"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Text="Tax: "/>
-            <TextBlock Name="tbTaxText"
-                       Grid.Row="1"
-                       Grid.Column="1"
+                    <TextBlock 
                        FontSize="30"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Center"
+                       Text="{Binding Path=Tax, StringFormat=c}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
+                       FontSize="30"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Text="Total: "/>
+                    <TextBlock 
+                       FontSize="30"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Text="{Binding Path=Total, StringFormat=c}"/>
+                </StackPanel>
+                <Button Name="PayByCardButton" 
+                        Click="PayByCardButtonClicked">Pay By Card</Button>
+                <Button Name="PayByCashButton" 
+                        Click="PayByCashButtonClicked">Pay By Cash</Button>
+                <Button Name="CancelOrderButton" 
+                        Click="CancelOrderButtonClicked">Cancel Order</Button>
+                <Button Name="ReturnToItemsButton"
+                        Click="ReturnToItemsButtonClicked">Return To Items</Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

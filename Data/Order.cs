@@ -54,6 +54,28 @@ namespace CowboyCafe.Data
                 return subtotal;
             }
         }
+
+        /// <summary>
+        /// The tax for the Order items based on Subtotal
+        /// </summary>
+        public double Tax
+        {
+            get
+            {
+                return Subtotal * 0.16;
+            }
+        }
+
+        /// <summary>
+        /// The total for the Order items based on Subtotal and Tax
+        /// </summary>
+        public double Total
+        {
+            get
+            {
+                return Subtotal + Tax;
+            }
+        }
         
         /// <summary>
         /// The public field to access the items in Order
