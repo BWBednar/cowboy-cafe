@@ -149,6 +149,7 @@ namespace PointOfSale
         /// <param name="e">The event args</param>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
+            Summary.Visibility = Visibility.Visible;
             Container.Child = new MenuItemSelectionControl();
             
         }
@@ -164,6 +165,7 @@ namespace PointOfSale
             {
                 if (sender is Button button)
                 {
+                    Summary.Visibility = Visibility.Visible;
                     this.DataContext = new Order();
                 }
             }
@@ -180,7 +182,10 @@ namespace PointOfSale
             {
                 if (sender is Button button)
                 {
-                    this.DataContext = new Order();
+                    Summary.Visibility = Visibility.Hidden;
+                    FrameworkElement transactionScreen = new TransactionControl();
+                    transactionScreen.DataContext = data;
+                    SwapScreen(transactionScreen);
                 }
             }
         }

@@ -32,6 +32,7 @@
                      HorizontalContentAlignment="Stretch"
                      SelectionMode="Single" 
                      SelectionChanged="ListBoxItemSelected" 
+                     FontSize="20"
                      ItemsSource="{Binding Path=Items}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -48,7 +49,7 @@
                             <TextBlock Name="ItemInBox" Grid.Column="0" Grid.Row="0" Text="{Binding}"/>
                             <TextBlock Grid.Column="1" Grid.Row="0" 
                                        Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
-                            <ListBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                            <ListBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="15"
                                       ItemsSource="{Binding Path=SpecialInstructions}" IsEnabled="False"/>
                             <Button Grid.Column="2" Width="100" HorizontalAlignment="Center" 
                                     Click="RemoveItemClick">X</Button>

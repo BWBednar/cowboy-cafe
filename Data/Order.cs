@@ -32,6 +32,14 @@ namespace CowboyCafe.Data
         private List<IOrderItem> items = new List<IOrderItem>();
 
         /// <summary>
+        /// Constructor for the Order, meant only to increment the order number
+        /// </summary>
+        public Order()
+        {
+            lastOrderNumber++;
+        }
+
+        /// <summary>
         /// The subtotal of the IOrderItems in the Order items
         /// </summary>
         public double Subtotal
@@ -59,9 +67,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                lastOrderNumber++;
-                uint orderNumberValue = lastOrderNumber;
-                return orderNumberValue;
+                return lastOrderNumber;
             }
         }
 
