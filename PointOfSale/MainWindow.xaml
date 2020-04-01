@@ -9,7 +9,6 @@
         Title="MainWindow" Height="1080" Width="1480">
 
     <DockPanel>
-
         <local:OrderControl/>
     </DockPanel>
 </Window>
