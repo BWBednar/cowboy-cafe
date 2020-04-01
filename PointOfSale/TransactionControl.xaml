@@ -11,9 +11,8 @@
              HorizontalContentAlignment="Stretch"
              VerticalContentAlignment="Stretch">
     <UserControl.Resources>
-        
         <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="30"/>
             <Setter Property="Margin" Value="5"/>
         </Style>
         <Style TargetType="ListBox">
@@ -34,109 +33,31 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.RowSpan="3">
-            <TextBlock Grid.Row="0"
-                   Grid.Column="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="30"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" 
-                           Text="Order Number: "/>
-                <TextBlock Grid.Column="1" 
-                           Text="{Binding Path=OrderNumber}"/>
-            </Grid>
-        </TextBlock>
-        <ListBox Grid.Row="1"
-                 Grid.Column="0"
-                 Grid.RowSpan="2"
-                 ItemsSource ="{Binding Path=Items}"
-                 Height="550"
-                 HorizontalContentAlignment="Stretch"
-                 IsEnabled="True"
-                 ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="75"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Name="ItemInBox" 
-                                   Grid.Column="0" 
-                                   Grid.Row="0" 
-                                   Text="{Binding}"/>
-                        <TextBlock Grid.Column="1" 
-                                   Grid.Row="0" 
-                                   Text="{Binding Path=Price, StringFormat=c}" 
-                                   FontSize="25"/>
-                        <ListBox Grid.Column="0" 
-                                 Grid.Row="1" 
-                                 Grid.ColumnSpan="2"
-                                 FontSize="15"
-                                 ItemsSource="{Binding Path=SpecialInstructions}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </StackPanel>
-        <Grid Grid.Row="1" 
-              Grid.Column="1"
-              Grid.RowSpan="2">
+        
+        <Grid Grid.Column="0">
             <StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock 
-                       FontSize="30"
-                       VerticalAlignment="Center"
-                       Text="Subtotal: "/>
-                    <TextBlock Name="tbSubtotalValue"
-                       FontSize="30"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Text="{Binding Path=Subtotal, StringFormat=c}"/>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Subtotal: "/>
+                    <TextBlock Text="{Binding Path=Subtotal, StringFormat=c}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock 
-                       FontSize="30"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Text="Tax: "/>
-                    <TextBlock 
-                       FontSize="30"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Text="{Binding Path=Tax, StringFormat=c}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Tax: "/>
+                    <TextBlock Text="{Binding Path=Tax, StringFormat=c}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock 
-                       FontSize="30"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Text="Total: "/>
-                    <TextBlock 
-                       FontSize="30"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Text="{Binding Path=Total, StringFormat=c}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Total: "/>
+                    <TextBlock Name="tbTotal" Text="{Binding Path=Total, StringFormat=c}"/>
                 </StackPanel>
-                <Button Name="PayByCardButton" 
+                <StackPanel Orientation="Vertical">
+                    <Button Name="PayByCardButton" 
                         Click="PayByCardButtonClicked">Pay By Card</Button>
                 <Button Name="PayByCashButton" 
                         Click="PayByCashButtonClicked">Pay By Cash</Button>
-                <Button Name="CancelOrderButton" 
-                        Click="CancelOrderButtonClicked">Cancel Order</Button>
-                <Button Name="ReturnToItemsButton"
-                        Click="ReturnToItemsButtonClicked">Return To Items</Button>
+                </StackPanel>
             </StackPanel>
         </Grid>
+        <Border Name="PaymentBorder" Grid.Column="1"/>
     </Grid>
 </UserControl>

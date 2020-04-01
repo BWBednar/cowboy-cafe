@@ -8,30 +8,30 @@
              d:DesignHeight="800" d:DesignWidth="1480">
 
 
-    <Border Name="OrderControlScreen">
-        <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="500"/>
-        </Grid.ColumnDefinitions>
-
-        <local:OrderSummaryControl x:Name="Summary" Grid.Row="0" Grid.Column="4" Grid.RowSpan="2"/>
-
-        <Border x:Name="Container" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
-            <local:MenuItemSelectionControl/>
-        </Border>
-
-
-        <Button Click="ItemSelectionButton_Click" Name="ItemSelectionButton" Grid.Row="0" Height="75" FontSize="30" Width="270">Item Selection</Button>
-        <Button Click="CancelOrderButton_Click" Name="CancelOrderButton" Grid.Column="1"  Height="75" FontSize="30" Width="270">Cancel Order</Button>
-        <Button Click="CompleteOrderButton_Click" Name="CompleteOrderButton" Grid.Column="2"  Height="75" FontSize="30" Width="270">Complete Order</Button>
     
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="500"/>
+            </Grid.ColumnDefinitions>
+
+            <local:OrderSummaryControl x:Name="Summary" Grid.Row="0" Grid.Column="4" Grid.RowSpan="2"/>
+
+            <Border x:Name="Container" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+                <local:MenuItemSelectionControl/>
+            </Border>
+
+
+            <Button Click="ItemSelectionButton_Click" Name="ItemSelectionButton" Grid.Row="0" Height="75" FontSize="30" Width="270">Item Selection</Button>
+            <Button Click="CancelOrderButton_Click" Name="CancelOrderButton" Grid.Column="1"  Height="75" FontSize="30" Width="270">Cancel Order</Button>
+            <Button Click="CompleteOrderButton_Click" Name="CompleteOrderButton" Grid.Column="2"  Height="75" FontSize="30" Width="270">Complete Order</Button>
+
         </Grid>
-    </Border>
+    
 </UserControl>

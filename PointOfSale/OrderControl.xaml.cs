@@ -53,12 +53,7 @@ namespace PointOfSale
         /// <param name="element">The element used to change screens</param>
         public void SwapScreen(FrameworkElement element)
         {
-            //If the user is being sent to the TransactionControl, the entire control changes
-            if (element.GetType().Name.Equals("TransactionControl"))
-            {
-                OrderControlScreen.Child = element;
-            }
-            else Container.Child = element;
+            Container.Child = element;
         }
 
         /// <summary>
@@ -154,6 +149,10 @@ namespace PointOfSale
         /// <param name="e">The event args</param>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
+            if (Container.Child.GetType().Name.Equals("TransactionControl"))
+            {
+                CompleteOrderButton.Visibility = Visibility.Visible;;
+            }
             Container.Child = new MenuItemSelectionControl();
         }
 
@@ -168,6 +167,11 @@ namespace PointOfSale
             {
                 if (sender is Button button)
                 {
+                    if (Container.Child.GetType().Name.Equals("TransactionControl"))
+                    {
+                        CompleteOrderButton.Visibility = Visibility.Visible;
+                        Container.Child = new MenuItemSelectionControl();
+                    }
                     this.DataContext = new Order();
                 }
             }
@@ -184,6 +188,7 @@ namespace PointOfSale
             {
                 if (sender is Button button)
                 {
+                    CompleteOrderButton.Visibility = Visibility.Hidden;
                     FrameworkElement transactionScreen = new TransactionControl();
                     transactionScreen.DataContext = data;
                     SwapScreen(transactionScreen);

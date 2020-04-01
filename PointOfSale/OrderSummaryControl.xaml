@@ -10,54 +10,63 @@
         <Style TargetType="ListBoxItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
-
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Order Number" FontSize="25"/>
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=OrderNumber}" FontSize="25"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Subtotal" FontSize="25"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="25"/>
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
-            <ListBox Name="ItemSummaryList" 
-                     Grid.ColumnSpan="2"
-                     HorizontalContentAlignment="Stretch"
-                     SelectionMode="Single" 
-                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                     Height="900"
-                     SelectionChanged="ListBoxItemSelected" 
-                     ItemsSource="{Binding Path=Items}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Name="ItemInBox" Grid.Column="0" Grid.Row="0" Text="{Binding}"/>
-                            <TextBlock Grid.Column="1" Grid.Row="0" 
-                                       Text="{Binding Path=Price, StringFormat=c}" FontSize="25"/>
-                            <ListBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
-                                      ItemsSource="{Binding Path=SpecialInstructions}" IsEnabled="False"/>
-                            <Button Grid.Column="2" Width="100" HorizontalAlignment="Center" 
-                                    Click="RemoveItemClick">X</Button>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Order Number: "/>
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Path=OrderNumber}"/>
         </StackPanel>
-    </Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Subtotal: "/>
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Path=Subtotal, StringFormat=c}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Tax: "/>
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Path=Tax, StringFormat=c}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Total: "/>
+            <TextBlock HorizontalAlignment="Right" Text="{Binding Path=Total, StringFormat=c}"/>
+        </StackPanel>
+        <ListBox Grid.Row="1"
+                 Grid.Column="0"
+                 Grid.RowSpan="2"
+                 ItemsSource ="{Binding Path=Items}"
+                 Height="700"
+                 HorizontalContentAlignment="Stretch"
+                 IsEnabled="True"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="75"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Name="ItemInBox" 
+                                   Grid.Column="0" 
+                                   Grid.Row="0" 
+                                   Text="{Binding}"/>
+                        <TextBlock Grid.Column="1" 
+                                   Grid.Row="0" 
+                                   Text="{Binding Path=Price, StringFormat=c}" 
+                                   FontSize="25"/>
+                        <ListBox Grid.Column="0" 
+                                 Grid.Row="1" 
+                                 Grid.ColumnSpan="2"
+                                 FontSize="15"
+                                 ItemsSource="{Binding Path=SpecialInstructions}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
 </UserControl>
