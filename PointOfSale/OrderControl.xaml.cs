@@ -53,6 +53,8 @@ namespace PointOfSale
         /// <param name="element">The element used to change screens</param>
         public void SwapScreen(FrameworkElement element)
         {
+            if (element.GetType().Name.Equals("TransactionControl")) Summary.IsEnabled = false;
+            else Summary.IsEnabled = true;
             Container.Child = element;
         }
 
@@ -153,6 +155,7 @@ namespace PointOfSale
             {
                 CompleteOrderButton.Visibility = Visibility.Visible;;
             }
+            Summary.IsEnabled = true;
             Container.Child = new MenuItemSelectionControl();
         }
 

@@ -39,7 +39,8 @@
                  Height="700"
                  HorizontalContentAlignment="Stretch"
                  IsEnabled="True"
-                 ScrollViewer.VerticalScrollBarVisibility="Visible">
+                 ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                 SelectionChanged="ListBoxItemSelected">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
