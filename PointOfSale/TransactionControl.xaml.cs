@@ -21,7 +21,11 @@ namespace PointOfSale
     /// </summary>
     public partial class TransactionControl : UserControl
     {
-        private static CashDrawer programDrawer = new CashDrawer();
+        /// <summary>
+        /// Variable that will share the cash register information between different controls
+        /// </summary>
+        private static CashRegisterModelView cashRegisterModelView = new CashRegisterModelView();
+
         public TransactionControl()
         {
             InitializeComponent();
@@ -32,7 +36,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">The button selected</param>
         /// <param name="e">Routed Event Args</param>
-        private void PayByCardButtonClicked(object sender, RoutedEventArgs e)
+        public void PayByCardButtonClicked(object sender, RoutedEventArgs e)
         {
             var cardTerminal = new CardTerminal(); //New card terminal
             double total = Convert.ToDouble(tbTotal.Text.Substring(1));
@@ -70,22 +74,32 @@ namespace PointOfSale
             }
         }
 
-        private void PayByCashButtonClicked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Click event for if the user selects Pay By Cash 
+        /// </summary>
+        /// <param name="sender">The button selected</param>
+        /// <param name="e">Routed Event Args</param>
+        public void PayByCashButtonClicked(object sender, RoutedEventArgs e)
         {
             //Hide the cancel and item selection buttons from view
             var orderControl = this.FindAncestor<OrderControl>();
             orderControl.CancelOrderButton.Visibility = Visibility.Hidden;
             orderControl.ItemSelectionButton.Visibility = Visibility.Hidden;
 
+            //Disable the PayByCashButton
             PayByCashButton.IsEnabled = false;
-            //Change the PaymentBorder 
-            CashPaymentInformationControl display = new CashPaymentInformationControl();
-            display.DataContext = programDrawer;
-            PaymentBorder.Child = display;
 
-            var control = this.FindAncestor<OrderControl>();
-            var display2 = new CashPaymentInputControl();
-            control.SummaryBorder.Child = display2;
-        }      
+            //Change the PaymentBorder to a CashPaymentInformationControl with proper DataContext
+            var paymentControl = new CashPaymentInformationControl();
+            paymentControl.DataContext = cashRegisterModelView;
+            PaymentBorder.Child = paymentControl;
+
+            //Change the SummaryBorder of OrderControl and set its DataContext
+            var inputControl = new CashPaymentInputControl();
+            inputControl.DataContext = cashRegisterModelView;
+            orderControl.SummaryBorder.Child = inputControl;
+        }
+        
+        
     }
 }

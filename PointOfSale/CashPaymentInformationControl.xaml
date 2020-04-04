@@ -26,21 +26,21 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="Amount Payed: "/>
-            <TextBlock Text=" [later]"/> 
+            <TextBlock Text="[later]"/> 
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="Amount Remaining: "/>
-            <TextBlock Text=" [later]"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Change Needed: "/>
             <TextBlock Text=" [later]"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
             <Button Name="CompleteCashPaymentButton" Click="CompleteCashPaymentButtonClicked">Complete Payment</Button>
             <Button Name="CancelCashPaymentButton" Click="CancelCashPaymentButtonClicked">Cancel Cash Payment</Button>
         </StackPanel>
-        <TextBlock Text="Amount Currently in Till" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Amount in Till:" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Path=TotalValue, StringFormat=c}" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -53,32 +53,32 @@
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Pennies: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Pennies}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Nickels: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Nickels}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Dimes: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Dimes}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Quarters: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Quarters}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Half Dollars: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=HalfDollars}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Dollar Coins: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Dollars}"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" 
@@ -88,37 +88,37 @@
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Ones: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Ones}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Twos: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Twos}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Fives: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Fives}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Tens: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Tens}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Twenties: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Twenties}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Fifties: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Fifties}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                     <TextBlock FontSize="15" Text="Hundreds: "/>
-                    <TextBlock FontSize="15" Text="[bind]"/>
+                    <TextBlock FontSize="15" Text="{Binding Path=Hundreds}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

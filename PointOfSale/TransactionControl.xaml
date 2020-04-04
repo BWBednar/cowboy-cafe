@@ -38,15 +38,15 @@
         
         <Grid Grid.Column="0">
             <StackPanel>
-                <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Subtotal: "/>
                     <TextBlock Text="{Binding Path=Subtotal, StringFormat=c}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Tax: "/>
                     <TextBlock Text="{Binding Path=Tax, StringFormat=c}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Total: "/>
                     <TextBlock Name="tbTotal" Text="{Binding Path=Total, StringFormat=c}"/>
                 </StackPanel>

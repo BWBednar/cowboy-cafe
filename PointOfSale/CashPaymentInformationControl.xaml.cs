@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Extensions;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -19,21 +20,32 @@ namespace PointOfSale
     /// </summary>
     public partial class CashPaymentInformationControl : UserControl
     {
+        
         public CashPaymentInformationControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Click event for the Complete Cash Payment Button
+        /// This event will get the denominations entered by the user for the 
+        /// payment and then add them to the CashDrawer if the payment is enough.
+        /// The CashChangeDisplayControl will then be shown if the payment was enough.
+        /// </summary>
+        /// <param name="sender">The button selected</param>
+        /// <param name="e">Routed Event Args</param>
         public void CompleteCashPaymentButtonClicked(object sender, RoutedEventArgs e)
         {
-
+            
+            
         }
 
         /// <summary>
         /// Click event for the Cancel Cash Payment button.
         /// This event will return the display to having the OrderControlSummary in 
         /// the far right of the screen and will clear the view of the PaymentBorder from
-        /// the TranscationControl.
+        /// the TranscationControl. Also, the Cancel and Item Selection Buttons are made
+        /// visible again
         /// </summary>
         /// <param name="sender">The button selected</param>
         /// <param name="e">Routed Event Args</param>

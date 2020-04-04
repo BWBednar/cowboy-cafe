@@ -19,12 +19,12 @@ namespace PointOfSale
         /// <summary>
         /// The Model class for this ModelView
         /// </summary> 
-        CashDrawer drawer = new CashDrawer();
+        private static CashDrawer drawer = new CashDrawer();
 
         /// <summary>
         /// The total current value of the drawer
         /// </summary>
-        double TotalValue => drawer.TotalValue;
+        public double TotalValue => drawer.TotalValue;
 
         /// <summary>
         /// Invokes the PropertyChanged event for denomination properties
@@ -221,6 +221,23 @@ namespace PointOfSale
                 if (quantity > 0) drawer.AddBill(Bills.Twenty, quantity);
                 else drawer.RemoveBill(Bills.Twenty, -quantity);
                 InvokePropertyChanged("Twenties");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the number of twenties in the cash register
+        /// </summary>
+        public int Fifties
+        {
+            get => drawer.Fifties;
+
+            set
+            {
+                if (drawer.Fifties == value || value < 0) return;
+                int quantity = value - drawer.Fifties;
+                if (quantity > 0) drawer.AddBill(Bills.Fifty, quantity);
+                else drawer.RemoveBill(Bills.Fifty, -quantity);
+                InvokePropertyChanged("Fifties");
             }
         }
 

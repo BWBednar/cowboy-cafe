@@ -18,32 +18,33 @@
     </UserControl.Resources>
     
     <StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock FontSize="30" Text="Amount Currently In Drawer: "/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Enter Denominations and Quantities"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="30" Text=" of Cash Given"/>
             <TextBlock FontSize="30" Text="{Binding Path=TotalValue}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:CoinControl Denomination="Penny" Quantity="{Binding Path=Pennies}"/>
-            <local:CoinControl Denomination="Dime" Quantity="{Binding Path=Dimes}"/>
-            <local:CoinControl Denomination="Nickel" Quantity="{Binding Path=Nickels}"/>
+            <local:CoinControl x:Name="PennyControl" Denomination="Penny" Quantity="{Binding Path=Pennies}"/>
+            <local:CoinControl x:Name="NiceklControl" Denomination="Nickel" Quantity="{Binding Path=Dimes}"/>
+            <local:CoinControl x:Name="DimeControl" Denomination="Dime" Quantity="{Binding Path=Nickels}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:CoinControl Denomination="Quarter" Quantity="{Binding Path=Quarters}"/>
-            <local:CoinControl Denomination="HalfDollar" Quantity="{Binding Path=HalfDollar}"/>
-            <local:CoinControl Denomination="Dollar" Quantity="{Binding Path=Dollar}"/>
+            <local:CoinControl x:Name="QuarterControl" Denomination="Quarter" Quantity="{Binding Path=Quarters}"/>
+            <local:CoinControl x:Name="HalfDollarControl" Denomination="HalfDollar" Quantity="{Binding Path=HalfDollar}"/>
+            <local:CoinControl x:Name="DollarControl" Denomination="Dollar" Quantity="{Binding Path=Dollar}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:BillControl Denomination="One" Quantity="{Binding Path=Ones}"/>
-            <local:BillControl Denomination="Two" Quantity="{Binding Path=Twos}"/>
+            <local:BillControl x:Name="OneControl" Denomination="One"/>
+            <local:BillControl x:Name="TwoControl" Denomination="Two" Quantity="{Binding Path=Twos}"/>
             </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-        <local:BillControl Denomination="Five" Quantity="{Binding Path=Fives}"/>
-            <local:BillControl Denomination="Ten" Quantity="{Binding Path=Tens}"/>
+            <local:BillControl x:Name="FiveControl" Denomination="Five" Quantity="{Binding Path=Fives}"/>
+            <local:BillControl x:Name="TenControl" Denomination="Ten" Quantity="{Binding Path=Tens}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:BillControl Denomination="Twenty" Quantity="{Binding Path=Twenty}"/>
-            <local:BillControl Denomination="Fifty" Quantity="{Binding Path=Fifty}"/>
-            <local:BillControl Denomination="Hundred" Quantity="{Binding Path=Hundred}"/>
+            <local:BillControl x:Name="TwentyControl" Denomination="Twenty" Quantity="{Binding Path=Twenty}"/>
+            <local:BillControl x:Name="FiftyControl" Denomination="Fifty" Quantity="{Binding Path=Fifty}"/>
+            <local:BillControl x:Name="HundredControl" Denomination="Hundred" Quantity="{Binding Path=Hundred}"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

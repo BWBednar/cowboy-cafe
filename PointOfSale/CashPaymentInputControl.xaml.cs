@@ -22,5 +22,11 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        public double GetCashAmountEntered()
+        {
+
+            return 0;
+        }
     }
 }
