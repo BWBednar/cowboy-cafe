@@ -23,27 +23,49 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        public double GetCashAmountEntered()
+        /// <summary>
+        /// Method that gets the amount of money entered by the user and how many of each denomination
+        /// </summary>
+        /// <param name="coins">The quantity of each coin entered for payment</param>
+        /// <param name="bills">The quantity of each bill entered for payment</param>
+        /// <returns>The currency value of the money entered by the user</returns>
+        public double GetCashAmountEnteredForTransactionControl(out int[] coins, out int[] bills)
         {
             double totalEntered = 0;
-            //Get the currency value of the coins entered
+            coins = new int[6];
+            bills = new int[7];
+            //Get the currency value of the coins entered and the quantities
             totalEntered += PennyControl.Quantity * 0.01;
+            coins[0] = PennyControl.Quantity;
             totalEntered += NickelControl.Quantity * 0.05;
+            coins[1] = NickelControl.Quantity;
             totalEntered += DimeControl.Quantity * 0.10;
+            coins[2] = DimeControl.Quantity;
             totalEntered += QuarterControl.Quantity * 0.25;
+            coins[3] = QuarterControl.Quantity;
             totalEntered += HalfDollarControl.Quantity * 0.50;
+            coins[4] = HalfDollarControl.Quantity;
             totalEntered += DollarControl.Quantity * 1.00;
+            coins[5] = DollarControl.Quantity;
 
-            //Get the currency value of the bills entered
+            //Get the currency value of the bills entered and the quantites
             totalEntered += OneControl.Quantity * 1.00;
+            bills[0] = OneControl.Quantity;
             totalEntered += TwoControl.Quantity * 2.00;
+            bills[1] = TwoControl.Quantity;
             totalEntered += FiveControl.Quantity * 5.00;
+            bills[2] = FiveControl.Quantity;
             totalEntered += TenControl.Quantity * 10.00;
+            bills[3] = TenControl.Quantity;
             totalEntered += TwentyControl.Quantity * 20.00;
+            bills[4] = TwentyControl.Quantity;
             totalEntered += FiftyControl.Quantity * 50.00;
+            bills[5] = FiftyControl.Quantity;
             totalEntered += HundredControl.Quantity * 100.00;
-            return totalEntered;
-            
+            bills[6] = HundredControl.Quantity;
+
+            //Return the currency value of the money entered
+            return totalEntered;  
         }
     }
 }

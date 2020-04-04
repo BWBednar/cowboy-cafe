@@ -102,6 +102,8 @@ namespace CowboyCafe.Data
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
 
         /// <summary>
@@ -113,6 +115,8 @@ namespace CowboyCafe.Data
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
 
         
@@ -123,6 +127,8 @@ namespace CowboyCafe.Data
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
     }
 }

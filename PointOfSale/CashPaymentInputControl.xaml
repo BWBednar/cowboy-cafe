@@ -15,12 +15,21 @@
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="150"/>
         </Style>
+        
     </UserControl.Resources>
     
     <StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Enter Denominations and Quantities"/>
-            <TextBlock HorizontalAlignment="Center" FontSize="30" Text=" of Cash Given"/>
+            <TextBlock Name="tbDirections" HorizontalAlignment="Center" FontSize="30" Text="Enter Denominations and Quantities"/>
+            <TextBlock Name="tbDirections2" HorizontalAlignment="Center" FontSize="30" Text="of Cash Given"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock FontSize="30" Text="Amount Payed: "/>
+            <TextBlock FontSize="30" Name="tbAmountPayed" Text="[later]"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock FontSize="30" Text="Amount Remaining: "/>
+            <TextBlock FontSize="30" Name="tbAmountRemaining" Text=" [later]"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <local:CoinControl x:Name="PennyControl" Denomination="Penny"/>

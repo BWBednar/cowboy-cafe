@@ -24,7 +24,7 @@ namespace PointOfSale
         /// <summary>
         /// Variable that will share the cash register information between different controls
         /// </summary>
-        private static CashRegisterModelView cashRegisterModelView = new CashRegisterModelView();
+        public static CashRegisterModelView cashRegisterModelView = new CashRegisterModelView();
 
         private CashPaymentInputControl cashInputControl;
 
@@ -103,9 +103,71 @@ namespace PointOfSale
             orderControl.SummaryBorder.Child = cashInputControl;
         }
         
-        public double GetCashEnteredFromCashPaymentInputControl()
+        /// <summary>
+        /// Method to pass information from the CashPaymentInputControl to CashPaymentInformationControl
+        /// </summary>
+        /// <param name="coinsQs">The quantities of the coins entered</param>
+        /// <param name="billsQs">The quantities of the billes entered</param>
+        /// <returns>The currency amount of the denominations the user entered</returns>
+        public double GetCashEnteredFromCashPaymentInputControl(out int[] coinsQs, out int[] billsQs)
         {
-            return cashInputControl.GetCashAmountEntered();
+            double amount = cashInputControl.GetCashAmountEnteredForTransactionControl(out int[] coinsQuantities, out int[] billsQuantities);
+            coinsQs = coinsQuantities;
+            billsQs = billsQuantities;
+
+            return amount;
+        }
+
+        /// <summary>
+        /// Helper method to check if the amount entered by the user meets the total amount due
+        /// </summary>
+        /// <param name="amount">Currency amount entered by the user</param>
+        /// <returns>Boolean result of if the amount entered is enough for the amount due</returns>
+        public bool CheckIfCashEnteredFulfillsTotalDue(double amount)
+        {
+            double totalDue = Convert.ToDouble(tbTotal.Text.Substring(1));
+            if (totalDue > amount) return false;
+            else return true;
+        }
+
+        /// <summary>
+        /// Helper method for updating denomination quantities
+        /// </summary>
+        /// <param name="coins">The quantities of the coins</param>
+        /// <param name="bills">The quantities of the bills</param>
+        public void UpdateDenominationValues(int[] coins, int[] bills)
+        {
+            //Add or Remove the coins from the instance of CashRegisterModelView
+            cashRegisterModelView.Pennies += coins[0];
+            cashRegisterModelView.Nickels += coins[1];
+            cashRegisterModelView.Dimes += coins[2];
+            cashRegisterModelView.Quarters += coins[3];
+            cashRegisterModelView.HalfDollars += coins[4];
+            cashRegisterModelView.Dollars += coins[5];
+
+            //Add or Remove the bills from the instance of CashRegisterModelView
+            cashRegisterModelView.Ones += bills[0];
+            cashRegisterModelView.Twos += bills[1];
+            cashRegisterModelView.Fives += bills[2];
+            cashRegisterModelView.Tens += bills[3];
+            cashRegisterModelView.Twenties += bills[4];
+            cashRegisterModelView.Fifties += bills[5];
+            cashRegisterModelView.Hundreds += bills[6];
+        }
+
+        public void ChangePaymentInformationPrompt(bool directions)
+        {
+
+            if (directions)
+            {
+                cashInputControl.tbDirections.Text = "Enter Denominations and Quantities";
+                cashInputControl.tbDirections2.Text = "of Cash Given";
+            }
+            else
+            {
+                cashInputControl.tbDirections.Text = "More Money Required for Purchase";
+                cashInputControl.tbDirections2.Text = "";
+            }
         }
     }
 }

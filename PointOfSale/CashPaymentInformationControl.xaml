@@ -24,14 +24,6 @@
         </Style>
     </UserControl.Resources>
     <StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Amount Payed: "/>
-            <TextBlock Text="[later]"/> 
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Amount Remaining: "/>
-            <TextBlock Text=" [later]"/>
-        </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
             <Button Name="CompleteCashPaymentButton" Click="CompleteCashPaymentButtonClicked">Complete Payment</Button>
             <Button Name="CancelCashPaymentButton" Click="CancelCashPaymentButtonClicked">Cancel Cash Payment</Button>

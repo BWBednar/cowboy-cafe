@@ -37,8 +37,20 @@ namespace PointOfSale
         public void CompleteCashPaymentButtonClicked(object sender, RoutedEventArgs e)
         {
             var transactionControl = this.FindAncestor<TransactionControl>();
-            transactionControl.GetCashEnteredFromCashPaymentInputControl();
-            
+            double amount = transactionControl.GetCashEnteredFromCashPaymentInputControl(out int[] coinsQuantities, out int[] billQuantities);
+
+            //If the amount entered by the user meets the total amount due
+            if (transactionControl.CheckIfCashEnteredFulfillsTotalDue(amount))
+            {
+                //Update model denomination values
+                transactionControl.UpdateDenominationValues(coinsQuantities, billQuantities);
+                //change the input control to show change
+            }
+            else
+            {
+                //Prompt for more money to be entered
+                transactionControl.ChangePaymentInformationPrompt(false);
+            }
         }
 
         /// <summary>
