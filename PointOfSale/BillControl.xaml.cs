@@ -84,7 +84,8 @@ namespace PointOfSale
         /// <param name="args">The event args</param>
         public void OnDecreaseClicked(object sender, RoutedEventArgs args)
         {
-            Quantity--;
+            int quantity = Quantity;
+            if (quantity-- > 0) Quantity--;
         }
     }
 }

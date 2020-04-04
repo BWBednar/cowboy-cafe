@@ -36,7 +36,8 @@ namespace PointOfSale
         /// <param name="e">Routed Event Args</param>
         public void CompleteCashPaymentButtonClicked(object sender, RoutedEventArgs e)
         {
-            
+            var transactionControl = this.FindAncestor<TransactionControl>();
+            transactionControl.GetCashEnteredFromCashPaymentInputControl();
             
         }
 

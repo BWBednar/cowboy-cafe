@@ -26,6 +26,9 @@ namespace PointOfSale
         /// </summary>
         private static CashRegisterModelView cashRegisterModelView = new CashRegisterModelView();
 
+        private CashPaymentInputControl cashInputControl;
+
+        
         public TransactionControl()
         {
             InitializeComponent();
@@ -95,11 +98,14 @@ namespace PointOfSale
             PaymentBorder.Child = paymentControl;
 
             //Change the SummaryBorder of OrderControl and set its DataContext
-            var inputControl = new CashPaymentInputControl();
-            inputControl.DataContext = cashRegisterModelView;
-            orderControl.SummaryBorder.Child = inputControl;
+            cashInputControl = new CashPaymentInputControl();
+            cashInputControl.DataContext = cashRegisterModelView;
+            orderControl.SummaryBorder.Child = cashInputControl;
         }
         
-        
+        public double GetCashEnteredFromCashPaymentInputControl()
+        {
+            return cashInputControl.GetCashAmountEntered();
+        }
     }
 }

@@ -21,30 +21,29 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" FontSize="30" Text="Enter Denominations and Quantities"/>
             <TextBlock HorizontalAlignment="Center" FontSize="30" Text=" of Cash Given"/>
-            <TextBlock FontSize="30" Text="{Binding Path=TotalValue}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:CoinControl x:Name="PennyControl" Denomination="Penny" Quantity="{Binding Path=Pennies}"/>
-            <local:CoinControl x:Name="NiceklControl" Denomination="Nickel" Quantity="{Binding Path=Dimes}"/>
-            <local:CoinControl x:Name="DimeControl" Denomination="Dime" Quantity="{Binding Path=Nickels}"/>
+            <local:CoinControl x:Name="PennyControl" Denomination="Penny"/>
+            <local:CoinControl x:Name="NickelControl" Denomination="Nickel"/>
+            <local:CoinControl x:Name="DimeControl" Denomination="Dime"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:CoinControl x:Name="QuarterControl" Denomination="Quarter" Quantity="{Binding Path=Quarters}"/>
-            <local:CoinControl x:Name="HalfDollarControl" Denomination="HalfDollar" Quantity="{Binding Path=HalfDollar}"/>
-            <local:CoinControl x:Name="DollarControl" Denomination="Dollar" Quantity="{Binding Path=Dollar}"/>
+            <local:CoinControl x:Name="QuarterControl" Denomination="Quarter"/>
+            <local:CoinControl x:Name="HalfDollarControl" Denomination="HalfDollar"/>
+            <local:CoinControl x:Name="DollarControl" Denomination="Dollar"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <local:BillControl x:Name="OneControl" Denomination="One"/>
-            <local:BillControl x:Name="TwoControl" Denomination="Two" Quantity="{Binding Path=Twos}"/>
+            <local:BillControl x:Name="TwoControl" Denomination="Two"/>
             </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:BillControl x:Name="FiveControl" Denomination="Five" Quantity="{Binding Path=Fives}"/>
-            <local:BillControl x:Name="TenControl" Denomination="Ten" Quantity="{Binding Path=Tens}"/>
+            <local:BillControl x:Name="FiveControl" Denomination="Five"/>
+            <local:BillControl x:Name="TenControl" Denomination="Ten"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <local:BillControl x:Name="TwentyControl" Denomination="Twenty" Quantity="{Binding Path=Twenty}"/>
-            <local:BillControl x:Name="FiftyControl" Denomination="Fifty" Quantity="{Binding Path=Fifty}"/>
-            <local:BillControl x:Name="HundredControl" Denomination="Hundred" Quantity="{Binding Path=Hundred}"/>
+            <local:BillControl x:Name="TwentyControl" Denomination="Twenty"/>
+            <local:BillControl x:Name="FiftyControl" Denomination="Fifty"/>
+            <local:BillControl x:Name="HundredControl" Denomination="Hundred"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
