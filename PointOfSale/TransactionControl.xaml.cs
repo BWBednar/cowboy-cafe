@@ -72,14 +72,19 @@ namespace PointOfSale
 
         private void PayByCashButtonClicked(object sender, RoutedEventArgs e)
         {
+            //Hide the cancel and item selection buttons from view
+            var orderControl = this.FindAncestor<OrderControl>();
+            orderControl.CancelOrderButton.Visibility = Visibility.Hidden;
+            orderControl.ItemSelectionButton.Visibility = Visibility.Hidden;
+
             PayByCashButton.IsEnabled = false;
             //Change the PaymentBorder 
-            CashPaymentDisplayControl display = new CashPaymentDisplayControl();
+            CashPaymentInformationControl display = new CashPaymentInformationControl();
             display.DataContext = programDrawer;
             PaymentBorder.Child = display;
 
             var control = this.FindAncestor<OrderControl>();
-            var display2 = new CashRegisterControl();
+            var display2 = new CashPaymentInputControl();
             control.SummaryBorder.Child = display2;
         }      
     }

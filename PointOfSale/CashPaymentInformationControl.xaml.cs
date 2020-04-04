@@ -15,11 +15,11 @@ using CowboyCafe.Extensions;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CashPaymentDisplayControl.xaml
+    /// Interaction logic for CashPaymentInformationControl.xaml
     /// </summary>
-    public partial class CashPaymentDisplayControl : UserControl
+    public partial class CashPaymentInformationControl : UserControl
     {
-        public CashPaymentDisplayControl()
+        public CashPaymentInformationControl()
         {
             InitializeComponent();
         }
@@ -43,9 +43,11 @@ namespace PointOfSale
             var transactionControl = this.FindAncestor<TransactionControl>();
             transactionControl.PaymentBorder.Child = null;
             transactionControl.PayByCashButton.IsEnabled = true;
-            //get the previous OrderControl and edit the SummaryBorder 
+            //get the previous OrderControl and edit the SummaryBorder and the previously hidden Cancel and Item Selection Buttons
             var orderControl = transactionControl.FindAncestor<OrderControl>();
             orderControl.SummaryBorder.Child = new OrderSummaryControl();
+            orderControl.CancelOrderButton.Visibility = Visibility.Visible;
+            orderControl.ItemSelectionButton.Visibility = Visibility.Visible;
         }
     }
 }

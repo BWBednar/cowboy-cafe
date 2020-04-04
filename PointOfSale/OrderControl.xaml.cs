@@ -56,7 +56,7 @@ namespace PointOfSale
             if (element.GetType().Name.Equals("TransactionControl")) Summary.IsEnabled = false;
             else Summary.IsEnabled = true;
 
-            if (SummaryBorder.Child.GetType().Name.Equals("CashRegisterControl")) SummaryBorder.Child = new OrderSummaryControl();
+            if (SummaryBorder.Child.GetType().Name.Equals("CashPaymentInputControl")) SummaryBorder.Child = new OrderSummaryControl();
 
             Container.Child = element;
         }
@@ -159,7 +159,7 @@ namespace PointOfSale
                 CompleteOrderButton.Visibility = Visibility.Visible;;
             }
 
-            if (SummaryBorder.Child.GetType().Name.Equals("CashRegisterControl")) SummaryBorder.Child = new OrderSummaryControl();
+            if (SummaryBorder.Child.GetType().Name.Equals("CashPaymentInputControl")) SummaryBorder.Child = new OrderSummaryControl();
             
             Summary.IsEnabled = true;
             Container.Child = new MenuItemSelectionControl();
@@ -181,7 +181,7 @@ namespace PointOfSale
                         CompleteOrderButton.Visibility = Visibility.Visible;
                         Container.Child = new MenuItemSelectionControl();
                     }
-                    if (SummaryBorder.Child.GetType().Name.Equals("CashRegisterControl")) SummaryBorder.Child = new OrderSummaryControl();
+                    if (SummaryBorder.Child.GetType().Name.Equals("CashPaymentInputControl")) SummaryBorder.Child = new OrderSummaryControl();
                     this.DataContext = new Order();
                 }
             }
