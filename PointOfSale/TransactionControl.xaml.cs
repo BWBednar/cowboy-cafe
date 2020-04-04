@@ -21,18 +21,23 @@ namespace PointOfSale
     /// </summary>
     public partial class TransactionControl : UserControl
     {
+        private static CashDrawer programDrawer = new CashDrawer();
         public TransactionControl()
         {
             InitializeComponent();
-            CashDrawer drawer = new CashDrawer();
         }
 
+        /// <summary>
+        /// Click event for if the user selects Pay By Card
+        /// </summary>
+        /// <param name="sender">The button selected</param>
+        /// <param name="e">Routed Event Args</param>
         private void PayByCardButtonClicked(object sender, RoutedEventArgs e)
         {
-            var cardTerminal = new CardTerminal();
+            var cardTerminal = new CardTerminal(); //New card terminal
             double total = Convert.ToDouble(tbTotal.Text.Substring(1));
             ResultCode result = cardTerminal.ProcessTransaction(total);
-            TextBlock output = new TextBlock();
+            TextBlock output = new TextBlock(); //The PaymentBorder will be filled with this textbox
             switch (result)
             {
                 case ResultCode.Success:
@@ -67,7 +72,15 @@ namespace PointOfSale
 
         private void PayByCashButtonClicked(object sender, RoutedEventArgs e)
         {
+            PayByCashButton.IsEnabled = false;
+            //Change the PaymentBorder 
+            CashPaymentDisplayControl display = new CashPaymentDisplayControl();
+            display.DataContext = programDrawer;
+            PaymentBorder.Child = display;
 
+            var control = this.FindAncestor<OrderControl>();
+            var display2 = new CashRegisterControl();
+            control.SummaryBorder.Child = display2;
         }      
     }
 }
