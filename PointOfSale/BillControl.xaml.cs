@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CashRegister;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -75,6 +76,8 @@ namespace PointOfSale
         public void OnIncreaseClicked(object sender, RoutedEventArgs args)
         {
             Quantity++;
+            var cashInputControl = this.FindAncestor<CashPaymentInputControl>();
+            cashInputControl.EditAmountEnteredTotal();
         }
 
         /// <summary>
@@ -86,6 +89,8 @@ namespace PointOfSale
         {
             int quantity = Quantity;
             if (quantity-- > 0) Quantity--;
+            var cashInputControl = this.FindAncestor<CashPaymentInputControl>();
+            cashInputControl.EditAmountEnteredTotal();
         }
     }
 }

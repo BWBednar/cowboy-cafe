@@ -25,11 +25,11 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock FontSize="30" Text="Amount Payed: "/>
-            <TextBlock FontSize="30" Name="tbAmountPayed" Text="[later]"/>
+            <TextBlock FontSize="30" Name="tbAmountPayed" Text="$0.00"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock FontSize="30" Text="Amount Remaining: "/>
-            <TextBlock FontSize="30" Name="tbAmountRemaining" Text=" [later]"/>
+            <TextBlock FontSize="30" Name="tbAmountRemaining" Text="$0.00"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <local:CoinControl x:Name="PennyControl" Denomination="Penny"/>

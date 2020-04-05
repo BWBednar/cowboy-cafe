@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="PointOfSale.ChangeReturnDisplayControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <TextBlock Height="100"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Amount Payed: "/>
+            <TextBlock Name="tbAmountPayed" Text="$0.00"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Change Due: "/>
+            <TextBlock Name="tbChangeDue" Text="$0.00"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Change To Return: " HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" 
+                        Orientation="Vertical" 
+                        HorizontalAlignment="Center">
+                <TextBlock FontSize="20" Text="Coins:"/>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Pennies: "/>
+                    <TextBlock Name="tbPenniesDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Nickels: "/>
+                    <TextBlock Name="tbNickelsDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Dimes: "/>
+                    <TextBlock Name="tbDimesDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Quarters: "/>
+                    <TextBlock Name="tbQuartersDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Half Dollars: "/>
+                    <TextBlock Name="tbHalfDollarsDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Dollar Coins: "/>
+                    <TextBlock Name="tbDollarCoinsDue" FontSize="15" Text="0"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Column="1" 
+                        Orientation="Vertical" 
+                        HorizontalAlignment="Center">
+                <TextBlock FontSize="20" Text="Bills:"/>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Ones: "/>
+                    <TextBlock Name="tbOnesDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Twos: "/>
+                    <TextBlock Name="tbTwosDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Fives: "/>
+                    <TextBlock Name="tbFivesDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Tens: "/>
+                    <TextBlock Name="tbTensDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Twenties: "/>
+                    <TextBlock Name="tbTwentiesDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Fifties: "/>
+                    <TextBlock Name="tbFiftiesDue" FontSize="15" Text="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                    <TextBlock FontSize="15" Text="Hundreds: "/>
+                    <TextBlock Name="tbHundredsDue" FontSize="15" Text="0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="DispenseChangeButton" Height="100"
+                    Click="DispenseChangeButtonClick"
+                    Width="300" FontSize="30">Dispense Change</Button> 
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Name="tbNotEnoughChange"/>
+            <TextBlock Name="tbNotEnoughChange2"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="BeginNewOrderButton" Click="BeginNewOrderButtonClick"
+                    Width="300" FontSize="30" Height="100">Begin New Order</Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

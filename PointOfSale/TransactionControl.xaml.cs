@@ -24,11 +24,16 @@ namespace PointOfSale
         /// <summary>
         /// Variable that will share the cash register information between different controls
         /// </summary>
-        public static CashRegisterModelView cashRegisterModelView = new CashRegisterModelView();
+        private static CashRegisterModelView cashRegisterModelView = new CashRegisterModelView();
 
+        /// <summary>
+        /// Variable that keeps track of the current instance do the CashPaymentInputControl for different methods
+        /// </summary>
         private CashPaymentInputControl cashInputControl;
 
-        
+        /// <summary>
+        /// Initialize the TransactionControl
+        /// </summary>
         public TransactionControl()
         {
             InitializeComponent();
@@ -89,8 +94,9 @@ namespace PointOfSale
             orderControl.CancelOrderButton.Visibility = Visibility.Hidden;
             orderControl.ItemSelectionButton.Visibility = Visibility.Hidden;
 
-            //Disable the PayByCashButton
-            PayByCashButton.IsEnabled = false;
+            //Hide the PayByCashButton and PayByCardButton
+            PayByCashButton.Visibility = Visibility.Hidden;
+            PayByCardButton.Visibility = Visibility.Hidden;
 
             //Change the PaymentBorder to a CashPaymentInformationControl with proper DataContext
             var paymentControl = new CashPaymentInformationControl();
@@ -155,6 +161,12 @@ namespace PointOfSale
             cashRegisterModelView.Hundreds += bills[6];
         }
 
+        /// <summary>
+        /// Helper method for if the text above the CashPaymentInputControl needs to be
+        /// editted depending on how much money the user has inputted before trying to
+        /// complete the transaction
+        /// </summary>
+        /// <param name="directions">Boolean value for if the amount entered was enough</param>
         public void ChangePaymentInformationPrompt(bool directions)
         {
 
@@ -166,8 +178,18 @@ namespace PointOfSale
             else
             {
                 cashInputControl.tbDirections.Text = "More Money Required for Purchase";
+                cashInputControl.tbDirections.Foreground = Brushes.Red;
                 cashInputControl.tbDirections2.Text = "";
             }
+        }
+
+        /// <summary>
+        /// Helper method to get the amount of money due for the order
+        /// </summary>
+        /// <returns>The amount of money due for the order</returns>
+        public double GetTotalDue()
+        {
+            return Convert.ToDouble(tbTotal.Text.Substring(1));
         }
     }
 }

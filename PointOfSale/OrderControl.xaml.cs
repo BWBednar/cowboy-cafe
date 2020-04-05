@@ -26,6 +26,11 @@ namespace PointOfSale
     public partial class OrderControl : UserControl
     {
         /// <summary>
+        /// Variable that will help get the values between the CashPaymentInputControl and the TransactionControl
+        /// </summary>
+        private TransactionControl transactionControl;
+
+        /// <summary>
         /// OrderControl functionality
         /// </summary>
         public OrderControl()
@@ -199,11 +204,21 @@ namespace PointOfSale
                 if (sender is Button button)
                 {
                     CompleteOrderButton.Visibility = Visibility.Hidden;
-                    FrameworkElement transactionScreen = new TransactionControl();
-                    transactionScreen.DataContext = data;
-                    SwapScreen(transactionScreen);
+                    transactionControl = new TransactionControl();
+                    transactionControl.DataContext = data;
+                    SwapScreen(transactionControl);
                 }
             }
+        }
+
+        /// <summary>
+        /// Helper method for getting the Total Due value back to the 
+        /// CashPaymentInputControl for the tbAmountRemaining
+        /// </summary>
+        /// <returns>The Total for the order</returns>
+        public double GetTotalDueFromOrderControl()
+        {
+            return Convert.ToDouble(transactionControl.tbTotal.Text.Substring(1));
         }
     }
 }

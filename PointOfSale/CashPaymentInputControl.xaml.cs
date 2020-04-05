@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -66,6 +67,37 @@ namespace PointOfSale
 
             //Return the currency value of the money entered
             return totalEntered;  
+        }
+
+        public void EditAmountEnteredTotal()
+        {
+            double totalEntered = 0;
+            //Get the currency value of the coins entered and the quantities
+            totalEntered += PennyControl.Quantity * 0.01;
+            totalEntered += NickelControl.Quantity * 0.05;
+            totalEntered += DimeControl.Quantity * 0.10;
+            totalEntered += QuarterControl.Quantity * 0.25;
+            totalEntered += HalfDollarControl.Quantity * 0.50;
+            totalEntered += DollarControl.Quantity * 1.00;
+
+            //Get the currency value of the bills entered and the quantites
+            totalEntered += OneControl.Quantity * 1.00;
+            totalEntered += TwoControl.Quantity * 2.00;
+            totalEntered += FiveControl.Quantity * 5.00;
+            totalEntered += TenControl.Quantity * 10.00;
+            totalEntered += TwentyControl.Quantity * 20.00;
+            totalEntered += FiftyControl.Quantity * 50.00;
+            totalEntered += HundredControl.Quantity * 100.00;
+
+            //Set the AmountPayed text box
+            tbAmountPayed.Text = string.Format("{0:C}", totalEntered);
+
+            //Set the AmountRemaining text box
+            double amountRemaining = this.FindAncestor<OrderControl>().GetTotalDueFromOrderControl();
+            amountRemaining -= totalEntered;
+            //Set the AmountRemaining is no more money is owed
+            if (amountRemaining < 0) amountRemaining = 0;
+            tbAmountRemaining.Text = string.Format("{0:C}", amountRemaining);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">The button selected</param>
         /// <param name="e">Routed Event Args</param>
-        public void CompleteCashPaymentButtonClicked(object sender, RoutedEventArgs e)
+        private void CompleteCashPaymentButtonClicked(object sender, RoutedEventArgs e)
         {
             var transactionControl = this.FindAncestor<TransactionControl>();
             double amount = transactionControl.GetCashEnteredFromCashPaymentInputControl(out int[] coinsQuantities, out int[] billQuantities);
@@ -44,7 +44,12 @@ namespace PointOfSale
             {
                 //Update model denomination values
                 transactionControl.UpdateDenominationValues(coinsQuantities, billQuantities);
-                //change the input control to show change
+                //Change the CashPaymentInputControl to ChangeReturnDisplayControl
+                ChangeReturnDisplayControl changeDisplay = new ChangeReturnDisplayControl();
+                changeDisplay.DataContext = this.DataContext;
+                var orderControl = transactionControl.FindAncestor<OrderControl>();
+                orderControl.SummaryBorder.Child = changeDisplay;
+                changeDisplay.CalculateChange(orderControl.GetTotalDueFromOrderControl(), amount);
             }
             else
             {
@@ -62,17 +67,19 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">The button selected</param>
         /// <param name="e">Routed Event Args</param>
-        public void CancelCashPaymentButtonClicked(object sender, RoutedEventArgs e)
+        private void CancelCashPaymentButtonClicked(object sender, RoutedEventArgs e)
         {
-            //get the previous TransactionControl and edit PaymentBorder and PayByCahsButton
+            //get the previous TransactionControl and edit PaymentBorder, PayByCashButton and PayByCardButton
             var transactionControl = this.FindAncestor<TransactionControl>();
             transactionControl.PaymentBorder.Child = null;
-            transactionControl.PayByCashButton.IsEnabled = true;
+            transactionControl.PayByCashButton.Visibility = Visibility.Visible;
+            transactionControl.PayByCardButton.Visibility = Visibility.Visible;
             //get the previous OrderControl and edit the SummaryBorder and the previously hidden Cancel and Item Selection Buttons
             var orderControl = transactionControl.FindAncestor<OrderControl>();
             orderControl.SummaryBorder.Child = new OrderSummaryControl();
             orderControl.CancelOrderButton.Visibility = Visibility.Visible;
             orderControl.ItemSelectionButton.Visibility = Visibility.Visible;
+            
         }
     }
 }
