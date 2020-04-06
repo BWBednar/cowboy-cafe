@@ -303,6 +303,7 @@ namespace PointOfSale
         private void BeginNewOrderButtonClick(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
+            PrintCashTransactionReceipt(orderControl);
             orderControl.DataContext = new Order();
             orderControl.ItemSelectionButton.Visibility = Visibility.Visible;
             orderControl.CancelOrderButton.Visibility = Visibility.Visible;
@@ -310,7 +311,53 @@ namespace PointOfSale
             orderControl.SummaryBorder.Child = new OrderSummaryControl();
             orderControl.Container.Child = new MenuItemSelectionControl();
         }
+
+        /// <summary>
+        /// Helper method for printing the receipt from the cash transaction
+        /// </summary>
+        /// <param name="orderControl"></param>
+        private void PrintCashTransactionReceipt(OrderControl orderControl)
+        {
+            StringBuilder receiptInfo = new StringBuilder();
+
+            //Get the Order information from OrderControl
+            var order = orderControl.DataContext as Order;
+
+            //Get the OrderNumber from the Order
+            receiptInfo.Append("Order Number: " + order.OrderNumber.ToString() + "\n");
+
+            //Get the current date and time for the receipt
+            receiptInfo.Append("Order Taken On: " + DateTime.Now.ToString() + "\n\n");
+
+            //Get the individual order items with price and the special instructions of the items (if any)
+            receiptInfo.Append("Order Items:\n");
+            foreach (IOrderItem item in order.Items)
+            {
+                receiptInfo.Append(item.GetType().Name.ToString() + "\t" + string.Format("{0:C}", item.Price) + "\n");
+                if (item.SpecialInstructions.Count > 0)
+                {
+                    receiptInfo.Append("Item Special Instructions: \n");
+                    foreach (string instruction in item.SpecialInstructions)
+                    {
+                        receiptInfo.Append("\t" + instruction + "\n");
+                    }
+                }
+                receiptInfo.Append("\n");
+            }
+
+            //Get the subtotal, tax, and total
+            receiptInfo.Append("Subtotal:\t" + string.Format("{0:C}", order.Subtotal) + "\n"
+                + "Tax:\t" + string.Format("{0:C}", order.Tax) + "\n"
+                + "Total Due:\t" + string.Format("{0:C}", order.Total) + "\n");
+
+            //Get the amount of cash payed by the user and the amount of change they were given
+            receiptInfo.Append("Amount of Cash Paid:\t" + tbAmountPayed.Text + "\n"
+                + "Amount of Change Given:\t" + tbChangeDue.Text + "\n\n\n");
+
+            //Print the receipt
+            ReceiptPrinter printer = new ReceiptPrinter();
+            printer.Print(receiptInfo.ToString());
+        }
     }
 }
-        //ConvertChange()
   

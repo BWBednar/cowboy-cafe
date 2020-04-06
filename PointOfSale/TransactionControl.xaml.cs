@@ -97,14 +97,15 @@ namespace PointOfSale
             receiptInfo.Append("Order Number: " + order.OrderNumber.ToString() + "\n");
 
             //Get the current date and time for the receipt
-            receiptInfo.Append("Order Taken On: " + DateTime.Now.ToString() + "\n");
+            receiptInfo.Append("Order Taken On: " + DateTime.Now.ToString() + "\n\n");
 
             //Get the individual order items with price and the special instructions of the items (if any)
+            receiptInfo.Append("Order Items:\n");
             foreach (IOrderItem item in order.Items)
             {
                 receiptInfo.Append(item.GetType().Name.ToString() + "\t" + string.Format("{0:C}",item.Price) + "\n");
                 if (item.SpecialInstructions.Count > 0) {
-                    receiptInfo.Append("Special Instructions: \n");
+                    receiptInfo.Append("Item Special Instructions: \n");
                     foreach (string instruction in item.SpecialInstructions)
                     {
                         receiptInfo.Append("\t" + instruction + "\n");
@@ -116,10 +117,10 @@ namespace PointOfSale
             //Get the subtotal, tax, and total
             receiptInfo.Append("Subtotal:\t" + string.Format("{0:C}", order.Subtotal) + "\n"
                 + "Tax:\t" + string.Format("{0:C}", order.Tax) + "\n"
-                + "Total:\t" + string.Format("{0:C}", order.Total) + "\n");
+                + "Total Due:\t" + string.Format("{0:C}", order.Total) + "\n");
 
             //Indicate that the order was payed for with a card
-            receiptInfo.Append("Total Payed Using Card\n\n");
+            receiptInfo.Append("Total Payed Using Card\n\n\n");
 
             //Print the receipt
             ReceiptPrinter printer = new ReceiptPrinter();
