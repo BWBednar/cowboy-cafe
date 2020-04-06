@@ -490,7 +490,7 @@ namespace PointOfSale
                 + "Total Due:\t" + string.Format("{0:C}", order.Total) + "\n");
 
             //Get the amount of cash payed by the user and the amount of change they were given
-            receiptInfo.Append("Amount of Cash Paid:\t" + tbAmountPayed.Text + "\n"
+            receiptInfo.Append("Amount of Cash Paid:\t" + string.Format("{0:C}", Convert.ToDouble(tbAmountPayed.Text)) + "\n"
                 + "Amount of Change Given:\t" + tbChangeDue.Text + "\n\n\n");
 
             //Print the receipt
