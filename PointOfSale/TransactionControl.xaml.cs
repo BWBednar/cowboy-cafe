@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * TransactionControl.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the TransactionControl control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -44,7 +50,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">The button selected</param>
         /// <param name="e">Routed Event Args</param>
-        public void PayByCardButtonClicked(object sender, RoutedEventArgs e)
+        private void PayByCardButtonClicked(object sender, RoutedEventArgs e)
         {
             var cardTerminal = new CardTerminal(); //New card terminal
             double total = Convert.ToDouble(tbTotal.Text.Substring(1));
@@ -53,7 +59,7 @@ namespace PointOfSale
             switch (result)
             {
                 case ResultCode.Success:
-                    PrintReciptForCardTransaction();
+                    PrintReceiptForCardTransaction();
                     var control = this.FindAncestor<OrderControl>();
                     control.DataContext = new Order();
                     control.CompleteOrderButton.Visibility = Visibility.Visible;
@@ -85,7 +91,7 @@ namespace PointOfSale
         /// <summary>
         /// Helper method for dealing with the receipt output for a card transaction
         /// </summary>
-        private void PrintReciptForCardTransaction()
+        private void PrintReceiptForCardTransaction()
         {
             StringBuilder receiptInfo = new StringBuilder();
 
@@ -132,7 +138,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">The button selected</param>
         /// <param name="e">Routed Event Args</param>
-        public void PayByCashButtonClicked(object sender, RoutedEventArgs e)
+        private void PayByCashButtonClicked(object sender, RoutedEventArgs e)
         {
             //Hide the cancel and item selection buttons from view
             var orderControl = this.FindAncestor<OrderControl>();

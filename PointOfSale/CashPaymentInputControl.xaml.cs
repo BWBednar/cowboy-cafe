@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * CashPaymentInputControl.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the CashPaymentInputControl control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,6 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CashPaymentInputControl : UserControl
     {
+        /// <summary>
+        /// Initialize the CashPaymentInputControl
+        /// </summary>
         public CashPaymentInputControl()
         {
             InitializeComponent();
@@ -69,6 +78,9 @@ namespace PointOfSale
             return totalEntered;  
         }
 
+        /// <summary>
+        /// Get the total currency amount entered and edit text boxes with the value
+        /// </summary>
         public void EditAmountEnteredTotal()
         {
             double totalEntered = 0;

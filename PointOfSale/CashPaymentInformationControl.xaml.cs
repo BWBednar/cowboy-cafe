@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * CashPaymentInformationControl.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the CashPaymentInformationControl control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,7 +26,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CashPaymentInformationControl : UserControl
     {
-        
+        /// <summary>
+        /// Initialize the CashPaymentInformationControl
+        /// </summary>
         public CashPaymentInformationControl()
         {
             InitializeComponent();

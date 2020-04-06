@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * BillControl.xaml.cs
+ * Author: Nathan Bean
+ * Editted by: Brandon Bednar
+ * Purpose: Backing code for the BillControl control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +27,9 @@ namespace PointOfSale
     /// </summary>
     public partial class BillControl : UserControl
     {
+        /// <summary>
+        /// Initialize BillControl
+        /// </summary>
         public BillControl()
         {
             InitializeComponent();

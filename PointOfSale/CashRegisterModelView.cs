@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * CashRegisterModelView.cs
+ * Author: Nathan Bean
+ * Editted By: Brandon Bednar
+ * Purpose: View class for interaction with CashRegister.dll
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;

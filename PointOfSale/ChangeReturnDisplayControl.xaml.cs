@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * ChangeReturnDisplayControl.xaml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the ChangeReturnDisplayControl control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -206,6 +212,7 @@ namespace PointOfSale
             {
                 if (drawer.Fifties < Convert.ToInt32(tbFiftiesDue.Text))
                 {
+                    //Return previously removed amount if not enough currency in cash draw
                     drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
                     ResetTextBoxes();
                     enoughChange = false;

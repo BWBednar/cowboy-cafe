@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * CoinControl.xaml.cs
+ * Author: Nathan Bean
+ * Editted by: Brandon Bednar
+ * Purpose: Backing code for the CoinControl control
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +27,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CoinControl : UserControl
     {
+        /// <summary>
+        /// Initialize the CoinControl
+        /// </summary>
         public CoinControl()
         {
             InitializeComponent();
