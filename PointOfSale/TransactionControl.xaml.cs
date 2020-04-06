@@ -53,7 +53,7 @@ namespace PointOfSale
             switch (result)
             {
                 case ResultCode.Success:
-                    //print receipt 
+                    PrintReciptForCardTransaction();
                     var control = this.FindAncestor<OrderControl>();
                     control.DataContext = new Order();
                     control.CompleteOrderButton.Visibility = Visibility.Visible;
@@ -80,6 +80,50 @@ namespace PointOfSale
                     PaymentBorder.Child = output;
                     break;
             }
+        }
+
+        /// <summary>
+        /// Helper method for dealing with the receipt output for a card transaction
+        /// </summary>
+        private void PrintReciptForCardTransaction()
+        {
+            StringBuilder receiptInfo = new StringBuilder();
+
+            //Get the Order information from OrderControl
+            var orderControl = this.FindAncestor<OrderControl>();
+            var order = orderControl.DataContext as Order;
+
+            //Get the OrderNumber from the Order
+            receiptInfo.Append("Order Number: " + order.OrderNumber.ToString() + "\n");
+
+            //Get the current date and time for the receipt
+            receiptInfo.Append("Order Taken On: " + DateTime.Now.ToString() + "\n");
+
+            //Get the individual order items with price and the special instructions of the items (if any)
+            foreach (IOrderItem item in order.Items)
+            {
+                receiptInfo.Append(item.GetType().Name.ToString() + "\t" + string.Format("{0:C}",item.Price) + "\n");
+                if (item.SpecialInstructions.Count > 0) {
+                    receiptInfo.Append("Special Instructions: \n");
+                    foreach (string instruction in item.SpecialInstructions)
+                    {
+                        receiptInfo.Append("\t" + instruction + "\n");
+                    }
+                }
+                receiptInfo.Append("\n");
+            }
+
+            //Get the subtotal, tax, and total
+            receiptInfo.Append("Subtotal:\t" + string.Format("{0:C}", order.Subtotal) + "\n"
+                + "Tax:\t" + string.Format("{0:C}", order.Tax) + "\n"
+                + "Total:\t" + string.Format("{0:C}", order.Total) + "\n");
+
+            //Indicate that the order was payed for with a card
+            receiptInfo.Append("Total Payed Using Card\n\n");
+
+            //Print the receipt
+            ReceiptPrinter printer = new ReceiptPrinter();
+            printer.Print(receiptInfo.ToString());
         }
 
         /// <summary>
@@ -169,7 +213,6 @@ namespace PointOfSale
         /// <param name="directions">Boolean value for if the amount entered was enough</param>
         public void ChangePaymentInformationPrompt(bool directions)
         {
-
             if (directions)
             {
                 cashInputControl.tbDirections.Text = "Enter Denominations and Quantities";
