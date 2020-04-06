@@ -39,67 +39,82 @@ namespace PointOfSale
             tbAmountPayed.Text = string.Format("{0:C}", amountPayed.ToString());
             var drawer = DataContext as CashRegisterModelView;
 
+            int hundreds = drawer.Hundreds;
+            int fifties = drawer.Fifties;
+            int twenties = drawer.Twenties;
+            int tens = drawer.Tens;
+            int fives = drawer.Fives;
+            int twos = drawer.Twos;
+            int ones = drawer.Ones;
+            int dollars = drawer.Dollars;
+            int halfDollars = drawer.HalfDollars;
+            int quarters = drawer.Quarters;
+            int dimes = drawer.Dimes;
+            int nickels = drawer.Nickels;
+            int pennies = drawer.Pennies;
+
             //Get the quantity of each denomination for proper change
             while (change > 0.00)
             {
-                if (change >= 100 && drawer.Hundreds > 0)
+                if (change >= 100 && hundreds > 0)
                 {
-                    
+                    hundreds--;
                         int value = Convert.ToInt32(tbHundredsDue.Text);
                         value += 1;
                         tbHundredsDue.Text = value.ToString();
                         change -= 100.00;
                     
                 }
-                else if (change >= 50 && drawer.Fifties > 0)
+                else if (change >= 50 && fifties > 0)
                 {
-                    
+                    fifties--;
                         int value = Convert.ToInt32(tbFiftiesDue.Text);
                         value += 1;
                         tbFiftiesDue.Text = value.ToString();
                         change -= 50.00;
                     
                 }
-                else if (change >= 20 && drawer.Twenties > 0)
+                else if (change >= 20 && twenties > 0)
                 {
-                    
+                    twenties--;
                         int value = Convert.ToInt32(tbTwentiesDue.Text);
                         value += 1;
                         tbTwentiesDue.Text = value.ToString();
                         change -= 20.00;
                     
                 }
-                else if (change >= 10 && drawer.Tens > 0)
+                else if (change >= 10 && tens > 0)
                 {
-                    
+                    tens--;
                         int value = Convert.ToInt32(tbTensDue.Text);
                         value += 1;
                         tbTensDue.Text = value.ToString();
                         change -= 10.00;
                     
                 }
-                else if (change >= 5 && drawer.Fives > 0)
+                else if (change >= 5 && fives > 0)
                 {
-                    
+                    fives--;
                         int value = Convert.ToInt32(tbFivesDue.Text);
                         value += 1;
                         tbFivesDue.Text = value.ToString();
                         change -= 5.00;
                     
                 }
-                else if (change >= 2 && drawer.Twos > 0)
+                else if (change >= 2 && twos > 0)
                 {
-                    
+                    twos--;
                         int value = Convert.ToInt32(tbTwosDue.Text);
                         value += 1;
                         tbTwosDue.Text = value.ToString();
                         change -= 2.00;
                     
                 }
-                else if (change >= 1 && (drawer.Ones > 0 || drawer.Dollars > 0))
+                else if (change >= 1 && (ones > 0 || dollars > 0))
                 {
                     if (drawer.Ones > 0)
                     {
+                        ones--;
                         int value = Convert.ToInt32(tbOnesDue.Text);
                         value += 1;
                         tbOnesDue.Text = value.ToString();
@@ -107,52 +122,52 @@ namespace PointOfSale
                     }
                     else
                     {
-
+                        dollars--;
                         int value = Convert.ToInt32(tbDollarCoinsDue.Text);
                         value += 1;
                         tbDollarCoinsDue.Text = value.ToString();
                         change -= 1.00;
                     }
                 }
-                else if (change >= 0.50 && drawer.HalfDollars > 0)
+                else if (change >= 0.50 && halfDollars > 0)
                 {
-                    
+                    halfDollars--;
                         int value = Convert.ToInt32(tbHalfDollarsDue.Text);
                         value += 1;
                         tbHalfDollarsDue.Text = value.ToString();
                         change -= 0.50;
                     
                 }
-                else if (change >= 0.25 && drawer.Quarters > 0)
+                else if (change >= 0.25 && quarters > 0)
                 {
-                    
+                    quarters--;
                         int value = Convert.ToInt32(tbQuartersDue.Text);
                         value += 1;
                         tbQuartersDue.Text = value.ToString();
                         change -= 0.25;
                     
                 }
-                else if (change >= 0.10 && drawer.Dimes > 0)
+                else if (change >= 0.10 && dimes> 0)
                 {
-                    
+                    dimes--;
                         int value = Convert.ToInt32(tbDimesDue.Text);
                         value += 1;
                         tbDimesDue.Text = value.ToString();
                         change -= 0.10;
                     
                 }
-                else if (change >= 0.05 && drawer.Nickels > 0)
+                else if (change >= 0.05 && nickels > 0)
                 {
-                    
+                    nickels--;
                         int value = Convert.ToInt32(tbNickelsDue.Text);
                         value += 1;
                         tbNickelsDue.Text = value.ToString();
                         change -= 0.05;
                     
                 }
-                else if (change >= 0.01 && drawer.Pennies > 0)
+                else if (change >= 0.01 && pennies > 0)
                 {
-                    
+                    pennies--;    
                         int value = Convert.ToInt32(tbPenniesDue.Text);
                         value += 1;
                         tbPenniesDue.Text = value.ToString();
@@ -161,7 +176,7 @@ namespace PointOfSale
                 }
                 else
                 {
-                    //deal with this later.
+                    break;
                 }
                 change = Math.Round(change, 2);
             }
@@ -178,107 +193,201 @@ namespace PointOfSale
             var drawer = DataContext as CashRegisterModelView;
 
             //Remove the quantities of the denominations, if possible
-            if (Convert.ToInt32(tbHundredsDue.Text) > 0)
+            if (Convert.ToInt32(tbHundredsDue.Text) > 0 && enoughChange)
             { 
                 if (drawer.Hundreds < Convert.ToInt32(tbHundredsDue.Text))
                 {
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Hundreds -= Convert.ToInt32(tbHundredsDue.Text);
             }
-            if (Convert.ToInt32(tbFiftiesDue.Text) > 0)
+            if (Convert.ToInt32(tbFiftiesDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Fifties < Convert.ToInt32(tbFiftiesDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
+                    
                 }
                 else drawer.Fifties -= Convert.ToInt32(tbFiftiesDue.Text);
             }
-            if (Convert.ToInt32(tbTwentiesDue.Text) > 0)
+            if (Convert.ToInt32(tbTwentiesDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Twenties < Convert.ToInt32(tbTwentiesDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
+                    
                 }
                 else drawer.Twenties -= Convert.ToInt32(tbTwentiesDue.Text);
             }
-            if (Convert.ToInt32(tbTensDue.Text) > 0)
+            if (Convert.ToInt32(tbTensDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Tens < Convert.ToInt32(tbTensDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
+                    
                 }
                 else drawer.Tens -= Convert.ToInt32(tbTensDue.Text);
             }
-            if (Convert.ToInt32(tbFivesDue.Text) > 0)
+            if (Convert.ToInt32(tbFivesDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Fives < Convert.ToInt32(tbFivesDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Fives -= Convert.ToInt32(tbFivesDue.Text);
             }
-            if (Convert.ToInt32(tbTwosDue.Text) > 0)
+            if (Convert.ToInt32(tbTwosDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Twos < Convert.ToInt32(tbTwosDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Twos -= Convert.ToInt32(tbTwosDue.Text);
             }
-            if (Convert.ToInt32(tbOnesDue.Text) > 0)
+            if (Convert.ToInt32(tbOnesDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Ones < Convert.ToInt32(tbOnesDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    drawer.Twos += Convert.ToInt32(tbTwosDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Ones -= Convert.ToInt32(tbOnesDue.Text);
             }
 
-            if (Convert.ToInt32(tbDollarCoinsDue.Text) > 0)
+            if (Convert.ToInt32(tbDollarCoinsDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Dollars < Convert.ToInt32(tbDollarCoinsDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    drawer.Twos += Convert.ToInt32(tbTwosDue.Text);
+                    drawer.Ones += Convert.ToInt32(tbOnesDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Dollars -= Convert.ToInt32(tbDollarCoinsDue.Text);
             }
-            if (Convert.ToInt32(tbHalfDollarsDue.Text) > 0)
+            if (Convert.ToInt32(tbHalfDollarsDue.Text) > 0 && enoughChange)
             {
                 if (drawer.HalfDollars < Convert.ToInt32(tbHalfDollarsDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    drawer.Twos += Convert.ToInt32(tbTwosDue.Text);
+                    drawer.Ones += Convert.ToInt32(tbOnesDue.Text);
+                    drawer.Dollars += Convert.ToInt32(tbDollarCoinsDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.HalfDollars -= Convert.ToInt32(tbHalfDollarsDue.Text);
             }
-            if (Convert.ToInt32(tbQuartersDue.Text) > 0)
+            if (Convert.ToInt32(tbQuartersDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Quarters < Convert.ToInt32(tbQuartersDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    drawer.Twos += Convert.ToInt32(tbTwosDue.Text);
+                    drawer.Ones += Convert.ToInt32(tbOnesDue.Text);
+                    drawer.Dollars += Convert.ToInt32(tbDollarCoinsDue.Text);
+                    drawer.HalfDollars += Convert.ToInt32(tbHalfDollarsDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Quarters -= Convert.ToInt32(tbQuartersDue.Text);
             }
-            if (Convert.ToInt32(tbDimesDue.Text) > 0)
+            if (Convert.ToInt32(tbDimesDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Dimes < Convert.ToInt32(tbDimesDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    drawer.Twos += Convert.ToInt32(tbTwosDue.Text);
+                    drawer.Ones += Convert.ToInt32(tbOnesDue.Text);
+                    drawer.Dollars += Convert.ToInt32(tbDollarCoinsDue.Text);
+                    drawer.HalfDollars += Convert.ToInt32(tbHalfDollarsDue.Text);
+                    drawer.Quarters += Convert.ToInt32(tbQuartersDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Dimes -= Convert.ToInt32(tbOnesDue.Text);
             }
-            if (Convert.ToInt32(tbNickelsDue.Text) > 0)
+            if (Convert.ToInt32(tbNickelsDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Nickels < Convert.ToInt32(tbNickelsDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    drawer.Twos += Convert.ToInt32(tbTwosDue.Text);
+                    drawer.Ones += Convert.ToInt32(tbOnesDue.Text);
+                    drawer.Dollars += Convert.ToInt32(tbDollarCoinsDue.Text);
+                    drawer.HalfDollars += Convert.ToInt32(tbHalfDollarsDue.Text);
+                    drawer.Quarters += Convert.ToInt32(tbQuartersDue.Text);
+                    drawer.Dimes += Convert.ToInt32(tbOnesDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Nickels -= Convert.ToInt32(tbNickelsDue.Text);
             }
-            if (Convert.ToInt32(tbPenniesDue.Text) > 0)
+            if (Convert.ToInt32(tbPenniesDue.Text) > 0 && enoughChange)
             {
                 if (drawer.Pennies < Convert.ToInt32(tbPenniesDue.Text))
                 {
+                    drawer.Hundreds += Convert.ToInt32(tbHundredsDue.Text);
+                    drawer.Fifties += Convert.ToInt32(tbFiftiesDue.Text);
+                    drawer.Twenties += Convert.ToInt32(tbTwentiesDue.Text);
+                    drawer.Tens += Convert.ToInt32(tbTensDue.Text);
+                    drawer.Fives += Convert.ToInt32(tbFivesDue.Text);
+                    drawer.Twos += Convert.ToInt32(tbTwosDue.Text);
+                    drawer.Ones += Convert.ToInt32(tbOnesDue.Text);
+                    drawer.Dollars += Convert.ToInt32(tbDollarCoinsDue.Text);
+                    drawer.HalfDollars += Convert.ToInt32(tbHalfDollarsDue.Text);
+                    drawer.Quarters += Convert.ToInt32(tbQuartersDue.Text);
+                    drawer.Dimes += Convert.ToInt32(tbOnesDue.Text);
+                    drawer.Nickels += Convert.ToInt32(tbNickelsDue.Text);
+                    ResetTextBoxes();
                     enoughChange = false;
                 }
                 else drawer.Pennies -= Convert.ToInt32(tbPenniesDue.Text);
@@ -287,12 +396,35 @@ namespace PointOfSale
             //Display a message if there is not enough of a particular amount of change
             if (!enoughChange)
             {
+                //clear all text boxes
+                ResetTextBoxes();
                 tbNotEnoughChange.Text = "Need More Change";
                 tbNotEnoughChange2.Text = "For Proper Change";
             }
 
             //Hide the DispenseChangeButton
             DispenseChangeButton.Visibility = Visibility.Hidden;
+            BeginNewOrderButton.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Helper method for clearing text boxes if more money is needed
+        /// </summary>
+        private void ResetTextBoxes()
+        {
+            tbHundredsDue.Text = "0";
+            tbFiftiesDue.Text = "0";
+            tbTwentiesDue.Text = "0";
+            tbTensDue.Text = "0";
+            tbFivesDue.Text = "0";
+            tbTwosDue.Text = "0";
+            tbOnesDue.Text = "0";
+            tbDollarCoinsDue.Text = "0";
+            tbHalfDollarsDue.Text = "0";
+            tbQuartersDue.Text = "0";
+            tbDimesDue.Text = "0";
+            tbNickelsDue.Text = "0";
+            tbPenniesDue.Text = "0";
         }
 
         /// <summary>

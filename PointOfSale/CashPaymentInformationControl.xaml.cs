@@ -42,6 +42,7 @@ namespace PointOfSale
             //If the amount entered by the user meets the total amount due
             if (transactionControl.CheckIfCashEnteredFulfillsTotalDue(amount))
             {
+                CompleteCashPaymentButton.Visibility = Visibility.Hidden;
                 //Update model denomination values
                 transactionControl.UpdateDenominationValues(coinsQuantities, billQuantities);
                 //Change the CashPaymentInputControl to ChangeReturnDisplayControl
@@ -79,7 +80,8 @@ namespace PointOfSale
             orderControl.SummaryBorder.Child = new OrderSummaryControl();
             orderControl.CancelOrderButton.Visibility = Visibility.Visible;
             orderControl.ItemSelectionButton.Visibility = Visibility.Visible;
-            
+
+            CompleteCashPaymentButton.Visibility = Visibility.Visible;
         }
     }
 }

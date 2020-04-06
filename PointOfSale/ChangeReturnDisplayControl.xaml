@@ -119,7 +119,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Name="BeginNewOrderButton" Click="BeginNewOrderButtonClick"
-                    Width="300" FontSize="30" Height="100">Begin New Order</Button>
+                    Width="300" FontSize="30" Height="100" Visibility="Hidden">Begin New Order</Button>
         </StackPanel>
     </StackPanel>
 </UserControl>
