@@ -65,55 +65,55 @@ namespace PointOfSale
                 if (change >= 100 && hundreds > 0)
                 {
                     hundreds--;
-                        int value = Convert.ToInt32(tbHundredsDue.Text);
-                        value += 1;
-                        tbHundredsDue.Text = value.ToString();
-                        change -= 100.00;
+                    int value = Convert.ToInt32(tbHundredsDue.Text);
+                    value += 1;
+                    tbHundredsDue.Text = value.ToString();
+                    change -= 100.00;
                     
                 }
                 else if (change >= 50 && fifties > 0)
                 {
                     fifties--;
-                        int value = Convert.ToInt32(tbFiftiesDue.Text);
-                        value += 1;
-                        tbFiftiesDue.Text = value.ToString();
-                        change -= 50.00;
+                    int value = Convert.ToInt32(tbFiftiesDue.Text);
+                    value += 1;
+                    tbFiftiesDue.Text = value.ToString();
+                    change -= 50.00;
                     
                 }
                 else if (change >= 20 && twenties > 0)
                 {
                     twenties--;
-                        int value = Convert.ToInt32(tbTwentiesDue.Text);
-                        value += 1;
-                        tbTwentiesDue.Text = value.ToString();
-                        change -= 20.00;
+                    int value = Convert.ToInt32(tbTwentiesDue.Text);
+                    value += 1;
+                    tbTwentiesDue.Text = value.ToString();
+                    change -= 20.00;
                     
                 }
                 else if (change >= 10 && tens > 0)
                 {
                     tens--;
-                        int value = Convert.ToInt32(tbTensDue.Text);
-                        value += 1;
-                        tbTensDue.Text = value.ToString();
-                        change -= 10.00;
+                    int value = Convert.ToInt32(tbTensDue.Text);
+                    value += 1;
+                    tbTensDue.Text = value.ToString();
+                    change -= 10.00;
                     
                 }
                 else if (change >= 5 && fives > 0)
                 {
                     fives--;
-                        int value = Convert.ToInt32(tbFivesDue.Text);
-                        value += 1;
-                        tbFivesDue.Text = value.ToString();
-                        change -= 5.00;
+                    int value = Convert.ToInt32(tbFivesDue.Text);
+                    value += 1;
+                    tbFivesDue.Text = value.ToString();
+                    change -= 5.00;
                     
                 }
                 else if (change >= 2 && twos > 0)
                 {
                     twos--;
-                        int value = Convert.ToInt32(tbTwosDue.Text);
-                        value += 1;
-                        tbTwosDue.Text = value.ToString();
-                        change -= 2.00;
+                    int value = Convert.ToInt32(tbTwosDue.Text);
+                    value += 1;
+                    tbTwosDue.Text = value.ToString();
+                    change -= 2.00;
                     
                 }
                 else if (change >= 1 && (ones > 0 || dollars > 0))
@@ -138,46 +138,46 @@ namespace PointOfSale
                 else if (change >= 0.50 && halfDollars > 0)
                 {
                     halfDollars--;
-                        int value = Convert.ToInt32(tbHalfDollarsDue.Text);
-                        value += 1;
-                        tbHalfDollarsDue.Text = value.ToString();
-                        change -= 0.50;
+                    int value = Convert.ToInt32(tbHalfDollarsDue.Text);
+                    value += 1;
+                    tbHalfDollarsDue.Text = value.ToString();
+                    change -= 0.50;
                     
                 }
                 else if (change >= 0.25 && quarters > 0)
                 {
                     quarters--;
-                        int value = Convert.ToInt32(tbQuartersDue.Text);
-                        value += 1;
-                        tbQuartersDue.Text = value.ToString();
-                        change -= 0.25;
+                    int value = Convert.ToInt32(tbQuartersDue.Text);
+                    value += 1;
+                    tbQuartersDue.Text = value.ToString();
+                    change -= 0.25;
                     
                 }
                 else if (change >= 0.10 && dimes> 0)
                 {
                     dimes--;
-                        int value = Convert.ToInt32(tbDimesDue.Text);
-                        value += 1;
-                        tbDimesDue.Text = value.ToString();
-                        change -= 0.10;
+                    int value = Convert.ToInt32(tbDimesDue.Text);
+                    value += 1;
+                    tbDimesDue.Text = value.ToString();
+                    change -= 0.10;
                     
                 }
                 else if (change >= 0.05 && nickels > 0)
                 {
                     nickels--;
-                        int value = Convert.ToInt32(tbNickelsDue.Text);
-                        value += 1;
-                        tbNickelsDue.Text = value.ToString();
-                        change -= 0.05;
+                    int value = Convert.ToInt32(tbNickelsDue.Text);
+                    value += 1;
+                    tbNickelsDue.Text = value.ToString();
+                    change -= 0.05;
                     
                 }
                 else if (change >= 0.01 && pennies > 0)
                 {
                     pennies--;    
-                        int value = Convert.ToInt32(tbPenniesDue.Text);
-                        value += 1;
-                        tbPenniesDue.Text = value.ToString();
-                        change -= 0.01;
+                    int value = Convert.ToInt32(tbPenniesDue.Text);
+                    value += 1;
+                    tbPenniesDue.Text = value.ToString();
+                    change -= 0.01;
                     
                 }
                 else
