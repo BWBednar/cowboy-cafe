@@ -17,8 +17,20 @@
         </p>
 
         <h2>Entrees</h2>
-        <div class="entree-items">
-            @foreach (IOrderItem item in Menu.Entrees())
+        <div class="menu-item">
+            @foreach (Entree item in Menu.Entrees())
+            {
+                <div class="individual-item">
+                    @item
+                    @String.Format("{0:C2}", item.Price)
+                    @item.Calories
+                </div>
+            }
+        </div>
+
+        <h2>Sides</h2>
+        <div class="menu-item">
+            @foreach (IOrderItem item in Menu.Sides())
             {
                 <div class="individual-item">
                     @item
@@ -26,18 +38,8 @@
             }
         </div>
 
-        <h2>Sides</h2>
-        <div class="side-items">
-            @foreach (IOrderItem item in Menu.Sides())
-            {
-            <div class="individual-item">
-                @item
-            </div>
-            }
-        </div>
-
         <h2>Drinks</h2>
-        <div class="drink-items">
+        <div class="menu-item">
             @foreach (IOrderItem item in Menu.Drinks())
             {
                 <div class="individual-item">
