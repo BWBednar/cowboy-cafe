@@ -18,33 +18,57 @@
 
         <h2>Entrees</h2>
         <div class="menu-item">
-            @foreach (Entree item in Menu.Entrees())
-            {
-                <div class="individual-item">
-                    @item
-                    @String.Format("{0:C2}", item.Price)
-                    @item.Calories
-                </div>
-            }
+            <ul class="entrees">
+                @foreach (Entree item in Menu.Entrees())
+                {
+                    <li>
+                        <div class="menu-item">
+                            @item
+                            @String.Format("{0:C2}", item.Price)
+                            @item.Calories
+                        </div>
+                    </li>
+                }
+            </ul>
         </div>
 
         <h2>Sides</h2>
-        <div class="menu-item">
-            @foreach (IOrderItem item in Menu.Sides())
-            {
-                <div class="individual-item">
-                    @item
-                </div>
-            }
+        <div class="manu-item">
+            <ul class="sides">
+                @foreach (Side item in Menu.Sides())
+                {
+
+                    @foreach (Size size in Enum.GetValues(typeof(Size)))
+                    {
+                        item.Size = size;
+                        <li>
+                            @item
+                            @String.Format("{0:C2}", item.Price)
+                            @item.Calories
+                        </li>
+                    }
+
+                }
+            </ul>
         </div>
 
         <h2>Drinks</h2>
         <div class="menu-item">
-            @foreach (IOrderItem item in Menu.Drinks())
-            {
-                <div class="individual-item">
-                    @item
-                </div>
-            }
+            <ul class="drinks">
+                @foreach (Drink item in Menu.Drinks())
+                {
+
+                    @foreach (Size size in Enum.GetValues(typeof(Size)))
+                    {
+                        item.Size = size;
+                        <li>
+                            @item
+                            @String.Format("{0:C2}", item.Price)
+                            @item.Calories
+                        </li>
+                    }
+
+                }
+            </ul>
         </div>
     </div>
