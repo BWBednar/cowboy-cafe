@@ -152,5 +152,11 @@ namespace CowboyCafe.Data
             printOut.Append("Jerked Soda");
             return printOut.ToString();
         }
+
+        /// <summary>
+        /// Property for the website project to get the simple version of the item name
+        /// </summary>
+        /// <returns>Item name without size</returns>
+        public override string SimpleName { get { return "Jerked Soda"; } }
     }
 }

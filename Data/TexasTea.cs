@@ -16,7 +16,7 @@ namespace CowboyCafe.Data
     /// </summary>
     public class TexasTea : Drink, IOrderItem
     {
-        
+
 
         /// <summary>
         /// The price of the tea
@@ -153,5 +153,17 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Property for the website project to get the simple version of the item name
+        /// </summary>
+        /// <returns>Item name without size</returns>
+        public override string SimpleName
+        {
+            get
+            {
+                if (sweetTea) return "Texas Sweet Tea";
+                else return "Texas Plain Tea";
+            }
+        }
     }
 }

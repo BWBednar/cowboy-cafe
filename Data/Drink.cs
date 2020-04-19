@@ -93,5 +93,10 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
+
+        /// <summary>
+        /// Gets the simple version of the item name (no size)
+        /// </summary>
+        public abstract string SimpleName { get; }
     }
 }

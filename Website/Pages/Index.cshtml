@@ -5,70 +5,120 @@
 }
 @using CowboyCafe.Data
 
-    <div class="text-center">
-        <h1 class="display-4">Welcome to The Cowboy Cafe</h1>
-        <p>
-            We at Cowboy Cafe are proud to bring you authentic trail meals
-            from the American West. Shake off the dust on your boots and
-            sake your thirst with one of our old-fashioned hand-jerked sodas.
-            Dip your Pan de Campo into a bowl of beans. Or conquer the the
-            mighty Texas Triple Burger! You’ve had a hard ride - so take it
-            easy with us.
-        </p>
+<! ---
+        Index.cshtml
+        Auther: Brandon Bednar
+        Purpose: This page essentially functions as the home page currently
+        --->
 
-        <h2>Entrees</h2>
-        <div class="menu-item">
-            <ul class="entrees">
-                @foreach (Entree item in Menu.Entrees())
-                {
-                    <li>
-                        <div class="menu-item">
-                            @item
-                            @String.Format("{0:C2}", item.Price)
-                            @item.Calories
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
+<div class="text-center">
+    <! ---
+    Welcome message that shows at top of screen
+    --->
+    <h1 class="display-4">Welcome to The Cowboy Cafe</h1>
+    <p>
+        We at Cowboy Cafe are proud to bring you authentic trail meals
+        from the American West. Shake off the dust on your boots and
+        sake your thirst with one of our old-fashioned hand-jerked sodas.
+        Dip your Pan de Campo into a bowl of beans. Or conquer the the
+        mighty Texas Triple Burger! You’ve had a hard ride - so take it
+        easy with us.
+    </p>
 
-        <h2>Sides</h2>
-        <div class="manu-item">
-            <ul class="sides">
-                @foreach (Side item in Menu.Sides())
-                {
-
-                    @foreach (Size size in Enum.GetValues(typeof(Size)))
-                    {
-                        item.Size = size;
-                        <li>
-                            @item
-                            @String.Format("{0:C2}", item.Price)
-                            @item.Calories
-                        </li>
-                    }
-
-                }
-            </ul>
-        </div>
-
-        <h2>Drinks</h2>
-        <div class="menu-item">
-            <ul class="drinks">
-                @foreach (Drink item in Menu.Drinks())
-                {
-
-                    @foreach (Size size in Enum.GetValues(typeof(Size)))
-                    {
-                        item.Size = size;
-                        <li>
-                            @item
-                            @String.Format("{0:C2}", item.Price)
-                            @item.Calories
-                        </li>
-                    }
-
-                }
-            </ul>
-        </div>
+    <! ---
+    This section of code is for dsiplaying the Entrees information.
+    It follows the pattern of showing the name of the item, then the
+    price, and finally the calories
+    --->
+    <h2 class="section-header">Entrees</h2>
+    <div class="menu-item">
+        <ul class="entrees">
+            @foreach (Entree item in Menu.Entrees())
+            {
+                <li>
+                    <div class="item-name">
+                        @item
+                    </div>
+                    <div class="item-price">
+                        Price: @String.Format("{0:C2}", item.Price)
+                    </div>
+                    <div class="item-calories">
+                        Calories: @item.Calories
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
+
+    <! ---
+    This section of code is for dsiplaying the Sides information.
+    It follows the display pattern of showing the name of the item,
+    then the different sizes, and prices and calories that
+    correspong to that size.
+    --->
+    <h2 class="section-header">Sides</h2>
+    <div class="menu-item">
+        <ul class="sides">
+            @foreach (Side item in Menu.Sides())
+            {
+                <li class="sides-outer">
+                    <div class="item-name">
+                        @item.SimpleName
+                    </div>
+                    @foreach (Size size in Enum.GetValues(typeof(Size)))
+                    {
+                        item.Size = size;
+                        <ul class="sides-inner">
+                            <li sized-item-details>
+                                <div class="item-size">
+                                    Size: @size
+                                </div>
+                                <div class="item-price">
+                                    Price: @String.Format("{0:C2}", item.Price)
+                                </div>
+                                <div class="item-calories">
+                                    Calories: @item.Calories
+                                </div>
+                            </li>
+                        </ul>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+
+    <! ---
+    This section of code is for dsiplaying the Drinks information.
+    It follows the same pattern as Sides for displaying information.
+    --->
+    <h2 class="section-header">Drinks</h2>
+    <div class="menu-item">
+        <ul class="drinks">
+            @foreach (Drink item in Menu.Drinks())
+            {
+                <li class="drink-outer">
+                    <div class="item-name">
+                        @item.SimpleName
+                    </div>
+                    @foreach (Size size in Enum.GetValues(typeof(Size)))
+                    {
+                        item.Size = size;
+                        <ul class="drink-inner">
+                            <li sized-item-details>
+                                <div class="item-size">
+                                    Size: @size
+                                </div>
+                                <div class="item-price">
+                                    Price: @String.Format("{0:C2}", item.Price)
+                                </div>
+                                <div class="item-calories">
+                                    Calories: @item.Calories
+                                </div>
+                            </li>
+                        </ul>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+</div>

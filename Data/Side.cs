@@ -53,5 +53,10 @@ namespace CowboyCafe.Data
         /// Gets the calories of the side
         /// </summary>
         public abstract uint Calories { get; }
+
+        /// <summary>
+        /// Gets the simple version of the item name (no size)
+        /// </summary>
+        public abstract string SimpleName { get; }
     }
 }

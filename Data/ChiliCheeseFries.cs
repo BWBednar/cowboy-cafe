@@ -84,5 +84,11 @@ namespace CowboyCafe.Data
                     throw new NotImplementedException();
             }
         }
+
+        /// <summary>
+        /// Property for the website project to get the simple version of the item name
+        /// </summary>
+        /// <returns>Item name without size</returns>
+        public override string SimpleName { get { return "Chili Cheese Fries"; } }
     }
 }
