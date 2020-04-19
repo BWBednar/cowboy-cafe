@@ -3,8 +3,46 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@using CowboyCafe.Data
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Welcome to The Cowboy Cafe</h1>
+        <p>
+            We at Cowboy Cafe are proud to bring you authentic trail meals
+            from the American West. Shake off the dust on your boots and
+            sake your thirst with one of our old-fashioned hand-jerked sodas.
+            Dip your Pan de Campo into a bowl of beans. Or conquer the the
+            mighty Texas Triple Burger! You’ve had a hard ride - so take it
+            easy with us.
+        </p>
+
+        <h2>Entrees</h2>
+        <div class="entree-items">
+            @foreach (IOrderItem item in Menu.Entrees())
+            {
+                <div class="individual-item">
+                    @item
+                </div>
+            }
+        </div>
+
+        <h2>Sides</h2>
+        <div class="side-items">
+            @foreach (IOrderItem item in Menu.Sides())
+            {
+            <div class="individual-item">
+                @item
+            </div>
+            }
+        </div>
+
+        <h2>Drinks</h2>
+        <div class="drink-items">
+            @foreach (IOrderItem item in Menu.Drinks())
+            {
+                <div class="individual-item">
+                    @item
+                </div>
+            }
+        </div>
+    </div>
