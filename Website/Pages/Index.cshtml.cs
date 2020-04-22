@@ -26,8 +26,13 @@ namespace Website.Pages
             this.MaxPrice = MaxPrice;
             SearchTerms = Request.Query["SearchTerms"];
             ItemTypes = Request.Query["ItemTypes"];
+            items = Menu.Search(SearchTerms);
+            items = Menu.FilterByCategory(Items, ItemTypes);
+            items = Menu.FilterByCalories(Items, MinCalories, MaxCalories);
+            items = Menu.FilterByPrice(Items, MinPrice, MaxPrice); 
         }
 
+        private IEnumerable<IOrderItem> items = Menu.CompleteMenu;
         /// <summary>
         /// The menu items to display on the index page
         /// </summary>
@@ -35,11 +40,9 @@ namespace Website.Pages
         { 
             get 
             {
-                return Menu.CompleteMenu; 
+                return items;
             } 
-            private set 
-            { 
-            } 
+            private set { } 
         }
 
         /// <summary>
