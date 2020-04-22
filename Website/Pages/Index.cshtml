@@ -25,100 +25,92 @@
         easy with us.
     </p>
 
-    <! ---
-    This section of code is for dsiplaying the Entrees information.
-    It follows the pattern of showing the name of the item, then the
-    price, and finally the calories
-    --->
-    <h2 class="section-header">Entrees</h2>
-    <div class="menu-item">
-        <ul class="entrees">
-            @foreach (Entree item in Menu.Entrees())
+    <form id="menu-search">
+        <div class="search-bar">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
+            <input type="submit" value="Search"/>
+        </div>
+        <div class="search-filters">
+            <h4>Item Type</h4>
+            @foreach (string type in Menu.ItemTypes)
             {
-                <li>
-                    <div class="item-name">
-                        @item
-                    </div>
-                    <div class="item-price">
-                        Price: @String.Format("{0:C2}", item.Price)
-                    </div>
-                    <div class="item-calories">
-                        Calories: @item.Calories
-                    </div>
-                </li>
+                <label class="item-type">
+                    <input type="checkbox" name="ItemTypes" value="@type" checked="@Model.ItemTypes.Contains(type)" />
+                    @type
+                </label>
             }
-        </ul>
-    </div>
-
-    <! ---
-    This section of code is for dsiplaying the Sides information.
-    It follows the display pattern of showing the name of the item,
-    then the different sizes, and prices and calories that
-    correspong to that size.
-    --->
-    <h2 class="section-header">Sides</h2>
-    <div class="menu-item">
-        <ul class="sides">
-            @foreach (Side item in Menu.Sides())
-            {
-                <li class="sides-outer">
-                    <div class="item-name">
-                        @item.SimpleName
-                    </div>
-                    @foreach (Size size in Enum.GetValues(typeof(Size)))
+            <h4>Calories</h4>
+            <div class="calorie-range">
+                Between
+                <input name="MinCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.MinCalories" />
+                and
+                <input name="MaxCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.MaxCalories" />
+            </div>
+            <h4>Price</h4>
+            <div class="price-range">
+                Between
+                <input name="MinPrice" type="number" min="0.00" max="10.00" step="0.01" placeholder="min" value="@Model.MinPrice" />
+                and
+                <input name="MaxPrice" type="number" min="0.00" max="10.00" step="0.01" placeholder="min" value="@Model.MaxPrice" />
+            </div>
+        </div>
+        <div class="menu-display">
+            <h1>Menu Items</h1>
+            <h2 class="section-header">Entrees</h2>
+            <div class="menu-item">
+                <ul class="entrees">
+                    @foreach (IOrderItem item in Model.Items)
                     {
-                        item.Size = size;
-                        <ul class="sides-inner">
-                            <li sized-item-details>
-                                <div class="item-size">
-                                    Size: @size
-                                </div>
-                                <div class="item-price">
-                                    Price: @String.Format("{0:C2}", item.Price)
-                                </div>
-                                <div class="item-calories">
-                                    Calories: @item.Calories
-                                </div>
+                        @if (item is Entree entree)
+                        {
+                            <li>
+                                <div class="item-name">@entree</div>
+                                <div class="item-price">Price: @String.Format("{0:C2}", entree.Price)</div>
+                                <div class="item-calories">Calories: @entree.Calories</div>
                             </li>
-                        </ul>
+                        }
                     }
-                </li>
-            }
-        </ul>
-    </div>
-
-    <! ---
-    This section of code is for dsiplaying the Drinks information.
-    It follows the same pattern as Sides for displaying information.
-    --->
-    <h2 class="section-header">Drinks</h2>
-    <div class="menu-item">
-        <ul class="drinks">
-            @foreach (Drink item in Menu.Drinks())
-            {
-                <li class="drink-outer">
-                    <div class="item-name">
-                        @item.SimpleName
-                    </div>
-                    @foreach (Size size in Enum.GetValues(typeof(Size)))
+                </ul>
+            </div>
+            <h2 class="section-header">Sides</h2>
+            <div class="menu-item">
+                <ul class="sides">
+                    @foreach (IOrderItem item in Model.Items)
                     {
-                        item.Size = size;
-                        <ul class="drink-inner">
-                            <li sized-item-details>
-                                <div class="item-size">
-                                    Size: @size
-                                </div>
-                                <div class="item-price">
-                                    Price: @String.Format("{0:C2}", item.Price)
-                                </div>
-                                <div class="item-calories">
-                                    Calories: @item.Calories
-                                </div>
+                        @if (item is Side side)
+                        {
+                            <li>
+                                <div class="item-name">@side.SimpleName</div>
+                                <div class="size">Size: @side.Size</div>
+                                <div class="item-price">Price: @String.Format("{0:C2}", side.Price)</div>
+                                <div class="item-calories">Calories: @side.Calories</div>
                             </li>
-                        </ul>
+                        }
                     }
-                </li>
-            }
-        </ul>
-    </div>
+                </ul>
+            </div>
+            <h2 class="section-header">Drinks</h2>
+            <div class="menu-item">
+                <ul class="sides">
+                    @foreach (IOrderItem item in Model.Items)
+                    {
+                        @if (item is Drink drink)
+                        {
+                            <li>
+                                <div class="item-name">@drink.SimpleName</div>
+                                <div class="size">Size: @drink.Size</div>
+                                <div class="item-price">Price: @String.Format("{0:C2}", drink.Price)</div>
+                                <div class="item-calories">Calories: @drink.Calories</div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+
+
+
+
+
+        </div>
+    </form>
 </div>

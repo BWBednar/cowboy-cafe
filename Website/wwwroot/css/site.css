@@ -86,37 +86,24 @@ section-header{
 
 /* Have the items and their information on a single row of the ul shown clearly
 ---------------------------------------------------- */
-ul.entrees, ul.sides, ul.drinks{
-    padding:0;
-    margin:0;
+/* Have the items and their information on a single row of the ul shown clearly
+---------------------------------------------------- */
+ul.entrees, ul.sides, ul.drinks {
+    padding: 0;
+    margin: 0;
     border-top: 1px solid gray;
 }
 
 /* Has the items of each item relevant displayed on the same row
 ---------------------------------------------------- */
-ul.entrees > li, ul.sides >li, ul.drinks >li  {
+ul.entrees > li, ul.sides > li, ul.drinks > li {
     list-style-type: none;
     border-bottom: 1px solid lightgray;
     margin: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     min-height: 50px;
 }
 
-/* Has the information for each item size displayed together
----------------------------------------------------- */
-ul.drink-inner > li, ul.sides-inner > li{
-    list-style-type: none;
-    flex-direction:column;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-}
-
-/* Slightly increase the font size of the item names
----------------------------------------------------- */
-item-name{
-    font-size:1.4rem;
-}

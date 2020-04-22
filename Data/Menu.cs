@@ -16,58 +16,129 @@ namespace CowboyCafe.Data
     /// </summary>
     public static class Menu 
     {
+        public static string[] ItemTypes
+        {
+            get => new string[]
+            {
+                "Entrees",
+                "Sides",
+                "Drinks"
+            };
+        }
+
+
+
         /// <summary>
         /// IEnumberable to get the list of entrees
         /// </summary>
-        public static IEnumerable<IOrderItem> Entrees() 
+        public static IEnumerable<IOrderItem> Entrees
         {
-            List<IOrderItem> entrees = new List<IOrderItem>();
-            entrees.Add(new AngryChicken());
-            entrees.Add(new CowpokeChili());
-            entrees.Add(new DakotaDoubleBurger());
-            entrees.Add(new PecosPulledPork());
-            entrees.Add(new RustlersRibs());
-            entrees.Add(new TexasTripleBurger());
-            entrees.Add(new TrailBurger());
-            return (IEnumerable<IOrderItem>)entrees;
+            get
+            {
+                List<IOrderItem> entrees = new List<IOrderItem>();
+                entrees.Add(new AngryChicken());
+                entrees.Add(new CowpokeChili());
+                entrees.Add(new DakotaDoubleBurger());
+                entrees.Add(new PecosPulledPork());
+                entrees.Add(new RustlersRibs());
+                entrees.Add(new TexasTripleBurger());
+                entrees.Add(new TrailBurger());
+                return (IEnumerable<IOrderItem>)entrees;
+            }
         }
 
         /// <summary>
         /// IEnumberable to get the list of sides
         /// </summary>
-        public static IEnumerable<IOrderItem> Sides()
+        public static IEnumerable<IOrderItem> Sides
         {
-            List<IOrderItem> sides = new List<IOrderItem>();
-            sides.Add(new BakedBeans());
-            sides.Add(new ChiliCheeseFries());
-            sides.Add(new CornDodgers());
-            sides.Add(new PanDeCampo());
-            return (IEnumerable<IOrderItem>)sides;
+            get
+            {
+                List<IOrderItem> sides = new List<IOrderItem>();
+                foreach(Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new BakedBeans();
+                    item.Size = size;
+                    sides.Add(item);
+                }
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new ChiliCheeseFries();
+                    item.Size = size;
+                    sides.Add(item);
+                }
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new CornDodgers();
+                    item.Size = size;
+                    sides.Add(item);
+                }
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new PanDeCampo();
+                    item.Size = size;
+                    sides.Add(item);
+                }
+                return (IEnumerable<IOrderItem>)sides;
+            }
         }
 
         /// <summary>
         /// IEnumberable to get the list of drinks
         /// </summary>
-        public static IEnumerable<IOrderItem> Drinks()
+        public static IEnumerable<IOrderItem> Drinks
         {
-            List<IOrderItem> drinks = new List<IOrderItem>();
-            drinks.Add(new CowboyCoffee());
-            drinks.Add(new JerkedSoda());
-            drinks.Add(new TexasTea());
-            drinks.Add(new Water());
-            return (IEnumerable<IOrderItem>)drinks;
+            get
+            {
+                List<IOrderItem> drinks = new List<IOrderItem>();
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new CowboyCoffee();
+                    item.Size = size;
+                    drinks.Add(item);
+                }
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new JerkedSoda();
+                    item.Size = size;
+                    drinks.Add(item);
+                }
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new TexasTea();
+                    item.Size = size;
+                    drinks.Add(item);
+                }
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new TexasTea();
+                    item.Sweet = false;
+                    item.Size = size;
+                    drinks.Add(item);
+                }
+                foreach (Size size in Enum.GetValues(typeof(Size)))
+                {
+                    var item = new Water();
+                    item.Size = size;
+                    drinks.Add(item);
+                }
+                return (IEnumerable<IOrderItem>)drinks;
+            }
         }
 
         /// <summary>
         /// IEnumberable to get the list of all items
         /// </summary>
-        public static IEnumerable<IOrderItem> CompleteMenu()
+        public static IEnumerable<IOrderItem> CompleteMenu
         {
-            List<IOrderItem> completeMenu = new List<IOrderItem>();
-            foreach(IOrderItem entree in Entrees()) completeMenu.Add(entree);
-            foreach (IOrderItem side in Sides()) completeMenu.Add(side);
-            foreach (IOrderItem drink in Drinks()) completeMenu.Add(drink);
-            return (IEnumerable<IOrderItem>)completeMenu;
-        } 
+            get
+            {
+                List<IOrderItem> completeMenu = new List<IOrderItem>();
+                foreach (IOrderItem entree in Entrees) completeMenu.Add(entree);
+                foreach (IOrderItem side in Sides) completeMenu.Add(side);
+                foreach (IOrderItem drink in Drinks) completeMenu.Add(drink);
+                return (IEnumerable<IOrderItem>)completeMenu;
+            }
+        }
     }
 }
