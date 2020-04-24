@@ -15,7 +15,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A static class for retrieving lists of menu items
     /// </summary>
-    public static class Menu 
+    public static class Menu
     {
         public static string[] ItemTypes
         {
@@ -26,6 +26,7 @@ namespace CowboyCafe.Data
                 "Drink"
             };
         }
+
 
         /// <summary>
         /// IEnumberable to get the list of entrees
@@ -162,7 +163,6 @@ namespace CowboyCafe.Data
             List<IOrderItem> results = new List<IOrderItem>();
             foreach(IOrderItem item in items)
             {
-                var s = item.GetType().BaseType.Name;
                 if (item.GetType().BaseType.Name != null && types.Contains(item.GetType().BaseType.Name))
                 {
                     results.Add(item);

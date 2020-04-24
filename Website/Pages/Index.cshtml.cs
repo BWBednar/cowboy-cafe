@@ -57,6 +57,7 @@ namespace Website.Pages
         [BindProperty]
         public string[] ItemTypes { get; set; }
 
+
         /// <summary>
         /// The minimum amount of calories being searched for
         /// </summary>
