@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Index.cshtml.cs
+ * Author: Brandon Bednar
+ * Purpose: Backing code for the Index.cshtml page for the Website
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,6 +24,13 @@ namespace Website.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// Method that updates the information displayed each time the page is called
+        /// </summary>
+        /// <param name="MinCalories">Minimum calories for the search functionality</param>
+        /// <param name="MaxCalories">Maximum calories for the search functionality</param>
+        /// <param name="MinPrice">Minimum price for the search functionality</param>
+        /// <param name="MaxPrice">Maximum price for the search functionality</param>
         public void OnGet(int? MinCalories, int? MaxCalories, double? MinPrice, double? MaxPrice)
         {
             this.MinCalories = MinCalories;
@@ -32,6 +45,9 @@ namespace Website.Pages
             items = Menu.FilterByPrice(Items, MinPrice, MaxPrice); 
         }
 
+        /// <summary>
+        /// Backing variable for the items displayed
+        /// </summary>
         private IEnumerable<IOrderItem> items = Menu.CompleteMenu;
         /// <summary>
         /// The menu items to display on the index page

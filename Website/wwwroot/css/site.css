@@ -79,26 +79,25 @@ bronco-image {
     width:50%;
 }
 
+/* CSS design for the search information formatting. 
+    Largely reused code from previous Dynamic Pages assignment/lecutre
+---------------------------------------------------- */
 form#menu-info-display {
     display: flex;
 }
-
 #search-bar {
     text-align: center;
 }
-
 #search-filters {
     display: flex;
     flex-direction: column;
 }
-
-    #search-filters input[type=number] {
-        width: 3rem;
-    }
-
-    #search-filters h4 {
-        margin-bottom: 0.2rem;
-    }
+#search-filters input[type=number] {
+    width: 3rem;
+}
+#search-filters h4 {
+    margin-bottom: 0.2rem;
+}
 
 section-header{
     text-align: center;
