@@ -10,27 +10,24 @@
         Auther: Brandon Bednar
         Purpose: This page essentially functions as the home page currently
         --->
-
-<div class="text-center">
-    <! ---
-    Welcome message that shows at top of screen
-    --->
-    <h1 class="display-4">Welcome to The Cowboy Cafe</h1>
-    <p>
-        We at Cowboy Cafe are proud to bring you authentic trail meals
-        from the American West. Shake off the dust on your boots and
-        sake your thirst with one of our old-fashioned hand-jerked sodas.
-        Dip your Pan de Campo into a bowl of beans. Or conquer the the
-        mighty Texas Triple Burger! You’ve had a hard ride - so take it
-        easy with us.
-    </p>
-
-    <form id="menu-search">
-        <div class="search-bar">
-            <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
-            <input type="submit" value="Search"/>
-        </div>
-        <div class="search-filters">
+    
+    <div id="header">
+        <h1>Welcome to The Cowboy Cafe</h1>
+        <p>
+            We at Cowboy Cafe are proud to bring you authentic trail meals
+            from the American West. Shake off the dust on your boots and
+            sake your thirst with one of our old-fashioned hand-jerked sodas.
+            Dip your Pan de Campo into a bowl of beans. Or conquer the the
+            mighty Texas Triple Burger! You’ve had a hard ride - so take it
+            easy with us.
+        </p>
+    </div>
+    <form id="menu-info-display">
+        <div id="search-filters">
+            <div id="search-bar">
+                <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+                <input type="submit" value="Search" />
+            </div>
             <h4>Item Type</h4>
             @foreach (string type in Menu.ItemTypes)
             {
@@ -54,7 +51,9 @@
                 <input name="MaxPrice" type="number" min="0.00" max="10.00" step="0.01" placeholder="max" value="@Model.MaxPrice" />
             </div>
         </div>
-        <div class="menu-display">
+
+        <div id="menu-items">
+
             <h1>Menu Items</h1>
             <h2 class="section-header">Entrees</h2>
             <div class="menu-item">
@@ -106,11 +105,8 @@
                     }
                 </ul>
             </div>
-
-
-
-
-
         </div>
     </form>
-</div>
+
+
+

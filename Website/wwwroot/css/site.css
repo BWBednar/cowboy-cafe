@@ -79,13 +79,31 @@ bronco-image {
     width:50%;
 }
 
+form#menu-info-display {
+    display: flex;
+}
+
+#search-bar {
+    text-align: center;
+}
+
+#search-filters {
+    display: flex;
+    flex-direction: column;
+}
+
+    #search-filters input[type=number] {
+        width: 3rem;
+    }
+
+    #search-filters h4 {
+        margin-bottom: 0.2rem;
+    }
 
 section-header{
     text-align: center;
 }
 
-/* Have the items and their information on a single row of the ul shown clearly
----------------------------------------------------- */
 /* Have the items and their information on a single row of the ul shown clearly
 ---------------------------------------------------- */
 ul.entrees, ul.sides, ul.drinks {
@@ -106,6 +124,10 @@ ul.entrees > li, ul.sides > li, ul.drinks > li {
     align-items: center;
     min-height: 50px;
 }
+
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 ﻿/*
  * Menu.cs
  * Author: Brandon Bednar
- * Purpose: A static class for retrieving lists of menu items
+ * Purpose: A static class for retrieving lists of menu items and for searching the items for specific details
  */
 
 using System;
@@ -17,6 +17,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public static class Menu
     {
+        /// <summary>
+        /// String array property that contains all Item Base Types
+        /// </summary>
         public static string[] ItemTypes
         {
             get => new string[]
@@ -141,6 +144,11 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Method that returns an IEnumerable of all items from CompleteMenu that contain a specified string
+        /// </summary>
+        /// <param name="searchTerm">The specified string being search for in the items</param>
+        /// <returns>IEnumberable of all items that contain the specified string</returns>
         public static IEnumerable<IOrderItem> Search (string searchTerm)
         {
             List<IOrderItem> results = new List<IOrderItem>();
@@ -157,6 +165,12 @@ namespace CowboyCafe.Data
 
         }
 
+        /// <summary>
+        /// Method that returns an IEnumerable of all items that contain a specified type of item Base Type
+        /// </summary>
+        /// <param name="items">The IEnumberable of items being searched through</param>
+        /// <param name="types">Strings of the Base Types of items being searched for</param>
+        /// <returns>An IEnumerable that contains all the itesm from the given list with the specified Base Types</returns>
         public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> types)
         {
             if (types == null || types.Count() == 0) return items;
@@ -171,6 +185,13 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Method that returns an IEnumerable of all items that fall within a specified range for the Calories property
+        /// </summary>
+        /// <param name="items">The IEnumberable of items being searched through</param>
+        /// <param name="min">The lower boundary for the calorie range being searched for</param>
+        /// <param name="max">The upper boundary for the calorie range being searched for</param>
+        /// <returns>An IEnumerable that contains all the items from the given list that fall within the range for the Calories property</returns>
         public static IEnumerable<IOrderItem> FilterByCalories (IEnumerable<IOrderItem> items, int? min, int? max)
         {
             if (min == null && max == null) return items;
@@ -242,6 +263,13 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Method that returns an IEnumerable of all items that fall within a specified range for the Price property
+        /// </summary>
+        /// <param name="items">The IEnumberable of items being searched through</param>
+        /// <param name="min">The lower boundary for the price range being searched for</param>
+        /// <param name="max">The upper boundary for the price range being searched for</param>
+        /// <returns>An IEnumerable that contains all the items from the given list that fall within the range for the Price property</returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
