@@ -30,6 +30,22 @@ namespace CowboyCafe.Data
             };
         }
 
+        /// <summary>
+        /// String array property that contains all Jerked Soda Flavors
+        /// Used for information display, not searching
+        /// </summary>
+        public static string[] JerkedSodaFlavors
+        {
+            get => new string[]
+            {
+                "Cream Soda",
+                "Orange Soda",
+                "Sarsparilla",
+                "Birch Beer",
+                "Root Beer"
+            };
+        }
+
 
         /// <summary>
         /// IEnumberable to get the list of entrees

@@ -73,7 +73,6 @@ namespace Website.Pages
         [BindProperty]
         public string[] ItemTypes { get; set; }
 
-
         /// <summary>
         /// The minimum amount of calories being searched for
         /// </summary>
@@ -93,5 +92,6 @@ namespace Website.Pages
         /// The maximum price being searched for
         /// </summary>
         public double? MaxPrice { get; set; }
+
     }
 }

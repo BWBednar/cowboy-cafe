@@ -22,41 +22,44 @@
             easy with us.
         </p>
     </div>
+
     <form id="menu-info-display">
         <div id="search-filters">
             <div id="search-bar">
                 <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
                 <input type="submit" value="Search" />
             </div>
-            <h4>Item Type</h4>
-            @foreach (string type in Menu.ItemTypes)
-            {
-                <label class="item-type">
-                    <input type="checkbox" name="ItemTypes" value="@type" checked="@Model.ItemTypes.Contains(type)" />
-                    @type
-                </label>
-            }
-            <h4>Calories</h4>
-            <div class="calorie-range">
-                Between
-                <input name="MinCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.MinCalories" />
-                and
-                <input name="MaxCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.MaxCalories" />
+            <div>
+                <h4>Item Type</h4>
+                @foreach (string type in Menu.ItemTypes)
+                {
+                    <label class="item-type">
+                        <input type="checkbox" name="ItemTypes" value="@type" checked="@Model.ItemTypes.Contains(type)" />
+                        @type
+                    </label>
+                }
             </div>
-            <h4>Price</h4>
+            
+        <div class="calorie-range">
+            <h4>Calories</h4>
+            Between
+            <input name="MinCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.MinCalories" />
+            and
+            <input name="MaxCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.MaxCalories" />
+        </div>
+            
             <div class="price-range">
+                <h4>Price</h4>
                 Between
                 <input name="MinPrice" type="number" min="0.00" max="10.00" step="0.01" placeholder="min" value="@Model.MinPrice" />
                 and
                 <input name="MaxPrice" type="number" min="0.00" max="10.00" step="0.01" placeholder="max" value="@Model.MaxPrice" />
             </div>
         </div>
-
-        <div id="menu-items">
-
-            <h1>Menu Items</h1>
-            <h2 class="section-header">Entrees</h2>
+        
+        <div class="flex-columns">
             <div class="menu-item">
+                <h2 class="section-header">Entrees</h2>
                 <ul class="entrees">
                     @foreach (IOrderItem item in Model.Items)
                     {
@@ -64,15 +67,18 @@
                         {
                             <li>
                                 <div class="item-name">@entree</div>
-                                <div class="item-price">Price: @String.Format("{0:C2}", entree.Price)</div>
-                                <div class="item-calories">Calories: @entree.Calories</div>
+                                <div>
+                                    <div class="item-price">Price: @String.Format("{0:C2}", entree.Price)</div>
+                                    <div class="item-calories">Calories: @entree.Calories</div>
+                                </div>
                             </li>
                         }
                     }
                 </ul>
             </div>
-            <h2 class="section-header">Sides</h2>
+
             <div class="menu-item">
+                <h2 class="section-header">Sides</h2>
                 <ul class="sides">
                     @foreach (IOrderItem item in Model.Items)
                     {
@@ -80,16 +86,18 @@
                         {
                             <li>
                                 <div class="item-name">@side.SimpleName</div>
-                                <div class="size">Size: @side.Size</div>
-                                <div class="item-price">Price: @String.Format("{0:C2}", side.Price)</div>
-                                <div class="item-calories">Calories: @side.Calories</div>
+                                <div>
+                                    <div class="size">Size: @side.Size</div>
+                                    <div class="item-price">Price: @String.Format("{0:C2}", side.Price)</div>
+                                    <div class="item-calories">Calories: @side.Calories</div>
+                                </div>
                             </li>
                         }
                     }
                 </ul>
             </div>
-            <h2 class="section-header">Drinks</h2>
             <div class="menu-item">
+                <h2 class="section-header">Drinks</h2>
                 <ul class="sides">
                     @foreach (IOrderItem item in Model.Items)
                     {
@@ -97,9 +105,21 @@
                         {
                             <li>
                                 <div class="item-name">@drink.SimpleName</div>
-                                <div class="size">Size: @drink.Size</div>
-                                <div class="item-price">Price: @String.Format("{0:C2}", drink.Price)</div>
-                                <div class="item-calories">Calories: @drink.Calories</div>
+                                @if (drink.SimpleName.Equals("Jerked Soda"))
+                                {
+                                    <div>
+                                        Flavors:
+                                        @foreach(string flavor in Menu.JerkedSodaFlavors)
+                                        {
+                                            @flavor
+                                        }
+                                    </div>
+                                }
+                                <div>
+                                    <div class="size">Size: @drink.Size</div>
+                                    <div class="item-price">Price: @String.Format("{0:C2}", drink.Price)</div>
+                                    <div class="item-calories">Calories: @drink.Calories</div>
+                                </div>
                             </li>
                         }
                     }
