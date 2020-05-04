@@ -112,6 +112,7 @@ ul.entrees, ul.sides, ul.drinks {
 ---------------------------------------------------- */
     ul.entrees > li, ul.sides > li, ul.drinks > li {
         list-style-type: none;
+        padding:10px;
         border-right: 1px solid lightgray;
         border-left: 1px solid lightgray;
         border-bottom: 1px solid lightgray;
@@ -123,7 +124,8 @@ ul.entrees, ul.sides, ul.drinks {
         min-height: 50px;
     }
 
-
+/* Responsive design css, taken from Responsive Design class assignment and altered if needed
+---------------------------------------------------- */
 .flex-columns {
     display: flex;
     flex-direction:row;

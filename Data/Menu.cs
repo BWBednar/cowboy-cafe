@@ -159,7 +159,7 @@ namespace CowboyCafe.Data
                 return (IEnumerable<IOrderItem>)completeMenu;
             }
         }
-
+        
         /// <summary>
         /// Method that returns an IEnumerable of all items from CompleteMenu that contain a specified string
         /// </summary>
@@ -356,5 +356,6 @@ namespace CowboyCafe.Data
 
             return results;
         }
+        
     }
 }
