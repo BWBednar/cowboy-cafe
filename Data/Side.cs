@@ -15,7 +15,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Side : INotifyPropertyChanged
+    public abstract class Side : INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// The property changed event handler
@@ -53,6 +53,11 @@ namespace CowboyCafe.Data
         /// Gets the calories of the side
         /// </summary>
         public abstract uint Calories { get; }
+
+        /// <summary>
+        /// Gets the special instructions of the side
+        /// </summary>
+        public abstract List<string> SpecialInstructions { get; }
 
         /// <summary>
         /// Gets the simple version of the item name (no size)

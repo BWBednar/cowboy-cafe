@@ -13,12 +13,12 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Pan De Campo side
     /// </summary>
-    public class PanDeCampo : Side, IOrderItem
+    public class PanDeCampo : Side
     {
         /// <summary>
         /// Empty special instructions to satisfy IOrderItem requirements
         /// </summary>
-        public List<string> SpecialInstructions => new List<string>();
+        public override List<string> SpecialInstructions => new List<string>();
 
         /// <summary>
         /// The calories of the pan de campo depending on the size

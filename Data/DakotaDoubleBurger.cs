@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Dakota Double Burger entree
     /// </summary>
-    public class DakotaDoubleBurger : Entree, IOrderItem, INotifyPropertyChanged
+    public class DakotaDoubleBurger : Entree, INotifyPropertyChanged
     {
         private bool ketchup = true;
         /// <summary>

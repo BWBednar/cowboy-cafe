@@ -21,6 +21,11 @@ namespace CowboyCafe.Data
         double Price { get; }
 
         /// <summary>
+        /// The calories for this order item
+        /// </summary>
+        uint Calories { get; }
+
+        /// <summary>
         /// The special instructions for this order item
         /// </summary>
         List<string> SpecialInstructions { get; }

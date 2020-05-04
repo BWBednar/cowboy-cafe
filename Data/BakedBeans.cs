@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Baked Beans Fries side
     /// </summary>
-    public class BakedBeans : Side, IOrderItem
+    public class BakedBeans : Side
     {
         /// <summary>
         /// The calories of the baked beans depending on the size
@@ -60,7 +60,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Empty special instructions to satisfy IOrderItem requirements
         /// </summary>
-        public List<string> SpecialInstructions => new List<string>();
+        public override List<string> SpecialInstructions => new List<string>();
 
         /// <summary>
         /// Modified ToString for the Point of Sale

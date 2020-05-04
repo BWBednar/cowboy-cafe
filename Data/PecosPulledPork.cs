@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Pecos Pulled Pork entree
     /// </summary>
-    public class PecosPulledPork : Entree, IOrderItem, INotifyPropertyChanged
+    public class PecosPulledPork : Entree, INotifyPropertyChanged
     {
         private bool bread = true;
         /// <summary>

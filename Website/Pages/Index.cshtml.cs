@@ -39,10 +39,43 @@ namespace Website.Pages
             this.MaxPrice = MaxPrice;
             SearchTerms = Request.Query["SearchTerms"];
             ItemTypes = Request.Query["ItemTypes"];
+            
+            if (SearchTerms != null)
+            {
+                items = Menu.CompleteMenu.Where(item =>
+                item.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase)
+                );
+            }
+
+            if (ItemTypes != null && ItemTypes.Length != 0)
+            {
+                items = Items.Where(item =>
+                item.GetType().BaseType.Name != null &&
+                ItemTypes.Contains(item.GetType().BaseType.Name)
+                );
+            }
+
+            if (!(MinCalories == null && MaxCalories == null))
+            {
+                if (MinCalories == null && MaxCalories != null)
+                {
+                    
+                }
+                else if (MinCalories != null && MaxCalories == null)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            /*
             items = Menu.Search(SearchTerms);
             items = Menu.FilterByCategory(Items, ItemTypes);
             items = Menu.FilterByCalories(Items, MinCalories, MaxCalories);
             items = Menu.FilterByPrice(Items, MinPrice, MaxPrice); 
+    */    
         }
 
         /// <summary>

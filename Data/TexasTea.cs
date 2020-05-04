@@ -14,7 +14,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Texas Tea drink
     /// </summary>
-    public class TexasTea : Drink, IOrderItem
+    public class TexasTea : Drink
     {
 
 

@@ -13,13 +13,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Chili Cheese Fries side
     /// </summary>
-    public class ChiliCheeseFries : Side, IOrderItem
+    public class ChiliCheeseFries : Side
     {
 
         /// <summary>
         /// Empty special instructions to satisfy IOrderItem requirements
         /// </summary>
-        public List<string> SpecialInstructions => new List<string>();
+        public override List<string> SpecialInstructions => new List<string>();
 
         
         /// <summary>

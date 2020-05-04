@@ -13,12 +13,12 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Corn Dodgers side
     /// </summary>
-    public class CornDodgers : Side, IOrderItem
+    public class CornDodgers : Side
     {
         /// <summary>
         /// Empty special instructions to satisfy IOrderItem requirements
         /// </summary>
-        public List<string> SpecialInstructions => new List<string>();
+        public override List<string> SpecialInstructions => new List<string>();
 
         /// <summary>
         /// The calories of the corn dodgers depending on the size
