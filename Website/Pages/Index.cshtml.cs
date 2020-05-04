@@ -40,13 +40,14 @@ namespace Website.Pages
             SearchTerms = Request.Query["SearchTerms"];
             ItemTypes = Request.Query["ItemTypes"];
             
+            //Search through items by SearchTerms
             if (SearchTerms != null)
             {
                 items = Menu.CompleteMenu.Where(item =>
                 item.ToString().Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase)
                 );
             }
-
+            //Search through items by ItemTypes
             if (ItemTypes != null && ItemTypes.Length != 0)
             {
                 items = Items.Where(item =>
@@ -54,28 +55,52 @@ namespace Website.Pages
                 ItemTypes.Contains(item.GetType().BaseType.Name)
                 );
             }
-
+            //Search through items by Max and MinCalories
             if (!(MinCalories == null && MaxCalories == null))
             {
                 if (MinCalories == null && MaxCalories != null)
                 {
-                    
+                    items = Items.Where(item =>
+                    item.Calories <= MaxCalories
+                    );
                 }
                 else if (MinCalories != null && MaxCalories == null)
                 {
-                    
+                    items = Items.Where(item =>
+                    item.Calories >= MinCalories
+                    );
                 }
                 else
                 {
-                    
+                    items = Items.Where(item =>
+                    item.Calories >= MinCalories &&
+                    item.Calories <= MaxCalories
+                    );
                 }
             }
-            /*
-            items = Menu.Search(SearchTerms);
-            items = Menu.FilterByCategory(Items, ItemTypes);
-            items = Menu.FilterByCalories(Items, MinCalories, MaxCalories);
-            items = Menu.FilterByPrice(Items, MinPrice, MaxPrice); 
-    */    
+            //Search through items by Min and MaxPrice
+            if (!(MinPrice == null && MaxPrice == null))
+            {
+                if (MinPrice == null && MaxPrice != null)
+                {
+                    items = Items.Where(item =>
+                    item.Price <= MaxPrice
+                    );
+                }
+                else if (MinPrice != null && MaxPrice == null)
+                {
+                    items = Items.Where(item =>
+                    item.Price >= MinPrice
+                    );
+                }
+                else
+                {
+                    items = Items.Where(item =>
+                    item.Price >= MinPrice &&
+                    item.Price <= MaxPrice
+                    );
+                }
+            }
         }
 
         /// <summary>
