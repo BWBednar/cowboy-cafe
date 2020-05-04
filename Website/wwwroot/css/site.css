@@ -110,21 +110,25 @@ ul.entrees, ul.sides, ul.drinks {
 
 /* Has the items of each item relevant displayed on the same row
 ---------------------------------------------------- */
-ul.entrees > li, ul.sides > li, ul.drinks > li {
-    list-style-type: none;
-    border-bottom: 1px solid lightgray;
-    margin: 10px;
+    ul.entrees > li, ul.sides > li, ul.drinks > li {
+        list-style-type: none;
+        border-right: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 50px;
+    }
+
+
+.flex-columns {
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
     justify-content: space-between;
-    align-items: center;
-    min-height: 50px;
-}
-
-
-.flex-columns{
-    display: flex;
-    flex-direction: row;
+    
 }
 
 @media (max-width: 490px) {
