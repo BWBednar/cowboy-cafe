@@ -82,8 +82,6 @@ bronco-image {
 /* CSS design for the search information formatting. 
     Largely reused code from previous Dynamic Pages assignment/lecutre
 ---------------------------------------------------- */
-
-
 #search-filters {
     text-align: center;
     display: flex;
@@ -138,6 +136,7 @@ ul.entrees, ul.sides, ul.drinks {
         flex-direction: column;
     }
 }
+
 
 
 
